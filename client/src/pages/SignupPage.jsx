@@ -1,28 +1,26 @@
 import { useState } from "react";
 const RegisterPage = () => {
     const [username,setUsername]=useState("")
+    const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
-    async function register(e){
+    
+    async function signup(e){
         e.preventDefault()
-        const response=fetch("http://localhost:9000/register",{
+        const response=fetch("http://localhost:9000/signup",{
             method:"POST",
-            body:JSON.stringify({username,password}),
+            body:JSON.stringify({username,password,email}),
             headers:{
                 "Content-Type":"application/json",
-            }
+            },
+            credentials:"include"
         })
-        if ( (await response).ok) { //await because we need the resposne to be fullfilled
-            console.log(response)
-            alert("Registeration succesful.")
-        } else {
-            alert("Registeration failed.")
-        }
+        
     }
 
     return ( 
-        <form className="register-page" onSubmit={register}>
+        <form className="signup-page" onSubmit={signup}>
 
-            <h1>Register </h1>
+            <h1>Signup</h1>
 
             <input type="text"
                    placeholder="username"
@@ -34,7 +32,13 @@ const RegisterPage = () => {
                    value={password}
                    onChange={(e)=>setPassword(e.target.value)} />
 
-                   <button className="btn">Register</button>
+
+            <input type="email"
+                   placeholder="email"
+                   value={email}
+                   onChange={(e)=>setEmail(e.target.value)} />
+
+                   <button className="btn">Signup</button>
         </form>
      );
 }
