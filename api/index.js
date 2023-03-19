@@ -42,7 +42,7 @@ initializePassport(
 )
 const users=[]
 
-app.use(cors({ credentials: true, origin: 'http://localhost:5173' }));
+app.use(cors({ credentials: true, origin: process.env.allowed_origins }));
 
 
 // Connect to DataBase 

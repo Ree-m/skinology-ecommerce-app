@@ -14,16 +14,16 @@ const LoginPage = () => {
 
     async function login(e) {
         e.preventDefault()
-        const response = fetch("http://localhost:9000/login", {
+        const response = await fetch("http://localhost:9000/login", {
             method: "POST",
             body: JSON.stringify({ username, password, email }),
             headers: {"Content-Type": "application/json"},
             credentials:"include"
         })
-        // if response is true,redirect is true
-        console.log(response)
-        if((await response).ok){
+ 
+        if((response).ok){
             response.json().then(userInfo=>{
+                console.log('reem', userInfo);
                 setUserInfo(userInfo)
                 setRedirect(true)
             })

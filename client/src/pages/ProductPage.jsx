@@ -49,6 +49,10 @@ const ProductPage = ({ addToCart }) => {
                 <button onClick={deleteProduct}>delete</button>
 
             )}
+             <div className="product-image">
+                        <img src={`http://localhost:9000/${product.image}`} alt="Image of this product" />
+                    </div>
+
             {userInfo && userInfo.username === "reemreem" && (
                 <div className="edit-row">
                     <Link className="edit-btn" to={`/edit/${product._id}`}>
@@ -58,16 +62,11 @@ const ProductPage = ({ addToCart }) => {
 
                         Edit this product
                     </Link>
-
-                    <div className="product-image">
-                        <img src={`http://localhost:9000/${product.image}`} alt="Image of this product" />
-                    </div>
-
                 </div>
 
             )}
 
-            <button onClick={() => addToCart(product._id, userInfo.id,1,product.name,product.price)}>Add to cart</button>
+            <button onClick={() => addToCart(product._id, userInfo.id,1,product.name,product.price,product.image)}>Add to cart</button>
 
         </div>
     );

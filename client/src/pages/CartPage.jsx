@@ -10,23 +10,6 @@ const CartPage = () => {
     const [cartItems, setCartItems] = useState(null)
 
 
-
-
-    // useEffect(() => {
-    //     const userId = userInfo.id
-    //     console.log(userId); // log the userId to the console
-    //     fetch(`http://localhost:9000/cart/${userInfo._id}`, {
-    //       credentials: "include"
-    //     })
-    //       .then(res => res.json())
-    //       .then(data =>
-    //         setCartItems(data)
-    //         )
-    //         console.log('this is data',data) 
-
-    //       .catch(error => console.error(error))
-    // },[]) // only  run once, when the component mounts
-
     useEffect(() => {
         fetch(`http://localhost:9000/cart/${userInfo.id}`, {
             credentials: "include",
@@ -41,7 +24,7 @@ const CartPage = () => {
 
 
 if(cartItems){
-    console.log("this is cartItems", cartItems[0].products.map((item=>item.name)))
+    console.log("this is cartItems", cartItems[0])
 
 }
 
@@ -51,7 +34,7 @@ if(cartItems){
                 method: "DELETE",
                 credentials: "include"
             })
-            setCartItems(() => cartItems.filter((item) => item.productId !== productId)) //cart items with productId not equal to the deleted productid stay
+            setCartItems(() => cartItems.products.filter((item) => item.productId !== productId)) //cart items with productId not equal to the deleted productid stay
 
         } catch (error) {
             console.error(error);
@@ -83,12 +66,13 @@ if(cartItems){
     return (
         <>
             <h2>Cart</h2>
-            {cartItems &&cartItems[0].products.map((item) => (
+            {!cartItems?("Cart is empty"): cartItems &&cartItems[0].products.map((item) => (
                 <div key={item._id}>
                     <p>{item.name}</p>
                     <p>Quantity: {item.quantity}</p>
                     <p>Price: ${item.price}</p>
-                    
+                    <img src={`http://localhost:9000/${item.image}`} alt="Product image" />
+                    <button onClick={()=>removeFromCart(item.productId)}>Remove from cart</button>
                 </div>
             ))}
 

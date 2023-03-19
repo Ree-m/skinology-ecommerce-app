@@ -20,13 +20,13 @@ function App() {
 
 
   // this is uplifting/lifting state up
-  async function addToCart(productId, userId, quantity, name, price) {
+  async function addToCart(productId, userId, quantity, name, price,image) {
 
     try {
       const response = await fetch("http://localhost:9000/cart/add", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId, productId, quantity, name, price }),
+        body: JSON.stringify({ userId, productId, quantity, name, price ,image}),
       });
       const data = await response.json();
       return data.success;

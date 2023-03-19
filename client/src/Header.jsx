@@ -28,8 +28,11 @@ const Header = () => {
         })
         setUserInfo(null)
     }
-
-
+    
+// const isUserLoggedIn = !!userInfo.id;  //if userInfo.id is there,true,boolean value
+// if(!isUserLoggedIn) {
+//     return null
+// }
     const username = userInfo?.username //if userInfo is there,give me username
     return (
         <header className="header">
@@ -39,40 +42,52 @@ const Header = () => {
                     <>
                         <Link to="/add">Add new product</Link>
                         <a className="logout" onClick={logout}>Logout ({username})</a>
-                        <Link to={"/cart/" +userInfo.id}>
-                        
-                        <div className="cart">
-                            <span>
-                                <i className="fas fa-cart-plus"></i>
-                            </span>
-                            <span>0</span>
-                        </div>
-                    </Link>
+                        <Link to={"/cart/" + userInfo.id}>
+
+                            <div className="cart">
+                                <span>
+                                    <i className="fas fa-cart-plus"></i>
+                                </span>
+                                <span>0</span>
+                            </div>
+                        </Link>
                     </>
                 )}
-            {username && username !== "reemreem" && (
-                <>
-                    <a className="logout" onClick={logout}>Logout({username})</a>
-                    <Link to="/cart">
+                {username && username !== "reemreem" && (
+                    <>
+                        <a className="logout" onClick={logout}>Logout({username})</a>
+                        <Link to={"/cart/" + userInfo.id}>
 
-                    </Link>
+                            <div className="cart">
+                                <span>
+                                    <i className="fas fa-cart-plus"></i>
+                                </span>
+                                <span>0</span>
+                            </div>
+                        </Link>
 
-                </>
-            )}
-            {!username && (
-                <>
-                    <Link to={"/login"}>Login</Link>
-                    <Link to={"/signup"}>Signup</Link>
-                    <Link to="/cart">
+                    </>
+                )}
+                {!username && (
+                    <>
+                        <Link to={"/login"}>Login</Link>
+                        <Link to={"/signup"}>Signup</Link>
+                        {/* <Link to={"/cart/" + userInfo.id}>
 
-                    </Link>
+                            <div className="cart">
+                                <span>
+                                    <i className="fas fa-cart-plus"></i>
+                                </span>
+                                <span>0</span>
+                            </div>
+                        </Link> */}
 
-                </>
-            )}
+                    </>
+                )}
 
 
 
-        </nav>
+            </nav>
         </header >
     );
 }

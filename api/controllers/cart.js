@@ -6,7 +6,7 @@ const Product = require("../models/Product")
 exports.getCart = async (req, res) => {
   // // Retrieve the cart items for the current user
   const userId = req.params.userId;
-  console.log(req.params.userId, "pause", req.body.userId)
+  console.log(req.params.userId, "req.params.userId and req.body.userId", req.body.userId)
   if (userId) {
     const items = await CartItem.find({ userId });
     res.json(items)
@@ -18,35 +18,9 @@ exports.getCart = async (req, res) => {
 
 // Add an item to the cart
 exports.addToCart = async (req, res) => {
-  // try {
-  //   const { userId, productId, quantity, name, price } = req.body;
 
-  //   // Check if the cart item already exists for this user and product
-  //   const cartItem = await CartItem.findOne({ userId, 'products.productId': productId });
 
-  //   if (cartItem) {
-  //     // If the cart item exists, update the quantity
-  //     await CartItem.updateOne(
-  //       { _id: cartItem._id, 'products.productId': productId },
-  //       { $inc: { 'products.$.quantity': quantity } }
-  //     );
-  //   } else {
-  //     // If the cart item doesn't exist, create a new one
-  //     const newCartItem = new CartItem({
-  //       userId,
-  //       products: [{ productId, quantity, name, price }],
-  //     });
-  //     await newCartItem.save();
-  //     res.json(newCartItem)
-
-  //   }
-  //   res.status(200).json({ success: true });
-  // } catch (error) {
-  //   console.error(error);
-  //   res.status(500).json({ error: 'Server error' });
-  // }
-
-  const { userId, productId, name, price, quantity } = req.body;
+  const { userId, productId, name, price, quantity,image } = req.body;
 
   try {
     // Find the cart document for the user
@@ -66,7 +40,7 @@ exports.addToCart = async (req, res) => {
     }
     // Otherwise, add a new product to the cart
     else {
-      cart.products.push({ productId, name, price, quantity });
+      cart.products.push({ productId, name, price, quantity,image });
     }
 
     // Save the updated cart document
@@ -77,15 +51,7 @@ exports.addToCart = async (req, res) => {
     console.error(error);
     res.status(500).json({ error: 'Server error' });
   }
-};
-
-
-
-
-
-
-
-
+}
 
 
 // Edit cart item
@@ -106,10 +72,31 @@ exports.editCartItem = async (req, res) => {
 
 // Remove an item from the cart
 exports.deleteCartItem = async (req, res) => {
-  const userId = req.body.userId;
-  const productId = req.body.productId;
+  try{
+    const userId = req.params.userId;
+  const productId=req.params.productId;
+  console.log(userId,"checking for delete cart",productId)
+  // find cart of current user
+  const cart=await CartItem.findOne({userId})
 
-  await CartItem.deleteMany({ userId, productId })
-  res.send("cart item deleted")
+  if(!cart){
+    return res.status(404).json({ message: 'Cart not found' });
+
+  }
+// find the product to be deleted
+  const productIndex= cart.products.findIndex(product=>product.productId.toString()===productId)
+
+  if (productIndex === -1) {
+    return res.status(404).json({ message: 'Item not found in cart' });
+  }
+
+  cart.products.splice(productIndex,1) //from whatever place my product is delete that one only
+  await cart.save();
+res.status(200).json({message: "Item removed from cart"})
+
+  }catch(error){
+console.error(error)
+res.status(500).json({ message: 'Server error' })
+  }
 }
 
