@@ -5,7 +5,7 @@ const cartController=require("../controllers/cart")
 
 router.get("/:userId",cartController.getCart)
 router.post("/add",cartController.addToCart)
-router.put("/edit/:productId",cartController.editCartItem)
+router.put("/updateQuantity/:userId/:productId",cartController.updateCartItem)
 router.delete("/:userId/:productId",cartController.deleteCartItem)
 
 module.exports=router

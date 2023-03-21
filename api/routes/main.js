@@ -25,6 +25,8 @@ router.get("/product/:id",productContoller.getProduct)
 router.put("/edit/:id",productContoller.editProduct)
 router.delete("/deleteProduct/:id",productContoller.deleteProduct)
 
+// on search
+router.get("/search/:query",productContoller.getSearcedProducts)
 
 
 

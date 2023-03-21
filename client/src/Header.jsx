@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "./UserContext";
 import "./styles/header.css"
+import SearchBar from "./SearchBar";
 
 
 
@@ -28,11 +29,29 @@ const Header = () => {
         })
         setUserInfo(null)
     }
-    
-// const isUserLoggedIn = !!userInfo.id;  //if userInfo.id is there,true,boolean value
-// if(!isUserLoggedIn) {
-//     return null
-// }
+
+    const isUserLoggedIn = !!userInfo.id;  //if userInfo.id is there,true,boolean value
+    if (!isUserLoggedIn) {
+        return (
+            <header className="header">
+                <Link to={"/"} className="logo">SkinShop</Link>
+                <nav>
+                    (
+                    <>
+                        <Link to={"/login"}>Login</Link>
+                        <Link to={"/signup"}>Signup</Link>
+                        <SearchBar />
+
+                       
+
+                    </>
+                    )
+
+                </nav>
+            </header >
+
+        )
+    }
     const username = userInfo?.username //if userInfo is there,give me username
     return (
         <header className="header">
@@ -42,6 +61,8 @@ const Header = () => {
                     <>
                         <Link to="/add">Add new product</Link>
                         <a className="logout" onClick={logout}>Logout ({username})</a>
+                        <SearchBar />
+
                         <Link to={"/cart/" + userInfo.id}>
 
                             <div className="cart">
@@ -56,6 +77,8 @@ const Header = () => {
                 {username && username !== "reemreem" && (
                     <>
                         <a className="logout" onClick={logout}>Logout({username})</a>
+                        <SearchBar />
+
                         <Link to={"/cart/" + userInfo.id}>
 
                             <div className="cart">
@@ -66,24 +89,10 @@ const Header = () => {
                             </div>
                         </Link>
 
-                    </>
-                )}
-                {!username && (
-                    <>
-                        <Link to={"/login"}>Login</Link>
-                        <Link to={"/signup"}>Signup</Link>
-                        {/* <Link to={"/cart/" + userInfo.id}>
-
-                            <div className="cart">
-                                <span>
-                                    <i className="fas fa-cart-plus"></i>
-                                </span>
-                                <span>0</span>
-                            </div>
-                        </Link> */}
 
                     </>
                 )}
+
 
 
 

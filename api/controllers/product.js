@@ -66,3 +66,21 @@ exports.deleteProduct = async (req, res) => {
     res.redirect("/")
 
 }
+
+// to get products on search
+exports.getSearcedProducts= async (req,res)=>{
+    try {
+        const query = req.params.query
+        console.log("this is query",req.params.query)
+        const results = await Product.find({
+          $or: [  //find name or brand
+            { name: { $eq: query } }, //$eq is an operator that tests weather two values are equl
+            { brand: { $eq: query } }
+          ]
+        })
+        res.json(results);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal server error' });
+      }
+}

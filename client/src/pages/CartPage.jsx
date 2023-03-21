@@ -8,6 +8,7 @@ const CartPage = () => {
 
     const { userInfo } = useContext(UserContext)
     const [cartItems, setCartItems] = useState(null)
+    const [quantity, setQuantity] = useState()
 
 
     useEffect(() => {
@@ -23,10 +24,11 @@ const CartPage = () => {
     }, [userInfo.id]);
 
 
-if(cartItems){
-    console.log("this is cartItems", cartItems[0])
+    if (cartItems) {
+        console.log("this is cartItems", cartItems[0], cartItems)
 
-}
+
+    }
 
     async function removeFromCart(productId) {
         try {
@@ -34,45 +36,66 @@ if(cartItems){
                 method: "DELETE",
                 credentials: "include"
             })
-            setCartItems(() => cartItems.products.filter((item) => item.productId !== productId)) //cart items with productId not equal to the deleted productid stay
+            setCartItems(() => cartItems[0].products.filter((item) => item.productId !== productId)) //cart items with productId not equal to the deleted productid stay
 
         } catch (error) {
             console.error(error);
 
         }
+    }
+
+
+    async function handleMinusClick(quantity, productId) {
+        const newQuantity = quantity - 1;
+       
+            try {
+                const response = await fetch(`http://localhost:9000/cart/updateQuantity/${userInfo.id}/${productId}`, {
+                    method: 'PUT',
+                    headers:{"Content-Tye":"application/json"},
+                    body:JSON.stringify({newQuantity})
+                });
+                const data = await response.json();
+                setCartItems(data)
+                console.log("this is update data",data);
+            } catch (error) {
+                console.error(error);
+            
+        }
+    }
+    
+    async function handlePlusClick(quantity,productId) {
+        const newQuantity = quantity + 1;
+        setQuantity(newQuantity);
+        try {
+          const response = await fetch(`http://localhost:9000/cart/updateQuantity/${userInfo.id}/${productId}/${newQuantity}`, {
+            method: 'PUT',
+          });
+          const data = await response.json();
+          console.log(data);
+        } catch (error) {
+          console.error(error);
+        }
+    
 
     }
 
-    // async function updateQuantity(productId, quantity) {
-    //     try {
-    //         const response = await fetch(`http://localhost:9000/edit/${productId}`, {
-    //             method: "PUT",
-    //             headers: { "Content-Type": "application/json" },
-    //             body: JSON.stringify({ quantity })
-    //         })
-    //         const updated = await response.json()
-    //         setCartItems(items =>
-    //             items.map(item => item.productId === productId ? updated : item)) //take the full cart,then map through it,if the item is the one being updated ,give updated else give item
 
-    //     } catch (error) {
-    //         console.error(error)
-    //     }
-    // }
 
-    // const handleUpdateQuantity = (productId, quantity) => {
-    //     updateQuantity(productId, quantity);
-    // }
 
     return (
         <>
             <h2>Cart</h2>
-            {!cartItems?("Cart is empty"): cartItems &&cartItems[0].products.map((item) => (
+            {!cartItems ? ("Cart is empty") : cartItems && cartItems[0].products.map((item) => (
                 <div key={item._id}>
                     <p>{item.name}</p>
-                    <p>Quantity: {item.quantity}</p>
+                    <div>
+                        <button onClick={() => handleMinusClick(item.quantity, item.productId)}>-</button>
+                        <span>{item.quantity}</span>
+                        <button onClick={() => handlePlusClick(item.quantity,item.productId)}>+</button>
+                    </div>
                     <p>Price: ${item.price}</p>
-                    <img src={`http://localhost:9000/${item.image}`} alt="Product image" />
-                    <button onClick={()=>removeFromCart(item.productId)}>Remove from cart</button>
+                    <img src={`http://localhost:9000/${item.image}`} alt={item.name}/>
+                    <button onClick={() => removeFromCart(item.productId)}>Remove from cart</button>
                 </div>
             ))}
 

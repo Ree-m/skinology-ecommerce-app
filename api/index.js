@@ -16,9 +16,6 @@ const multer = require('multer');
 const uploadMiddleware = multer({ dest: 'uploads/' });
 
 
-
-
-
 // routes
 const mainRoutes=require("./routes/main")
 const cartRoutes=require("./routes/cart")
@@ -34,13 +31,6 @@ require("dotenv").config({ path: "./config/.env" });
 app.use("/uploads", express.static(__dirname + "/uploads"))
 
 
-const initializePassport = require('./config/passportConfig')
-initializePassport(
-  passport,
-  email => users.find(user => user.email === email),
-  id => users.find(user => user.id === id)
-)
-const users=[]
 
 app.use(cors({ credentials: true, origin: process.env.allowed_origins }));
 
@@ -77,9 +67,6 @@ app.use(flash()) //for errors
 // Setup Routes
 app.use("/",mainRoutes)
 app.use("/cart",cartRoutes)
-
-// Plug in the JWT strategy as a middleware so only verified users can access this route.
-// app.use('/user', passport.authenticate('jwt', { session: false }), secureRoute);
 
 
 app.listen(process.env.PORT || 9000,()=>{

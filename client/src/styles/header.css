@@ -23,3 +23,6 @@ nav{
     position: relative;
     top: -15px;
   }
+  .header{
+    height: 130px;
+  }
