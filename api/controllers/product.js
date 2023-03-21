@@ -74,8 +74,8 @@ exports.getSearcedProducts= async (req,res)=>{
         console.log("this is query",req.params.query)
         const results = await Product.find({
           $or: [  //find name or brand
-            { name: { $eq: query } }, //$eq is an operator that tests weather two values are equl
-            { brand: { $eq: query } }
+            { name: { $regex: query ,$options:"i" } }, //$eq is an operator that tests weather two values are exact matches
+            { brand: { $eq: query,$options:"i" } }//$regex is an opertor that also includes similar matches,not just exact matches
           ]
         })
         res.json(results);

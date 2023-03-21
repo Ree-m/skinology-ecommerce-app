@@ -13,6 +13,7 @@ import ProductPage from './pages/ProductPage';
 import EditProductPage from './pages/EditProductPage';
 import { CartProvider } from 'react-use-cart'
 import CartPage from './pages/CartPage';
+import SearchedProductsPage from './pages/SearchedProductsPage'
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
           <Route path="/product/:id" element={<ProductPage addToCart={addToCart} />} />
           <Route path="/edit/:id" element={<EditProductPage />} />
           <Route path="/cart/:userId" element={<CartPage  />} />
+
 
 
 
