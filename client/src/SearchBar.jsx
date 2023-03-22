@@ -1,31 +1,34 @@
 
-import { useState ,useEffect} from "react";
-import { Navigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Navigate } from "react-router";
+// import { Redirect } from 'react-router-dom';
+
+
 import SearchedProductsPage from "./pages/SearchedProductsPage";
 
 
 const SearchBar = () => {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState([]);
   const [redirect, setRedirect] = useState(false);
 
-  const fetchData = async (e) => {
+
+  const fetchData = (e) => {
     e.preventDefault();
     console.log(query);
-    const response = await fetch(`http://localhost:9000/search/${query}`);
-    const data = await response.json();
-    console.log(data[0],data, "this is data");
-    setResults(data)
     setRedirect(true)
+  }
 
-  };
+
+  if (redirect) {
+    return <Navigate to={`/search?query=${query}`} />;
+  }
 
 
-  useEffect(() => {  //this is so i dont get an infinte loop
-    if (redirect) {
-      setRedirect(false)
-    }
-  }, [redirect])
+  // useEffect(() => {  //this is so i dont get an infinte loop
+  //   if (redirect) {
+  //     setRedirect(false)
+  //   }
+  // }, [redirect])
 
   return (
     <div className="search-bar">
@@ -38,24 +41,6 @@ const SearchBar = () => {
         />
         <button type="submit">Search</button>
       </form>
-
-      {redirect && (
-        <Navigate
-          to={{
-            pathname: "/search",
-            state: { results },
-          }}
-        />
-      )}
-{/* 
-      <ul>
-        {results === [] ? ("No results matched"):results && results.length > 0 &&
-          results.map((item) => (
-            <div key={item._id}>
-              <p>{item.name}</p>
-            </div>
-          ))}
-      </ul> */}
     </div>
   );
 };
