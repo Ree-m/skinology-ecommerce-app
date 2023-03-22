@@ -11,17 +11,17 @@ const CartPage = () => {
     const [quantity, setQuantity] = useState()
 
 
-    useEffect(() => {
-        fetch(`http://localhost:9000/cart/${userInfo.id}`, {
-            credentials: "include",
+  useEffect(() => {
+    fetch(`http://localhost:9000/cart/${userInfo.id}`, {
+        credentials: "include",
+    })
+        .then((res) => res.json())
+        .then((data) => {
+            console.log("this is data", data); // check the response from the server
+            setCartItems(data);
         })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log("this is data", data); // check the response from the server
-                setCartItems(data);
-            })
-            .catch((error) => console.error(error));
-    }, [userInfo.id]);
+        .catch((error) => console.error(error));
+}, [userInfo.id]);
 
 
     if (cartItems) {
@@ -49,7 +49,7 @@ const CartPage = () => {
         const newQuantity = quantity - 1;
        
             try {
-                const response = await fetch(`http://localhost:9000/cart/updateQuantity/${userInfo.id}/${productId}`, {
+                const response = await fetch(`http://localhost:9000/cart/updateQuantity/${userInfo.id}/${productId}/${newQuantity}`, {
                     method: 'PUT',
                     headers:{"Content-Tye":"application/json"},
                     body:JSON.stringify({newQuantity})
@@ -65,7 +65,7 @@ const CartPage = () => {
     
     async function handlePlusClick(quantity,productId) {
         const newQuantity = quantity + 1;
-        setQuantity(newQuantity);
+        
         try {
           const response = await fetch(`http://localhost:9000/cart/updateQuantity/${userInfo.id}/${productId}/${newQuantity}`, {
             method: 'PUT',
@@ -85,7 +85,7 @@ const CartPage = () => {
     return (
         <>
             <h2>Cart</h2>
-            {!cartItems ? ("Cart is empty") : cartItems && cartItems[0].products.map((item) => (
+            {cartItems && cartItems[0].products.length <0 ? ("Cart is empty") : cartItems && cartItems[0].products.map((item) => (
                 <div key={item._id}>
                     <p>{item.name}</p>
                     <div>

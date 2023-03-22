@@ -14,9 +14,13 @@ import EditProductPage from './pages/EditProductPage';
 import { CartProvider } from 'react-use-cart'
 import CartPage from './pages/CartPage';
 import SearchedProductsPage from './pages/SearchedProductsPage'
-
+// import { useContext } from 'react';
+// import { UserContext } from './UserContext';
 
 function App() {
+  const [cartItems, setCartItems] = useState(null)
+  // const { userInfo } = useContext(UserContext)
+
 
 
 
@@ -37,6 +41,8 @@ function App() {
     }
   }
 
+  
+
   return (
     <UserContextProvider>
       <Routes>
@@ -48,7 +54,9 @@ function App() {
           <Route path="/add" element={<AddPage />} />
           <Route path="/product/:id" element={<ProductPage addToCart={addToCart} />} />
           <Route path="/edit/:id" element={<EditProductPage />} />
-          <Route path="/cart/:userId" element={<CartPage  />} />
+          <Route path="/cart/:userId" element={<CartPage />} />
+          <Route path="/search" element={<SearchedProductsPage />} />
+
 
 
 
