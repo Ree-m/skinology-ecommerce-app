@@ -1,8 +1,13 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"
+
 const RegisterPage = () => {
     const [username,setUsername]=useState("")
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
+    const navigate = useNavigate();
+    const [redirect, setRedirect] = useState(false)
+
     
     async function signup(e){
         e.preventDefault()
@@ -14,7 +19,12 @@ const RegisterPage = () => {
             },
             credentials:"include"
         })
-        
+        setRedirect(true)
+
+    }
+
+    if(redirect){
+        return navigate("/")
     }
 
     return ( 

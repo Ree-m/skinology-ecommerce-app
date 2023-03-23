@@ -11,27 +11,41 @@ import AddPage from './pages/AddPage';
 import { UserContextProvider } from './UserContext'
 import ProductPage from './pages/ProductPage';
 import EditProductPage from './pages/EditProductPage';
-import { CartProvider } from 'react-use-cart'
 import CartPage from './pages/CartPage';
 import SearchedProductsPage from './pages/SearchedProductsPage'
-// import { useContext } from 'react';
-// import { UserContext } from './UserContext';
+import { useContext } from 'react';
+import { UserContext } from './UserContext';
 
 function App() {
   const [cartItems, setCartItems] = useState(null)
-  // const { userInfo } = useContext(UserContext)
+  const { userInfo } = useContext(UserContext)
 
 
+  useEffect(() => {
+    if (userInfo && userInfo.id) {
+      fetch(`http://localhost:9000/cart/${userInfo.id}`, {
+        credentials: "include",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("this is data", data); // check the response from the server
+          setCartItems(data);
+        })
+        .catch((error) => console.error(error));
+    
+      }
+
+  }, [userInfo]);
 
 
   // this is uplifting/lifting state up
-  async function addToCart(productId, userId, quantity, name, price,image) {
+  async function addToCart(productId, userId, quantity, name, price, image) {
 
     try {
       const response = await fetch("http://localhost:9000/cart/add", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId, productId, quantity, name, price ,image}),
+        body: JSON.stringify({ userId, productId, quantity, name, price, image }),
       });
       const data = await response.json();
       return data.success;
@@ -41,12 +55,11 @@ function App() {
     }
   }
 
-  
+
 
   return (
-    <UserContextProvider>
       <Routes>
-        <Route path={"/"} element={<Layout />} >
+        <Route path={"/"} element={<Layout cartItems={cartItems} setCartItems={setCartItems} />} >
 
           <Route index element={<HomePage />} />
           <Route path={"/login"} element={<LoginPage />} />
@@ -54,19 +67,11 @@ function App() {
           <Route path="/add" element={<AddPage />} />
           <Route path="/product/:id" element={<ProductPage addToCart={addToCart} />} />
           <Route path="/edit/:id" element={<EditProductPage />} />
-          <Route path="/cart/:userId" element={<CartPage />} />
+          <Route path="/cart/:userId" element={<CartPage cartItems={cartItems} setCartItems={setCartItems} />} />
           <Route path="/search" element={<SearchedProductsPage />} />
 
-
-
-
-
         </Route>
-
-
-
       </Routes>
-    </UserContextProvider>
 
   )
 }

@@ -31,7 +31,6 @@ exports.postAdd = async (req, res) => {
     newProduct.save()
     res.json(newProduct)
 
-
 }
 
 exports.getAllProducts = async (req, res) => {

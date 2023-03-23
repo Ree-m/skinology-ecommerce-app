@@ -1,6 +1,7 @@
 import { useState,useContext } from "react"
 import { Navigate } from "react-router-dom"
 import { UserContext } from "../UserContext"
+import { useNavigate } from "react-router-dom"
 
 const LoginPage = () => {
     const [username, setUsername] = useState("")
@@ -8,6 +9,8 @@ const LoginPage = () => {
     const [password, setPassword] = useState("")
     const { setUserInfo } = useContext(UserContext)
     const [redirect, setRedirect] = useState(false)
+    const navigate = useNavigate();
+
 
 
 
@@ -35,7 +38,7 @@ const LoginPage = () => {
 
     // if redirect is true,redirect to homepage from loginpage
     if(redirect){
-        return <Navigate to={"/"} />
+        return navigate("/")
     }
     
 

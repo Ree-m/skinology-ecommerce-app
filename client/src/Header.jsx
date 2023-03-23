@@ -7,7 +7,7 @@ import SearchBar from "./SearchBar";
 
 
 
-const Header = () => {
+const Header = ({ cartItems, setCartItems }) => {
     const { setUserInfo, userInfo } = useContext(UserContext)
 
 
@@ -30,22 +30,20 @@ const Header = () => {
         setUserInfo(null)
     }
 
-    const isUserLoggedIn = !!userInfo.id;  //if userInfo.id is there,true,boolean value
+    const isUserLoggedIn = !!userInfo;  //if userInfo.id is there,true,boolean value
     if (!isUserLoggedIn) {
         return (
             <header className="header">
                 <Link to={"/"} className="logo">SkinShop</Link>
                 <nav>
-                    (
+                    
                     <>
                         <Link to={"/login"}>Login</Link>
                         <Link to={"/signup"}>Signup</Link>
                         <SearchBar />
 
-                       
-
                     </>
-                    )
+                    
 
                 </nav>
             </header >
@@ -69,7 +67,8 @@ const Header = () => {
                                 <span>
                                     <i className="fas fa-cart-plus"></i>
                                 </span>
-                                <span>0</span>
+
+                                <span>{cartItems && cartItems[0].products.length}</span>
                             </div>
                         </Link>
                     </>
@@ -85,7 +84,7 @@ const Header = () => {
                                 <span>
                                     <i className="fas fa-cart-plus"></i>
                                 </span>
-                                <span>0</span>
+                                <span>{cartItems && cartItems[0].products.length}</span>
                             </div>
                         </Link>
 

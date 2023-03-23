@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { Navigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+
 
 
 const AddPage = () => {
@@ -8,6 +10,8 @@ const AddPage = () => {
     const [price, setPrice] = useState("")
     const [files, setFiles] = useState("")
     const [redirect, setRedirect] = useState(false)
+    const navigate = useNavigate();
+
 
     async function addProduct(e) {
         e.preventDefault()
@@ -32,7 +36,7 @@ const AddPage = () => {
     }
 
     if (redirect) {
-        return <Navigate to={"/"} />
+        return navigate("/")
     }
 
 

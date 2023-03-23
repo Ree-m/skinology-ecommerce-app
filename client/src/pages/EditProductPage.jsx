@@ -1,5 +1,6 @@
 import { useState,useEffect } from "react"
-import { Navigate, useParams } from "react-router"
+import { useParams } from "react-router"
+import { useNavigate } from "react-router-dom"
 
 const EditProduct = () => {
     const {id}=useParams()
@@ -7,6 +8,8 @@ const EditProduct = () => {
     const [brand, setBrand] = useState("")
     const [price, setPrice] = useState("")
     const [redirect,setRedirect]=useState(false)
+    const navigate = useNavigate();
+
 // useEffect(()=>{
 //     fetch(`http://localhost:9000/product/${id}`).then(res=>{
 //         res.json()
@@ -31,7 +34,7 @@ const EditProduct = () => {
         }
     }
     if(redirect){
-        return <Navigate to={`/product/${id}`} />
+        return navigate (`/product/${id}`)
     }
 
     return (

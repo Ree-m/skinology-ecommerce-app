@@ -1,9 +1,9 @@
 import Header from "./Header";
 import { Outlet } from "react-router-dom";
-const Layout = () => {
+const Layout = ({cartItems,setCartItems}) => {
     return ( 
         <main>
-            <Header />
+            <Header cartItems={cartItems} setCartItems={setCartItems} />
             <Outlet />
         </main>
      );

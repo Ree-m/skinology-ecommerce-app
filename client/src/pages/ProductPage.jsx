@@ -4,6 +4,8 @@ import { useContext } from 'react';
 import { UserContext } from '../UserContext';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom"
+
 
 const ProductPage = ({ addToCart }) => {
     const [product, setProduct] = useState("")
@@ -11,6 +13,8 @@ const ProductPage = ({ addToCart }) => {
     const [cart, setCart] = useState([])
     const { id } = useParams() //this is productid 
     const { userInfo } = useContext(UserContext)
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         fetch(`http://localhost:9000/product/${id}`).then(res => {
@@ -31,7 +35,7 @@ const ProductPage = ({ addToCart }) => {
     }
 
     if (redirect) {
-        return <Navigate to={"/"} />
+        return navigate("/")
     }
     if (!product) return ""
 
@@ -49,9 +53,9 @@ const ProductPage = ({ addToCart }) => {
                 <button onClick={deleteProduct}>delete</button>
 
             )}
-             <div className="product-image">
-                        <img src={`http://localhost:9000/${product.image}`} alt="Image of this product" />
-                    </div>
+            <div className="product-image">
+                <img src={`http://localhost:9000/${product.image}`} alt="Image of this product" />
+            </div>
 
             {userInfo && userInfo.username === "reemreem" && (
                 <div className="edit-row">
@@ -66,8 +70,10 @@ const ProductPage = ({ addToCart }) => {
 
             )}
 
-            <button onClick={() => addToCart(product._id, userInfo.id,1,product.name,product.price,product.image)}>Add to cart</button>
+            {userInfo && (
+                <button onClick={() => addToCart(product._id, userInfo.id, 1, product.name, product.price, product.image)}>Add to cart</button>
 
+            )}
         </div>
     );
 }
