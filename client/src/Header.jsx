@@ -68,7 +68,7 @@ const Header = ({ cartItems, setCartItems }) => {
                                     <i className="fas fa-cart-plus"></i>
                                 </span>
 
-                                <span>{cartItems && cartItems[0].products.length}</span>
+                                <span>{cartItems &&cartItems[0] && cartItems[0].products && cartItems[0].products.length}</span>
                             </div>
                         </Link>
                     </>

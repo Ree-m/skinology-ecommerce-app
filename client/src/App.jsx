@@ -19,6 +19,7 @@ import { UserContext } from './UserContext';
 function App() {
   const [cartItems, setCartItems] = useState(null)
   const { userInfo } = useContext(UserContext)
+  const [add,setAdd]=useState(false)
 
 
   useEffect(() => {
@@ -30,12 +31,23 @@ function App() {
         .then((data) => {
           console.log("this is data", data); // check the response from the server
           setCartItems(data);
+
+
         })
         .catch((error) => console.error(error));
     
       }
 
   }, [userInfo]);
+
+  useEffect(()=>{
+    if(add){
+      setAdd(false) //to avoid an infinite loop
+      window.location.reload(); // page refreshes
+
+    }
+
+  },[add])
 
 
   // this is uplifting/lifting state up
@@ -48,6 +60,7 @@ function App() {
         body: JSON.stringify({ userId, productId, quantity, name, price, image }),
       });
       const data = await response.json();
+      setAdd(true); // trigger page refreshs
       return data.success;
     } catch (error) {
       console.error(error);

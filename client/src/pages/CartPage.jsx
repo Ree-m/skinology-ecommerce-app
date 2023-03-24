@@ -9,9 +9,9 @@ import { useNavigate } from "react-router-dom";
 const CartPage = ({ cartItems, setCartItems }) => {
 
     const { userInfo } = useContext(UserContext)
-    // const [quantity, setQuantity] = useState(cartItems.quantity)
-    const [redirect, setRedirect] = useState(false);
     const navigate = useNavigate();
+    const [deleteUpdate, setDeleteUpdate] = useState(false); // set to true to refresh when deleted/updated
+
 
 
 
@@ -28,7 +28,7 @@ const CartPage = ({ cartItems, setCartItems }) => {
                 method: "DELETE",
                 credentials: "include"
             })
-            setRedirect(true)
+            setDeleteUpdate(true)
             setCartItems(() => cartItems[0].products.filter((item) => item.productId !== productId)) //cart items with productId not equal to the deleted productid stay
         } catch (error) {
             console.error(error);
@@ -46,9 +46,10 @@ const CartPage = ({ cartItems, setCartItems }) => {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ newQuantity })
             });
-            const data = await response.json();
+            const data = await response.json()
             setCartItems(data);
-            console.log("this is update data", data);
+            console.log("this is update data", data)
+            setDeleteUpdate(true)
         } catch (error) {
             console.error(error);
         }
@@ -67,15 +68,17 @@ const CartPage = ({ cartItems, setCartItems }) => {
     }
 
 
-    if (redirect) {
-        return navigate(`/cart/${userInfo.id}`)
-    }
-
+    useEffect(() => {
+        if (deleteUpdate) {
+            setDeleteUpdate(false); // reset to avoid infinite loop
+            window.location.reload(); // page refreshes
+        }
+    }, [deleteUpdate])
 
     return (
         <>
             <h2>Cart</h2>
-            {cartItems && cartItems[0].products.length < 0 ? ("Cart is empty") : cartItems && cartItems[0].products.map((item) => (
+            {cartItems && cartItems[0]&& cartItems[0].products && cartItems[0].products.length < 0 ? ("Cart is empty") : cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.map((item) => (
                 <div key={item._id}>
                     <p>{item.name}</p>
                     <div>
@@ -92,7 +95,7 @@ const CartPage = ({ cartItems, setCartItems }) => {
 
             {cartItems && (
                 <>
-                    <h3>Total bill: ${cartItems[0].products.reduce((acc,item)=>acc + item.price * item.quantity,0)}</h3>
+                    <h3>Total bill: ${cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.reduce((acc,item)=>acc + item.price * item.quantity,0)}</h3>  
                 </>
             )}
 
