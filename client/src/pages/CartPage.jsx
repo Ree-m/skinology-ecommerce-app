@@ -78,8 +78,9 @@ const CartPage = ({ cartItems, setCartItems }) => {
     return (
         <>
             <h2>Cart</h2>
-            {cartItems && cartItems[0]&& cartItems[0].products && cartItems[0].products.length < 0 ? ("Cart is empty") : cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.map((item) => (
-                <div key={item._id}>
+            {cartItems===undefined || cartItems && cartItems[0]&& cartItems[0].products && cartItems[0].products.length === 0 ? ("Cart is empty") : cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.map((item) => (
+                <div key={item._id}>npm install -D tailwindcss postcss autoprefixer
+
                     <p>{item.name}</p>
                     <div>
                         <button onClick={() => handleMinusClick(item.productId, item.quantity)}>-</button>
@@ -93,7 +94,7 @@ const CartPage = ({ cartItems, setCartItems }) => {
 
             ))}
 
-            {cartItems && (
+            {!cartItems || cartItems && cartItems[0]&& cartItems[0].products && cartItems[0].products.length === 0 ? ("") : cartItems && (
                 <>
                     <h3>Total bill: ${cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.reduce((acc,item)=>acc + item.price * item.quantity,0)}</h3>  
                 </>

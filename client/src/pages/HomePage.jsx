@@ -19,6 +19,8 @@ const HomePage = ({handleClick}) => {
 
     return (
         <div className="home-page">
+            <h1 className="bg-red-500">Hello world!</h1> 
+
             {products && products.length > 0 && products.map(product => (
                 <div key={product._id}>
                     <Product product={product} {...product} />
