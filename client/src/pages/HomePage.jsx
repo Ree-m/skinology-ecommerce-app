@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import Product from "../Product"
-import Carousel from "../../Carousel";
+import Carousel from "../Carousel";
+import UncontrolledCarousel from "../UncontrolledCarousel";
 
 
 const HomePage = ({products,setProducts}) => {
@@ -14,12 +15,13 @@ useEffect(()=>{
         )
         console.log("carouselItems",products)
 
-})
+},[])
 
 
     return (
         <div className="home-page">
             <h1 className="text-3xl font-bold underline bg-slate-600">Hello world!</h1> 
+            <UncontrolledCarousel />
             <Carousel carouselItems={carouselItems} setCarouselItems={setCarouselItems} />
 
             {products && products.length > 0 && products.map(product => (

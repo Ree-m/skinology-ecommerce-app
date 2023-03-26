@@ -56,7 +56,7 @@ const Header = ({ cartItems, setCartItems }) => {
     const username = userInfo?.username //if userInfo is there,give me username
     return (
         <header className="header">
-            <Link to={"/"} className="logo">Skinology</Link>
+            <Link to={"/"} className="logo">SKINOLOGY</Link>
             <nav>
                 {username && username == "reemreem" && (
                     <>
