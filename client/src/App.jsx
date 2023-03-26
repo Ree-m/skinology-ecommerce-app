@@ -17,11 +17,24 @@ import { useContext } from 'react';
 import { UserContext } from './UserContext';
 
 function App() {
+  const [products, setProducts] = useState([])
   const [cartItems, setCartItems] = useState(null)
   const { userInfo } = useContext(UserContext)
   const [add,setAdd]=useState(false)
 
 
+// get all products in homepage
+  useEffect(() => {
+    fetch("http://localhost:9000/allProducts")
+        .then(res => {
+            res.json()
+                .then(products => {
+                    setProducts(products)
+                })
+        })
+}, [])
+
+// get cart
   useEffect(() => {
     if (userInfo && userInfo.id) {
       fetch(`http://localhost:9000/cart/${userInfo.id}`, {
@@ -74,7 +87,7 @@ function App() {
       <Routes>
         <Route path={"/"} element={<Layout cartItems={cartItems} setCartItems={setCartItems} />} >
 
-          <Route index element={<HomePage />} />
+          <Route index element={<HomePage products={products} setProducts={setProducts} />} />
           
           <Route path={"/login"} element={<LoginPage />} />
           <Route path={"/signup"} element={<SignupPage />} />

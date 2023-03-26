@@ -79,8 +79,7 @@ const CartPage = ({ cartItems, setCartItems }) => {
         <>
             <h2>Cart</h2>
             {cartItems===undefined || cartItems && cartItems[0]&& cartItems[0].products && cartItems[0].products.length === 0 ? ("Cart is empty") : cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.map((item) => (
-                <div key={item._id}>npm install -D tailwindcss postcss autoprefixer
-
+                <div key={item._id}>
                     <p>{item.name}</p>
                     <div>
                         <button onClick={() => handleMinusClick(item.productId, item.quantity)}>-</button>
