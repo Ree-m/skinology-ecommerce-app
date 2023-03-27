@@ -21,6 +21,7 @@ router.post("/logout",authContoller.postLogout)
 
 router.post("/add", uploadMiddleware.single("file"),productContoller.postAdd)
 router.get("/allProducts",productContoller.getAllProducts)
+router.get("/newProducts",productContoller.getNewProducts)
 router.get("/product/:id",productContoller.getProduct)
 router.put("/edit/:id",productContoller.editProduct)
 router.delete("/deleteProduct/:id",productContoller.deleteProduct)
