@@ -9,7 +9,7 @@ const Product = ({ product, _id, name, brand, price,image }) => {
 
             <div className="product-image">
                 <Link to={`/product/${_id}`}>
-                    <img src={`http://localhost:9000/${image}`} alt="Image of this product" />
+                    <img src={`http://localhost:9000/${image}`} alt={`Image of ${name}`} />
                 </Link>
             </div>
             <div className="product-title">

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import Product from "../Product"
-import Carousel from "../Carousel";
+import MyCarousel from "../Carousel";
 import UncontrolledCarousel from "../UncontrolledCarousel";
 
 
@@ -20,9 +20,8 @@ useEffect(()=>{
 
     return (
         <div className="home-page">
-            <h1 className="text-3xl font-bold underline bg-slate-600">Hello world!</h1> 
             <UncontrolledCarousel />
-            <Carousel carouselItems={carouselItems} setCarouselItems={setCarouselItems} />
+            <MyCarousel carouselItems={carouselItems} setCarouselItems={setCarouselItems} />
 
             {products && products.length > 0 && products.map(product => (
                 <div key={product._id}>
