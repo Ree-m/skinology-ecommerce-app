@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { UserContext } from '../UserContext';
 import Product from '../Product';
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 
 const CartPage = ({ cartItems, setCartItems }) => {
@@ -78,7 +79,7 @@ const CartPage = ({ cartItems, setCartItems }) => {
     return (
         <>
             <h2>Cart</h2>
-            {cartItems===undefined || cartItems && cartItems[0]&& cartItems[0].products && cartItems[0].products.length === 0 ? ("Cart is empty") : cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.map((item) => (
+            {cartItems === undefined || cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length === 0 ? ("Cart is empty") : cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.map((item) => (
                 <div key={item._id}>
                     <p>{item.name}</p>
                     <div>
@@ -93,11 +94,14 @@ const CartPage = ({ cartItems, setCartItems }) => {
 
             ))}
 
-            {!cartItems || cartItems && cartItems[0]&& cartItems[0].products && cartItems[0].products.length === 0 ? ("") : cartItems && (
+            {!cartItems || cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length === 0 ? ("") : cartItems && (
                 <>
-                    <h3>Total bill: ${cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.reduce((acc,item)=>acc + item.price * item.quantity,0)}</h3>  
+                    <h3>Total bill: ${cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.reduce((acc, item) => acc + item.price * item.quantity, 0)}</h3>
                 </>
             )}
+            <Link to={"/checkout"}>
+                <button>CheckOut</button>
+            </Link>
 
 
         </>

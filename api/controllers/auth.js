@@ -42,7 +42,12 @@ exports.postSignup = async (req, res) => {
 
 exports.postLogin = async (req, res) => {
   const { username, email, password } = req.body
-  const userInfo = await User.findOne({ username})
+  const userInfo = await User.findOne({ username,email}).exec()
+
+  if (!userInfo) {
+    // User not found
+    return res.status(400).json({ message: "Invalid login credentials." });
+  }
   console.log("trying to login", userInfo)
   const passOk = await bcrypt.compare(password, userInfo.password)
 
@@ -59,7 +64,7 @@ exports.postLogin = async (req, res) => {
   }
   else {
     // not logged in
-    res.status(400).json("wrong credentials")
+    res.status(400).json("wrong credentials,auth")
   }
 }
 

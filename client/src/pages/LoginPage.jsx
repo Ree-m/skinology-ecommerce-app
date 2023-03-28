@@ -32,7 +32,7 @@ const LoginPage = () => {
             })
 
         }else {
-            alert("login page,wrong credentials")
+            alert("wrong credentials")
         }
     }
 

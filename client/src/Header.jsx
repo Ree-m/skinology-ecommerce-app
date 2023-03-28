@@ -5,12 +5,14 @@ import { UserContext } from "./UserContext";
 import "./styles/header.css"
 import SearchBar from "./SearchBar";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 
 
 
 const Header = ({ cartItems, setCartItems }) => {
     const { setUserInfo, userInfo } = useContext(UserContext)
-    const navigate =useNavigate()
+    const navigate = useNavigate()
 
 
     useEffect(() => {
@@ -39,14 +41,12 @@ const Header = ({ cartItems, setCartItems }) => {
             <header className="header">
                 <Link to={"/"} className="logo">SkinShop</Link>
                 <nav>
-                    
                     <>
                         <Link to={"/login"}>Login</Link>
                         <Link to={"/signup"}>Signup</Link>
                         <SearchBar />
 
                     </>
-                    
 
                 </nav>
             </header >
@@ -70,7 +70,7 @@ const Header = ({ cartItems, setCartItems }) => {
                                 <span>
                                     <i className="fas fa-cart-plus"></i>
                                 </span>
-                               <span>{ cartItems &&cartItems[0] &&cartItems[0].products && cartItems[0].products.length === 0 ? null : cartItems &&cartItems[0] && cartItems[0].products && cartItems[0].products.length}</span>
+                                <span>{cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length === 0 ? null : cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length}</span>
 
                             </div>
                         </Link>
@@ -85,17 +85,19 @@ const Header = ({ cartItems, setCartItems }) => {
 
                             <div className="cart">
                                 <span>
-                                    <i className="fas fa-cart-plus"></i>
+                                    <FontAwesomeIcon icon={faCartPlus} />
+
                                 </span>
-                                { cartItems &&cartItems[0] &&cartItems[0].products && cartItems[0].products.length === 0 ?("") : cartItems &&cartItems[0] && cartItems[0].products && cartItems[0].products.length}
-                            </div> 
+
+                                <span>{cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length === 0 ? ("") : cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length}</span>
+                            </div>
                         </Link>
 
 
                     </>
                 )}
 
-{/* if i want the red circle to show for up,put in span */}
+                {/* if i want the red circle to show for up,put in span */}
 
 
             </nav>

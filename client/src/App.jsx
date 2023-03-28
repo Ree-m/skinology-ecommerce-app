@@ -13,8 +13,11 @@ import ProductPage from './pages/ProductPage';
 import EditProductPage from './pages/EditProductPage';
 import CartPage from './pages/CartPage';
 import SearchedProductsPage from './pages/SearchedProductsPage'
+import NewProductsPage from './pages/NewProductsPage'
+import Checkout from './Checkout'
 import { useContext } from 'react';
 import { UserContext } from './UserContext';
+
 
 function App() {
   const [products, setProducts] = useState([])
@@ -96,6 +99,8 @@ function App() {
           <Route path="/edit/:id" element={<EditProductPage />} />
           <Route path="/cart/:userId" element={<CartPage cartItems={cartItems} setCartItems={setCartItems} />} />
           <Route path="/search" element={<SearchedProductsPage />} />
+          <Route path="/newProducts" element={<NewProductsPage/>} />
+          <Route path="/checkout" element={<Checkout/>} />
 
         </Route>
       </Routes>

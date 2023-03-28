@@ -47,6 +47,15 @@ exports.getNewProducts = async (req, res) => {
     res.json(products)
 }
 
+
+exports.getAllNewProducts = async (req, res) => {
+    const products = await Product.find()
+    .sort({ createdAt: -1 })  //descinding order.ie,newest post first
+    .limit(50)
+
+    res.json(products)
+}
+
 exports.getProduct = async (req, res) => {
     const { id } = req.params
     const product = await Product.findById(id)
