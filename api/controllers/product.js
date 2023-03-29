@@ -25,6 +25,11 @@ exports.postAdd = async (req, res) => {
     const newProduct = await Product.create({
         name: req.body.name,
         brand: req.body.brand,
+        description:req.body.description,
+        category:req.body.category,
+        use:req.body.use,
+        ingredients:req.body.ingredients,
+        quantity:req.body.quantity,
         price: req.body.price,
         image:newPath
     })
@@ -69,6 +74,11 @@ exports.editProduct=async(req,res)=>{
     await product.update({
         name:req.body.name,
         brand:req.body.brand,
+        description:req.body.description,
+        category:req.body.category,
+        use:req.body.use,
+        ingredients:req.body.ingredients,
+        quantity:req.body.quantity,
         price:req.body.price
     })
     res.json(product)

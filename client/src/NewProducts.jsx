@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Product from "./Product";
 import { Link } from "react-router-dom";
+import "./styles/newProducts.css"
 const NewProducts = () => {
     const [newProducts, setNewProducts] = useState([])
 
@@ -16,19 +17,20 @@ const NewProducts = () => {
     }, [])
 
     return (
-        <>
+        <div className="newProducts">
             <Link to={`/newProducts`}>
-                <h1>New</h1>
+                <h1 className="title-large title-padding center">New</h1>
             </Link>
+            <div className="newProducts-products">
+                {newProducts && newProducts.length > 0 && newProducts.map((product) => (
+                    <div key={product._id}>
+                        <Product product={product} {...product} />
 
-            {newProducts && newProducts.length > 0 && newProducts.map((product) => (
-                <div key={product._id}>
-                    <Product product={product} {...product} />
+                    </div>
+                ))}
+            </div>
 
-
-                </div>
-            ))}
-        </>
+        </div>
     );
 }
 

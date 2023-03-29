@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { Link } from "react-router-dom";
+import "./styles/product.css"
 
-const Product = ({ product, _id, name, brand, price,image }) => {
+const Product = ({ product, _id, name, brand,quantity, price,image }) => {
 
 
     return (
-        <div className="product">
+        <div className="product center">
 
             <div className="product-image">
                 <Link to={`/product/${_id}`}>
@@ -14,14 +15,15 @@ const Product = ({ product, _id, name, brand, price,image }) => {
             </div>
             <div className="product-title">
                 <Link to={`/product/${_id}`}>
-                    <h1>{name} from {brand}</h1>
+                    <h1>[{brand}] {name}</h1>
                 </Link>
             </div>
 
             <div className="product-details">
-                <span>{price}</span>
+                <span>${price}</span>
 
             </div>
+
 
 
         </div>

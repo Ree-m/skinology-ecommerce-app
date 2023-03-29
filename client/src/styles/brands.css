@@ -1,0 +1,18 @@
+
+.brands-img{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    justify-items: center;
+    align-items: center;
+    gap:15px;
+
+   
+}
+.brands img{
+    border: 1px solid grey;
+    object-fit: contain;
+    height: 200px;
+     width: 100%;
+    padding: 10px;
+
+} 

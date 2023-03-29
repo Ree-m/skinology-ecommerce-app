@@ -7,6 +7,11 @@ import { useNavigate } from "react-router-dom"
 const AddPage = () => {
     const [name, setName] = useState("")
     const [brand, setBrand] = useState("")
+    const [description, setDescription] = useState("")
+    const [category, setCategory] = useState("")
+    const [use, setUse] = useState("")
+    const [ingredients, setIngredients] = useState("")
+    const [quantity, setQuantity] = useState("")
     const [price, setPrice] = useState("")
     const [files, setFiles] = useState("")
     const [redirect, setRedirect] = useState(false)
@@ -19,6 +24,11 @@ const AddPage = () => {
         const data = new FormData()
         data.set("name", name)
         data.set("brand", brand)
+        data.set("description", description)
+        data.set("category", category)
+        data.set("use", use)
+        data.set("ingredients", ingredients)
+        data.set("quantity", quantity)
         data.set("price", price)
         data.set("file", files[0])
 
@@ -54,6 +64,32 @@ const AddPage = () => {
                     placeholder="brand"
                     value={brand}
                     onChange={(e) => setBrand(e.target.value)} />
+
+                <input type="text"
+                    placeholder="description"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)} />
+
+
+                <input type="text"
+                    placeholder="category"
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)} />
+
+                <input type="text"
+                    placeholder="use"
+                    value={use}
+                    onChange={(e) => setUse(e.target.value)} />
+
+                <input type="text"
+                    placeholder="ingredients"
+                    value={ingredients}
+                    onChange={(e) => setIngredients(e.target.value)} />
+
+                <input type="number"
+                    placeholder="quantity"
+                    value={quantity}
+                    onChange={(e) => setQuantity(e.target.value)} />
 
                 <input type="number"
                     placeholder="price"

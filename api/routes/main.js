@@ -18,7 +18,6 @@ router.post("/login",authContoller.postLogin)
 router.get("/profile",authContoller.getProfile)
 router.post("/logout",authContoller.postLogout)
 
-
 router.post("/add", uploadMiddleware.single("file"),productContoller.postAdd)
 router.get("/allProducts",productContoller.getAllProducts)
 router.get("/newProducts",productContoller.getNewProducts) //only some

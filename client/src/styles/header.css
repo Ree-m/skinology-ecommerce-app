@@ -9,7 +9,6 @@ nav{
 
 .cart {
     cursor: pointer;
-    margin-left: 100px;
   }
   .cart span:nth-child(1) {
     font-size: 2rem;

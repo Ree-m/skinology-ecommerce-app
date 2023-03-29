@@ -27,7 +27,7 @@ const MyCarousel = ({ carouselItems, setCarouselItems }) => {
 
     return (
         <div>
-            <h1>Best</h1>
+            <h1 className="title-large title-padding center">Best</h1>
 
             <Carousel
                 responsive={responsive}
