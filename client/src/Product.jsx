@@ -1,8 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import "./styles/product.css"
 
-const Product = ({ product, _id, name, brand,quantity, price,image }) => {
+const Product = ({ product, _id, name, brand, quantity, price, image }) => {
+
+    const [refresh, setRefresh] = useState(false)
+
+    const onClick = () => {
+        setRefresh(true)
+    }
+
+    useEffect(() => {
+        if (refresh) {
+            setRefresh(false); // reset to avoid infinite loop
+            window.location.reload(); // page refreshes
+        }
+    }, [refresh])
 
 
     return (
@@ -10,12 +23,12 @@ const Product = ({ product, _id, name, brand,quantity, price,image }) => {
 
             <div className="product-image">
                 <Link to={`/product/${_id}`}>
-                    <img src={`http://localhost:9000/${image}`} alt={`Image of ${name}`} />
+                    <img onClick={onClick} src={`http://localhost:9000/${image}`} alt={`Image of ${name}`} />
                 </Link>
             </div>
             <div className="product-title">
                 <Link to={`/product/${_id}`}>
-                    <h1>[{brand}] {name}</h1>
+                    <h1 onClick={onClick} >[{brand}] {name}</h1>
                 </Link>
             </div>
 

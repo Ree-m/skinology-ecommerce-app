@@ -1,0 +1,12 @@
+.best-products-page .products{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:10px;
+}
+
+.best-products-page{
+    padding:0px 100px;
+}
+.best-products-page h1{
+    padding-bottom: 100px;
+}

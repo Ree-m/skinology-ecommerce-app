@@ -7,6 +7,7 @@ import SearchBar from "./SearchBar";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
+import "./styles/header.css"
 
 
 
@@ -39,16 +40,21 @@ const Header = ({ cartItems, setCartItems }) => {
     if (!isUserLoggedIn) {
         return (
             <header className="header">
-                <Link to={"/"} className="logo">SkinShop</Link>
-                <nav>
-                    <>
-                        <Link to={"/login"}>Login</Link>
-                        <Link to={"/signup"}>Signup</Link>
-                        <SearchBar />
+                <div className="header-1">
+                    <Link to={"/"}>
+                        <h1 className="logo">SKINOLOGY</h1>
+                    </Link>
+                    <nav>
+                        <>
+                            <Link to={"/login"}>Login</Link>
+                            <Link to={"/signup"}>Signup</Link>
+                            <SearchBar />
 
-                    </>
+                        </>
 
-                </nav>
+                    </nav>
+                </div>
+
             </header >
 
         )

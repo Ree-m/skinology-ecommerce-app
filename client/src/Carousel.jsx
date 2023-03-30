@@ -27,8 +27,9 @@ const MyCarousel = ({ carouselItems, setCarouselItems }) => {
 
     return (
         <div>
-            <h1 className="title-large title-padding center">Best</h1>
-
+            <Link to={"/bestSellersPage"}>
+                <h1 className="title-large title-padding center">Best</h1>
+            </Link>
             <Carousel
                 responsive={responsive}
                 swipeable={false}
@@ -50,13 +51,17 @@ const MyCarousel = ({ carouselItems, setCarouselItems }) => {
                     console.log("this is carouselitems", product);
                     return (
                         <div key={product._id}>
-                           <Product product={product} {...product} />
+                            <Product product={product} {...product} />
 
                         </div>
                     );
                 })}
 
             </Carousel>
+            <div className="btn-container">
+                <button className="btn">View all products</button>
+            </div>
+
         </div>
     );
 };

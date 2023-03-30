@@ -99,10 +99,14 @@ const CartPage = ({ cartItems, setCartItems }) => {
                     <h3>Total bill: ${cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.reduce((acc, item) => acc + item.price * item.quantity, 0)}</h3>
                 </>
             )}
+
+            { cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length > 0 ? 
             <Link to={"/checkout"}>
                 <button>CheckOut</button>
             </Link>
-
+            :null
+ }
+            
 
         </>
     );

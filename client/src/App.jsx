@@ -14,6 +14,7 @@ import EditProductPage from './pages/EditProductPage';
 import CartPage from './pages/CartPage';
 import SearchedProductsPage from './pages/SearchedProductsPage'
 import NewProductsPage from './pages/NewProductsPage'
+import BestPage from './pages/BestSellersPage'
 import Checkout from './Checkout'
 import { useContext } from 'react';
 import { UserContext } from './UserContext';
@@ -66,7 +67,7 @@ function App() {
   },[add])
 
 
-  // this is uplifting/lifting state up
+  // add to cart
   async function addToCart(productId, userId, quantity, name, price, image) {
 
     try {
@@ -100,6 +101,7 @@ function App() {
           <Route path="/cart/:userId" element={<CartPage cartItems={cartItems} setCartItems={setCartItems} />} />
           <Route path="/search" element={<SearchedProductsPage />} />
           <Route path="/newProducts" element={<NewProductsPage/>} />
+          <Route path="/bestSellersPage" element={<BestPage/>} />
           <Route path="/checkout" element={<Checkout/>} />
 
         </Route>

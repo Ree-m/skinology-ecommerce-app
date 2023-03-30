@@ -22,16 +22,19 @@ const HomePage = ({ products, setProducts }) => {
     return (
         <div className="home-page">
             <UncontrolledCarousel />
-            <MyCarousel carouselItems={carouselItems} setCarouselItems={setCarouselItems} />
-            <NewProducts />
-            {/* <h1>All Products</h1>
+            <div className="padded">
+                <MyCarousel carouselItems={carouselItems} setCarouselItems={setCarouselItems} />
+                <NewProducts />
+                {/* <h1>All Products</h1>
             {products && products.length > 0 && products.map(product => (
                 <div key={product._id}>
                     <Product product={product} {...product} />
                 </div>
             ))
             } */}
-            <Brands />
+                <Brands />
+            </div>
+
 
         </div >
 

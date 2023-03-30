@@ -28,7 +28,13 @@ const NewProducts = () => {
 
                     </div>
                 ))}
+
             </div>
+
+            <div className="btn-container">
+                <button className="btn">View all products</button>
+            </div>
+
 
         </div>
     );
