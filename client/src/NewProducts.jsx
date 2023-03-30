@@ -32,7 +32,9 @@ const NewProducts = () => {
             </div>
 
             <div className="btn-container">
-                <button className="btn">View all products</button>
+                <Link to={"/newProducts"}>
+                    <button className="btn">View all products</button>
+                </Link>
             </div>
 
 

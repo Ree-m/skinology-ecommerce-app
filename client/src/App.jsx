@@ -68,13 +68,13 @@ function App() {
 
 
   // add to cart
-  async function addToCart(productId, userId, quantity, name, price, image) {
+  async function addToCart(productId, userId, quantity, name,brand, price, image) {
 
     try {
       const response = await fetch("http://localhost:9000/cart/add", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId, productId, quantity, name, price, image }),
+        body: JSON.stringify({ userId, productId, quantity, name,brand, price, image }),
       });
       const data = await response.json();
       setAdd(true); // trigger page refreshs

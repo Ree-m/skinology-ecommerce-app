@@ -28,7 +28,7 @@ const Product = ({ product, _id, name, brand, quantity, price, image }) => {
             </div>
             <div className="product-title">
                 <Link to={`/product/${_id}`}>
-                    <h1 onClick={onClick} >[{brand}] {name}</h1>
+                    <h2 onClick={onClick} className="title-small">[{brand}] {name}</h2>
                 </Link>
             </div>
 

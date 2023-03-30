@@ -34,7 +34,7 @@ const MyCarousel = ({ carouselItems, setCarouselItems }) => {
                 responsive={responsive}
                 swipeable={false}
                 draggable={false}
-                showDots={true}
+                // showDots={true}
                 ssr={true} // means to render carousel on server-side.
                 infinite={false}
                 autoPlaySpeed={1000}
@@ -59,7 +59,9 @@ const MyCarousel = ({ carouselItems, setCarouselItems }) => {
 
             </Carousel>
             <div className="btn-container">
-                <button className="btn">View all products</button>
+                <Link to={"/bestSellersPage"}>
+                    <button className="btn">View all products</button>
+                </Link>
             </div>
 
         </div>

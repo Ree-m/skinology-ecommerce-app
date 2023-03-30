@@ -20,7 +20,7 @@ exports.getCart = async (req, res) => {
 exports.addToCart = async (req, res) => {
 
 
-  const { userId, productId, name, price, quantity, image } = req.body;
+  const { userId, productId, name,brand, price, quantity, image } = req.body;
 
   try {
     // Find the cart document for the user
@@ -40,7 +40,7 @@ exports.addToCart = async (req, res) => {
     }
     // Otherwise, add a new product to the cart
     else {
-      cart.products.push({ productId, name, price, quantity, image });
+      cart.products.push({ productId, name,brand, price, quantity, image });
     }
 
     // Save the updated cart document

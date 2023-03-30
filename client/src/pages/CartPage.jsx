@@ -1,10 +1,13 @@
+
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { useContext } from 'react';
-import { UserContext } from '../UserContext';
 import Product from '../Product';
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import { UserContext } from '../UserContext';
+import "../styles/cartPage.css"
+import { MdDelete } from "react-icons/md";
 
 
 const CartPage = ({ cartItems, setCartItems }) => {
@@ -12,16 +15,6 @@ const CartPage = ({ cartItems, setCartItems }) => {
     const { userInfo } = useContext(UserContext)
     const navigate = useNavigate();
     const [deleteUpdate, setDeleteUpdate] = useState(false); // set to true to refresh when deleted/updated
-
-
-
-
-
-    if (cartItems) {
-        console.log("this is cartItems", cartItems[0], cartItems)
-
-
-    }
 
     async function removeFromCart(productId) {
         try {
@@ -37,9 +30,6 @@ const CartPage = ({ cartItems, setCartItems }) => {
         }
     }
 
-
-
-
     async function updateQuantity(productId, newQuantity) {
         try {
             const response = await fetch(`http://localhost:9000/cart/updateQuantity/${userInfo.id}/${productId}/${newQuantity}`, {
@@ -49,7 +39,6 @@ const CartPage = ({ cartItems, setCartItems }) => {
             });
             const data = await response.json()
             setCartItems(data);
-            console.log("this is update data", data)
             setDeleteUpdate(true)
         } catch (error) {
             console.error(error);
@@ -68,7 +57,6 @@ const CartPage = ({ cartItems, setCartItems }) => {
         updateQuantity(productId, newQuantity);
     }
 
-
     useEffect(() => {
         if (deleteUpdate) {
             setDeleteUpdate(false); // reset to avoid infinite loop
@@ -77,39 +65,59 @@ const CartPage = ({ cartItems, setCartItems }) => {
     }, [deleteUpdate])
 
     return (
-        <>
+        <div className="cart-page">
             <h2>Cart</h2>
-            {cartItems === undefined || cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length === 0 ? ("Cart is empty") : cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.map((item) => (
-                <div key={item._id}>
-                    <p>{item.name}</p>
-                    <div>
-                        <button onClick={() => handleMinusClick(item.productId, item.quantity)}>-</button>
-                        <span>{item.quantity}</span>
-                        <button onClick={() => handlePlusClick(item.productId, item.quantity)}>+</button>
-                    </div>
-                    <p>Price: ${item.price}</p>
-                    <img src={`http://localhost:9000/${item.image}`} alt={item.name} />
-                    <button onClick={() => removeFromCart(item.productId)}>Remove from cart</button>
-                </div>
+            {cartItems === undefined || cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length === 0 ? ("Cart is empty") : cartItems && cartItems[0] && cartItems[0].products && (
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th className="capital"  >Product Name</th>
+                            <th className="capital">Price</th>
+                            <th className="capital">Quantity</th>
+                            <th className="capital">SubTotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {cartItems[0].products.map((item) => (
+                            <tr key={item._id}>
+                                <td><img src={`http://localhost:9000/${item.image}`} alt={`Image of {item.an}`} /></td>
+                                <td>
+                                    [{item.brand}] {item.name}
+                                </td>
+                                <td>${item.price}</td>
+                                <td>
+                                    <div className="quantity-container">
+                                        <button onClick={() => handleMinusClick(item.productId, item.quantity)}>-</button>
+                                        <span>{item.quantity}</span>
+                                        <button onClick={() => handlePlusClick(item.productId, item.quantity)}>+</button>
+                                    </div>
+                                </td>
 
-            ))}
+                                <td>${item.price * item.quantity}</td>
+                                <td>
+                                    <MdDelete className="deleteIcon"  onClick={() => removeFromCart(item.productId)} />
+                                </td>
+                            </tr>
+                        ))}
+                        <tr>
+                            <td colSpan={3}>Total:</td>
 
-            {!cartItems || cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length === 0 ? ("") : cartItems && (
-                <>
-                    <h3>Total bill: ${cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.reduce((acc, item) => acc + item.price * item.quantity, 0)}</h3>
-                </>
+                            <td>${cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.reduce((acc, item) => acc + item.price * item.quantity, 0)}</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
             )}
-
-            { cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length > 0 ? 
-            <Link to={"/checkout"}>
-                <button>CheckOut</button>
-            </Link>
-            :null
- }
-            
-
-        </>
+            <div className="cart-buttons">
+                <Link to="/" className="btn">Continue Shopping</Link>
+                <button className="btn" onClick={() => navigate('/checkout')}>Proceed to Checkout</button>
+            </div>
+        </div>
     );
-}
+};
 
 export default CartPage;
+
+
+

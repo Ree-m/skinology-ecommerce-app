@@ -30,19 +30,11 @@ nav {
 
 .header {
   height: 130px;
-  background-color: aquamarine;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 50px;
+  
 }
 
 .logo {
   font-weight: 800;
-}
-
-.header .logo:hover {
-  color: var(--main-text-color);
-}
-
-.header .header-1 {
-  display: grid;
-  grid-template-columns: 60% 40%;
-  background-color: black;
 }

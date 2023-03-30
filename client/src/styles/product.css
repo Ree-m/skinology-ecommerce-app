@@ -1,10 +1,16 @@
-.product-image {
+.product-image img{
 
-    width: 100%;
+    width: 90%;
     height: auto;
-
-
+    padding-bottom: 10px;
 }
 .product-image:hover{
     opacity: 0.4;
+}
+.product-title-main{
+    font-size: 0.5rem;
+}
+
+.product h2{
+    padding: 10px 0px;
 }
