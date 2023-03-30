@@ -35,35 +35,25 @@ const Header = ({ cartItems, setCartItems }) => {
         setUserInfo(null)
         navigate("/")
     }
+    const username = userInfo?.username //if userInfo is there,give me username
 
     const isUserLoggedIn = !!userInfo;  //if userInfo.id is there,true,boolean value
-    if (!isUserLoggedIn) {
-        return (
-            <header className="header">
-                <div className="header-1">
-                    <Link to={"/"}>
-                        <h1 className="logo">SKINOLOGY</h1>
-                    </Link>
-                    <nav>
-                        <>
-                            <Link to={"/login"}>Login</Link>
-                            <Link to={"/signup"}>Signup</Link>
-                            <SearchBar />
 
-                        </>
 
-                    </nav>
-                </div>
+    // Define classes for different user types
+    const headerClass = "header"
+    const adminClass = username === "reemreem" ? "admin" : ""
+    const loggedInClass = isUserLoggedIn ? "logged-in" : ""
+    const notLoggedInClass = !isUserLoggedIn ? "not-logged-in" : ""
 
-            </header >
 
-        )
-    }
-    const username = userInfo?.username //if userInfo is there,give me username
+
+
     return (
-        <header className="header">
+        <header className={`${headerClass} ${adminClass} ${loggedInClass} ${notLoggedInClass}`}>
             <Link to={"/"} className="logo">SKINOLOGY</Link>
             <nav>
+                {/* for admin */}
                 {username && username == "reemreem" && (
                     <>
                         <Link to="/add">Add new product</Link>
@@ -82,6 +72,7 @@ const Header = ({ cartItems, setCartItems }) => {
                         </Link>
                     </>
                 )}
+                {/* logged in users */}
                 {username && username !== "reemreem" && (
                     <>
                         <a className="logout" onClick={logout}>Logout({username})</a>
@@ -102,6 +93,17 @@ const Header = ({ cartItems, setCartItems }) => {
 
                     </>
                 )}
+                {/* non logged in users */}
+                
+                {isUserLoggedIn && (
+
+                    <>
+                        <Link to={"/login"}>Login</Link>
+                        <Link to={"/signup"}>Signup</Link>
+                    </>
+                )}
+                <SearchBar />
+
 
                 {/* if i want the red circle to show for up,put in span */}
 
@@ -109,6 +111,7 @@ const Header = ({ cartItems, setCartItems }) => {
             </nav>
         </header >
     );
+
 }
 
 export default Header;

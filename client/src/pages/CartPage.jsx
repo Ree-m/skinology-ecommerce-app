@@ -66,7 +66,7 @@ const CartPage = ({ cartItems, setCartItems }) => {
 
     return (
         <div className="cart-page">
-            <h2>Cart</h2>
+            <h2 className="center title-large">Cart</h2>
             {cartItems === undefined || cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length === 0 ? ("Cart is empty") : cartItems && cartItems[0] && cartItems[0].products && (
                 <table>
                     <thead>

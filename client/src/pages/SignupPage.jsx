@@ -1,56 +1,61 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"
+import "../styles/login-signup.css"
 
 const RegisterPage = () => {
-    const [username,setUsername]=useState("")
-    const [email,setEmail]=useState("")
-    const [password,setPassword]=useState("")
+    const [username, setUsername] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
     const navigate = useNavigate();
     const [redirect, setRedirect] = useState(false)
 
-    
-    async function signup(e){
+
+    async function signup(e) {
         e.preventDefault()
-        const response=fetch("http://localhost:9000/signup",{
-            method:"POST",
-            body:JSON.stringify({username,password,email}),
-            headers:{
-                "Content-Type":"application/json",
+        const response = fetch("http://localhost:9000/signup", {
+            method: "POST",
+            body: JSON.stringify({ username, password, email }),
+            headers: {
+                "Content-Type": "application/json",
             },
-            credentials:"include"
+            credentials: "include"
         })
         setRedirect(true)
 
     }
 
-    if(redirect){
+    if (redirect) {
         return navigate("/")
     }
 
-    return ( 
+    return (
         <form className="signup-page" onSubmit={signup}>
 
-            <h1>Signup</h1>
+            <h1 className="title-large center">Signup</h1>
+            <div>
+                <p>Please fill in the information below:</p>
+                
+                <input type="text"
+                    placeholder="Username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)} />
 
-            <input type="text"
-                   placeholder="username"
-                   value={username}
-                   onChange={(e)=>setUsername(e.target.value)} />
-
-            <input type="password"
-                   placeholder="password"
-                   value={password}
-                   onChange={(e)=>setPassword(e.target.value)} />
+                <input type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)} />
 
 
-            <input type="email"
-                   placeholder="email"
-                   value={email}
-                   onChange={(e)=>setEmail(e.target.value)} />
+                <input type="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)} />
 
-                   <button className="btn">Signup</button>
+                <button className="btn">Signup</button>
+            </div>
+
         </form>
-     );
+    );
 }
- 
+
 export default RegisterPage;

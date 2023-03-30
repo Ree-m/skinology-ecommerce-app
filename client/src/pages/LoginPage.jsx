@@ -1,7 +1,9 @@
-import { useState,useContext } from "react"
+import { useState, useContext } from "react"
 import { Navigate } from "react-router-dom"
 import { UserContext } from "../UserContext"
 import { useNavigate } from "react-router-dom"
+import "../styles/login-signup.css"
+
 
 const LoginPage = () => {
     const [username, setUsername] = useState("")
@@ -20,48 +22,56 @@ const LoginPage = () => {
         const response = await fetch("http://localhost:9000/login", {
             method: "POST",
             body: JSON.stringify({ username, password, email }),
-            headers: {"Content-Type": "application/json"},
-            credentials:"include"
+            headers: { "Content-Type": "application/json" },
+            credentials: "include"
         })
- 
-        if((response).ok){
-            response.json().then(userInfo=>{
-                console.log( userInfo);
+
+        if ((response).ok) {
+            response.json().then(userInfo => {
+                console.log(userInfo);
                 setUserInfo(userInfo)
                 setRedirect(true)
             })
 
-        }else {
+        } else {
             alert("wrong credentials")
         }
     }
 
     // if redirect is true,redirect to homepage from loginpage
-    if(redirect){
+    if (redirect) {
         return navigate("/")
     }
-    
+
 
     return (
         <form className="login-page" onSubmit={login}>
 
-            <h1>Login</h1>
+            <h1 className="title-large center">Login</h1>
 
-            <input type="text"
-                placeholder="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)} />
+            <div>
+                <p>Please enter your e-mail and password:</p>
+                <input type="text"
+                    placeholder="Username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)} />
 
-            <input type="password"
-                placeholder="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)} />
+                <input type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)} />
 
-            <input type="email"
-                placeholder="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)} />
-            <button className="btn">Login</button>
+                <input type="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)} />
+
+                <button className="btn">Login</button>
+
+                <p>Don't have an account? <button onClick={()=>navigate("/signup")}>Create one</button> </p>
+            </div>
+
+
         </form>
     );
 }
