@@ -3,7 +3,10 @@
     width: 90%;
     height: auto;
     padding-bottom: 10px;
+
 }
+
+
 .product-image:hover{
     opacity: 0.4;
 }

@@ -14,9 +14,6 @@
     padding-bottom:15px ;
 }
 
-
- .footer-link p{
-} 
  
 
 .footer-icon{
@@ -34,8 +31,9 @@
 }
 
 .footer-link{
-    padding: 0px 50px;
+    padding: 55px 200px;
 }
 .footer-link h2{
     padding-bottom: 30px;
+    font-weight: 600;
 }

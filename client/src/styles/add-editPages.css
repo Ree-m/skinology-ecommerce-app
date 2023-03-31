@@ -1,0 +1,27 @@
+
+.add-page div,.edit-page div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.add-page input,.edit-page input {
+    margin-bottom: 25px;
+    padding: 10px;
+    width: 60%;
+    border: 1px solid var(--border-color);
+}
+
+.add-page input:focus ,.edit-page input:focus{
+    outline: 1px solid var(--main-text-color);
+
+}
+
+.add-page h1,.edit-page h1 {
+    padding-bottom: 30px;
+}
+
+.add-page .file-input,.edit-page .file-input{
+    border: none;
+}

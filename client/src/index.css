@@ -1,127 +1,132 @@
-
-
- @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 body {
     font-family: 'Montserrat', sans-serif;
-    color:var(--main-text-color)
-  }
+    color: var(--main-text-color)
+}
 
 
- * {
-     --pink:  #f8c0d8;
-     --main-text-color:#303030;
-     --border-color:#e0e0e0;
-     margin: 0;
-     padding: 0;
-     box-sizing: border-box;
+* {
+    --pink: #f8c0d8;
+    --main-text-color: #4a4e4d;
+    --border-color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 
- }
- 
- .flex {
-     display: flex;
- }
+}
 
- .title-large {
-     font-size: 2.5rem;
- }
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
- .title-medium {
-     font-size: 2rem;
- }
+.title-large {
+    font-size: 2.5rem;
+}
 
- .title-small {
-     font-size: 1.1rem;
- }
-.font-600{
+.title-medium {
+    font-size: 2rem;
+}
+
+.title-small {
+    font-size: 1.1rem;
+}
+
+.font-600 {
     font-weight: 600;
 }
- p,
- span {
-     font-size: 1rem;
- }
 
- .title-padding {
-     padding-bottom: 50px;
-     padding-top: 50px;
- }
+p,
+span {
+    font-size: 1rem;
+}
 
- .center {
-     text-align: center;
- }
+.title-padding {
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
 
- .carousel-container .react-multiple-carousel__arrow {
-     opacity: 1 !important;
-     visibility: visible !important;
- }
+.center {
+    text-align: center;
+}
+
+.carousel-container .react-multiple-carousel__arrow {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
 
 
 
- .btn {
-     font-size: 16px;
-     font-weight: 200;
-     letter-spacing: 1px;
-     padding: 13px 20px 13px;
-     outline: 0;
-     border: 1px solid #303030;
-     cursor: pointer;
-     position: relative;
-     background-color: rgba(0, 0, 0, 0);
-     user-select: none;
-     -webkit-user-select: none;
-     touch-action: manipulation;
- }
- .btn:hover{
-    color:#fff;
+.btn {
+    font-size: 16px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 13px 20px 13px;
+    outline: 0;
+    border: 1px solid #303030;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
 
- }
+.btn:hover {
+    color: #fff;
 
- .btn:after {
-     content: "";
-     background-color: pink;
-     width: 100%;
-     z-index: -1;
-     position: absolute;
-     height: 100%;
-     top: 7px;
-     left: 7px;
-     transition: 0.2s;
- }
+}
 
- .btn:hover:after {
-     top: 0px;
-     left: 0px;
- }
+.btn:after {
+    content: "";
+    background-color: pink;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+    transition: 0.2s;
+}
 
- .btn-container {
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     padding: 40px 0px;
- }
+.btn:hover:after {
+    top: 0px;
+    left: 0px;
+}
 
- @media (min-width: 768px) {
-     .btn {
-         padding: 13px 50px 13px;
-     }
- }
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0px;
+}
 
- .home-page .padded{
+@media (min-width: 768px) {
+    .btn {
+        padding: 13px 50px 13px;
+    }
+}
+
+.home-page .padded {
     padding: 0px 50px;
- }
-a{
+}
+
+a {
     color: var(--main-text-color);
     text-decoration: none;
 }
- a:hover{
-    color:pink;
- }
 
- .edit-btn{
+a:hover {
+    color: pink;
+}
+
+.edit-btn {
     font-size: 1.5rem;
- }
+}
 
- .capital{
+.capital {
     text-transform: uppercase;
- }
-
+}

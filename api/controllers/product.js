@@ -11,7 +11,7 @@ const fs = require("fs");
 exports.postAdd = async (req, res) => {
     const { originalname, path } = req.file
 
-     // In the the uploads folder,i need the images to upload from client side form.
+    // In the the uploads folder,i need the images to upload from client side form.
     // For that,the uploaded file (in upload folder) needs the extension,ie,png/jpg/.. etc
     // So i need to grab the extension from req.file.originalname
 
@@ -25,13 +25,13 @@ exports.postAdd = async (req, res) => {
     const newProduct = await Product.create({
         name: req.body.name,
         brand: req.body.brand,
-        description:req.body.description,
-        category:req.body.category,
-        use:req.body.use,
-        ingredients:req.body.ingredients,
-        quantity:req.body.quantity,
+        description: req.body.description,
+        category: req.body.category,
+        use: req.body.use,
+        ingredients: req.body.ingredients,
+        quantity: req.body.quantity,
         price: req.body.price,
-        image:newPath
+        image: newPath
     })
     newProduct.save()
     res.json(newProduct)
@@ -46,8 +46,8 @@ exports.getAllProducts = async (req, res) => {
 
 exports.getNewProducts = async (req, res) => {
     const products = await Product.find()
-    .sort({ createdAt: -1 })  //descinding order.ie,newest post first
-    .limit(8)
+        .sort({ createdAt: -1 })  //descinding order.ie,newest post first
+        .limit(8)
 
     res.json(products)
 }
@@ -55,15 +55,15 @@ exports.getNewProducts = async (req, res) => {
 
 exports.getAllNewProducts = async (req, res) => {
     const products = await Product.find()
-    .sort({ createdAt: -1 })  //descinding order.ie,newest post first
-    .limit(50)
+        .sort({ createdAt: -1 })  //descinding order.ie,newest post first
+        .limit(50)
 
     res.json(products)
 }
 
-exports.getBestProducts=async(req,res)=>{
-    const products= await Product.find()
-    .limit(50)
+exports.getBestProducts = async (req, res) => {
+    const products = await Product.find()
+        .limit(50)
 
     res.json(products)
 }
@@ -76,20 +76,29 @@ exports.getProduct = async (req, res) => {
 
 }
 
-exports.editProduct=async(req,res)=>{
+exports.editProduct = async (req, res) => {
+    let newPath = null
+    if (req.file) {
+        const { originalname, path } = req.file
+        const parts = originalname.split('.');
+        const ext = parts[parts.length - 1];
+        newPath = path + '.' + ext;
+        fs.renameSync(path, newPath);
+    }
     const product = await Product.findById({ _id: req.params.id })
     await product.update({
-        name:req.body.name,
-        brand:req.body.brand,
-        description:req.body.description,
-        category:req.body.category,
-        use:req.body.use,
-        ingredients:req.body.ingredients,
-        quantity:req.body.quantity,
-        price:req.body.price
+        name: req.body.name,
+        brand: req.body.brand,
+        description: req.body.description,
+        category: req.body.category,
+        use: req.body.use,
+        ingredients: req.body.ingredients,
+        quantity: req.body.quantity,
+        price: req.body.price,
+        image: newPath ? newPath :product.image
     })
     res.json(product)
-    
+
 
 }
 
@@ -102,19 +111,19 @@ exports.deleteProduct = async (req, res) => {
 }
 
 // to get products on search
-exports.getSearcedProducts= async (req,res)=>{
+exports.getSearcedProducts = async (req, res) => {
     try {
         const query = req.params.query
-        console.log("this is query",req.params.query)
+        console.log("this is query", req.params.query)
         const results = await Product.find({
-          $or: [  //find name or brand
-            { name: { $regex: query ,$options:"i" } }, //$eq is an operator that tests weather two values are exact matches
-            { brand: { $eq: query } }//$regex is an opertor that also includes similar matches,not just exact matches
-          ]
+            $or: [  //find name or brand
+                { name: { $regex: query, $options: "i" } }, //$eq is an operator that tests weather two values are exact matches
+                { brand: { $eq: query } }//$regex is an opertor that also includes similar matches,not just exact matches
+            ]
         })
         res.json(results);
-      } catch (error) {
+    } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Internal server error' });
-      }
+    }
 }

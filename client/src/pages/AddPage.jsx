@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Navigate } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
+import "../styles/add-editPages.css"
 
 
 
@@ -51,57 +52,61 @@ const AddPage = () => {
 
 
     return (
-        <div>
-            <h1>Add new product</h1>
+        <div className="add-page">
 
             <form onSubmit={addProduct}>
-                <input type="text"
-                    placeholder="name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)} />
+                <h1 className="center">Add new product</h1>
+                <div>
+                    <input type="text"
+                        placeholder="name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)} />
 
-                <input type="text"
-                    placeholder="brand"
-                    value={brand}
-                    onChange={(e) => setBrand(e.target.value)} />
+                    <input type="text"
+                        placeholder="brand"
+                        value={brand}
+                        onChange={(e) => setBrand(e.target.value)} />
 
-                <input type="text"
-                    placeholder="description"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)} />
-
-
-                <input type="text"
-                    placeholder="category"
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)} />
-
-                <input type="text"
-                    placeholder="use"
-                    value={use}
-                    onChange={(e) => setUse(e.target.value)} />
-
-                <input type="text"
-                    placeholder="ingredients"
-                    value={ingredients}
-                    onChange={(e) => setIngredients(e.target.value)} />
-
-                <input type="number"
-                    placeholder="quantity"
-                    value={quantity}
-                    onChange={(e) => setQuantity(e.target.value)} />
-
-                <input type="number"
-                    placeholder="price"
-                    value={price}
-                    onChange={(e) => setPrice(e.target.value)} />
+                    <input type="text"
+                        placeholder="description"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)} />
 
 
-                <input type="file"
+                    <input type="text"
+                        placeholder="category"
+                        value={category}
+                        onChange={(e) => setCategory(e.target.value)} />
 
-                    onChange={(e) => setFiles(e.target.files)} />
+                    <input type="text"
+                        placeholder="use"
+                        value={use}
+                        onChange={(e) => setUse(e.target.value)} />
 
-                <button className="btn">Add product</button>
+                    <input type="text"
+                        placeholder="ingredients"
+                        value={ingredients}
+                        onChange={(e) => setIngredients(e.target.value)} />
+
+                    <input type="number"
+                        placeholder="quantity"
+                        value={quantity}
+                        onChange={(e) => setQuantity(e.target.value)} />
+
+                    <input type="number"
+                        placeholder="price"
+                        value={price}
+                        onChange={(e) => setPrice(e.target.value)} />
+
+
+                    <input className="file-input" type="file"
+
+                        onChange={(e) => setFiles(e.target.files)} />
+                    <button className="btn">Add product</button>
+
+                </div>
+
+
 
             </form>
 

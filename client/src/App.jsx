@@ -19,9 +19,6 @@ import BestPage from './pages/BestSellersPage'
 import { useContext } from 'react';
 import { UserContext } from './UserContext';
 import AboutPage from './pages/AboutPage';
-import TermsAndConditionsPage from './pages/TermsndConditionsPage';
-import ShippingPage from './pages/ShippingPage';
-import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 
 
 function App() {
@@ -127,9 +124,7 @@ function App() {
           <Route path="/newProducts" element={<NewProductsPage/>} />
           <Route path="/bestSellersPage" element={<BestPage/>} />
           <Route path="/aboutPage" element={<AboutPage/>} />
-          <Route path="/termsAndConditionsPage" element={<TermsAndConditionsPage/>} />
-          <Route path="/shippingPage" element={<ShippingPage/>} />
-          <Route path="/privacyPolicyPage" element={<PrivacyPolicyPage/>} />
+          
 
 
         </Route>

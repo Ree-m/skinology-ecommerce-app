@@ -1,6 +1,8 @@
 
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import "./styles/searchProductsPage.css"
+import { FaSearch } from "react-icons/fa";
 
 
 import SearchedProductsPage from "./pages/SearchedProductsPage";
@@ -20,13 +22,18 @@ const SearchBar = () => {
   return (
     <div className="search-bar">
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={query}
-          placeholder="Search"
-          onChange={(e)=>setQuery(e.target.value)}
-        />
-        {/* <button className="btn" type="submit">Search</button> */}
+          <input
+            type="text"
+            value={query}
+            placeholder="Search"
+            onChange={(e) => setQuery(e.target.value)}
+          />
+
+          <button type="submit">
+            <FaSearch className="search-icon" />
+          </button>
+
+
       </form>
     </div>
   );

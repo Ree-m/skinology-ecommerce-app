@@ -24,7 +24,7 @@ router.get("/newProducts",productContoller.getNewProducts) //only some
 router.get("/bestProducts",productContoller.getBestProducts) //only some
 router.get("/allNewProducts",productContoller.getAllNewProducts) 
 router.get("/product/:id",productContoller.getProduct)
-router.put("/edit/:id",productContoller.editProduct)
+router.put("/edit/:id",uploadMiddleware.single("file"),productContoller.editProduct)
 router.delete("/deleteProduct/:id",productContoller.deleteProduct)
 
 // on search

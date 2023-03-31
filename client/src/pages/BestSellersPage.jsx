@@ -24,7 +24,7 @@ const BestPage = () => {
                 ))}
             </div>
         </div>
-     );
+     ); 
 }
  
 export default BestPage;

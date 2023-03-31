@@ -38,6 +38,7 @@ const Header = ({ cartItems, setCartItems }) => {
     const username = userInfo?.username //if userInfo is there,give me username
 
     const isUserLoggedIn = !!userInfo;  //if userInfo.id is there,true,boolean value
+    const guestCart = JSON.parse(localStorage.getItem("guestCart"))  //get the guestCart from localStorage
 
 
     // Define classes for different user types
@@ -52,23 +53,37 @@ const Header = ({ cartItems, setCartItems }) => {
     if (!isUserLoggedIn) {
         return (
             <header className="header">
-                <Link to={"/"} className="logo">SKINOLOGY</Link>
-                {!username && (
-                    <>
-                        <Link to={"/login"}>login</Link>
-                        <Link to={"/signup"}>signup</Link>
+                <div className="flex">
+                    <Link to={"/"} className="logo">SKINOLOGY</Link>
+                </div>
 
-                        <div className="cart">
-                            <span>
-                                <Link to={"/cart/guest"}>
-                                    <i className="fas fa-cart-plus"></i>
-                                </Link>
-                            </span>
+                {!username && (
+                    <nav className="nav-1">
+
+                        <div className="nav-main">
+                            <Link to={"/login"}>login</Link>
+                            <Link to={"/signup"}>signup</Link>
+
+                            <Link className="cart" to={"/cart/guest"}>
+                                <i className="fas fa-cart-plus"></i>
+                                <span>{Object.keys(guestCart).length}</span>
+                            </Link>
+
+                            <SearchBar />
+
 
                         </div>
 
-                        <SearchBar />
-                    </>
+
+                        <div className="nav-2 flex">
+                            <Link to={"/bestSellersPage"} className="" >Best</Link>
+                            <Link to={"/newProducts"} className="">New </Link>
+                        </div>
+
+
+
+
+                    </nav>
                 )}
             </header>
         )
@@ -76,49 +91,61 @@ const Header = ({ cartItems, setCartItems }) => {
 
     return (
         <header className="header">
-            <Link to={"/"} className="logo">SKINOLOGY</Link>
+            <div className="flex">
+                <Link to={"/"} className="logo">SKINOLOGY</Link>
+            </div>
+
             <nav>
                 {/* for admin */}
                 {username && username == "reemreem" && (
-                    <>
-                        <Link to="/add">Add new product</Link>
-                        <a className="logout" onClick={logout}>Logout ({username})</a>
-                        <SearchBar />
+                    <nav>
+                        <div className="nav-main">
+                            <Link to="/add">Add new product</Link>
+                            <a className="logout" onClick={logout}>Logout ({username})</a>
 
 
-                        <div className="cart">
-                            <span>
-                                <Link to={"/cart/" + userInfo.id}>
+                            <Link to={"/cart/" + userInfo.id} className="cart">
+                                <FontAwesomeIcon icon={faCartPlus} />
+                                <span>{cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length === 0 ? ("") : cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length}</span>
+                            </Link>
 
-                                    <i className="fas fa-cart-plus"></i>
-                                </Link>
-
-                            </span>
-                            <span>{cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length === 0 ? null : cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length}</span>
-
+                            <SearchBar />
                         </div>
-                    </>
+
+
+                        <div className="nav-2 flex">
+                            <Link to={"/bestSellersPage"} className="" >Best</Link>
+                            <Link to={"/newProducts"} className="">New </Link>
+                        </div>
+
+
+
+
+                    </nav>
                 )}
 
                 {username && username !== "reemreem" && (
-                    <>
-                        <a className="logout" onClick={logout}>Logout({username})</a>
-                        <SearchBar />
+                    <nav>
+                        <div className="nav-main">
+                            <a className="logout" onClick={logout}>Logout({username})</a>
 
-                        <Link to={"/cart/" + userInfo.id}>
-
-                            <div className="cart">
-                                <span>
-                                    <FontAwesomeIcon icon={faCartPlus} />
-
-                                </span>
-
+                            <Link to={"/cart/" + userInfo.id} className="cart">
+                                <FontAwesomeIcon icon={faCartPlus} />
                                 <span>{cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length === 0 ? ("") : cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length}</span>
-                            </div>
-                        </Link>
+                            </Link>
+
+                            <SearchBar />
+                        </div>
+
+                        <div className="nav-2 flex">
+                            <Link to={"/bestSellersPage"} className="" >Best</Link>
+                            <Link to={"/newProducts"} className="">New </Link>
+                        </div>
 
 
-                    </>
+
+
+                    </nav>
                 )}
 
 

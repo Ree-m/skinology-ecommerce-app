@@ -30,30 +30,6 @@ tfoot td {
   text-align: right;
 }
 
-/* .checkout-button {
-    display: block;
-    margin-top: 20px;
-    background-color: #ff5a5f;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    font-weight: bold;
-    cursor: pointer;
-  } */
-/*   
-  .continue-shopping-button {
-    display: block;
-    margin-top: 20px;
-    background-color: transparent;
-    color: #444;
-    border: none;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    font-weight: bold;
-    cursor: pointer;
-  }
-   */
 td img {
   height: 250px;
   width: auto;
@@ -77,4 +53,8 @@ td img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.cart-page h2{
+  padding-bottom: 30px;
 }
