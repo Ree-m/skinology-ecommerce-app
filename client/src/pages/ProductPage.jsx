@@ -14,7 +14,7 @@ import { FaRegEdit } from "react-icons/fa";
 
 
 
-const ProductPage = ({ addToCart }) => {
+const ProductPage = ({ addToCart,addToGuestCart }) => {
     const [product, setProduct] = useState("")
     const [redirect, setRedirect] = useState(false)
     const [cart, setCart] = useState([])
@@ -62,6 +62,12 @@ const ProductPage = ({ addToCart }) => {
                     {userInfo && (
                         <div className="btn-container">
                             <button className="btn" onClick={() => addToCart(product._id, userInfo.id, 1, product.name,product.brand, product.price, product.image)}>Add to cart</button>
+                        </div>
+                    )}
+ 
+                    {!userInfo &&(
+                        <div className="btn-container">
+                            <button className="btn" onClick={()=>addToGuestCart(product)}>Add to cart</button>
                         </div>
                     )}
 

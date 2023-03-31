@@ -64,9 +64,32 @@ const CartPage = ({ cartItems, setCartItems }) => {
         }
     }, [deleteUpdate])
 
+
+    // for non-loggedIn users,guest cart
+
+    const guestCart = JSON.parse(localStorage.getItem("guestCart"))  //get the guestCart from localStorage
+    const isUserLoggedIn = !!userInfo 
+
+    if (!isUserLoggedIn) {
+        return (
+            <div className="cart-page">
+                <h2 className="center">Cart</h2>
+                {Object.values(guestCart).map((item) => (  
+                    <div key={item._id}>
+                        <p>{item.name}</p>
+                        <p>{item.brand}</p>
+                        <p>{item.price}</p>
+                        <p>{item.quantity}</p>
+                    </div>
+                ))}
+            </div>
+        )
+    }
+
+
     return (
         <div className="cart-page">
-            <h2 className="center title-large">Cart</h2>
+            <h2 className="center">Cart</h2>
             {cartItems === undefined || cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length === 0 ? ("Cart is empty") : cartItems && cartItems[0] && cartItems[0].products && (
                 <table>
                     <thead>
@@ -96,7 +119,7 @@ const CartPage = ({ cartItems, setCartItems }) => {
 
                                 <td>${item.price * item.quantity}</td>
                                 <td>
-                                    <MdDelete className="deleteIcon"  onClick={() => removeFromCart(item.productId)} />
+                                    <MdDelete className="deleteIcon" onClick={() => removeFromCart(item.productId)} />
                                 </td>
                             </tr>
                         ))}
@@ -110,8 +133,8 @@ const CartPage = ({ cartItems, setCartItems }) => {
                 </table>
             )}
             <div className="cart-buttons">
-                <Link to="/" className="btn">Continue Shopping</Link>
-                <button className="btn" onClick={() => navigate('/checkout')}>Proceed to Checkout</button>
+                <button className="btn" onClick={() => navigate("/")}>Continue Shopping</button>
+                <button className="btn">Buy</button>
             </div>
         </div>
     );

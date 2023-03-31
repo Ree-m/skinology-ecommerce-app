@@ -47,10 +47,35 @@ const Header = ({ cartItems, setCartItems }) => {
     const notLoggedInClass = !isUserLoggedIn ? "not-logged-in" : ""
 
 
+    // `${headerClass} ${adminClass} ${loggedInClass} ${notLoggedInClass}`
 
+    if (!isUserLoggedIn) {
+        return (
+            <header className="header">
+                <Link to={"/cart/guest"} className="logo">SKINOLOGY</Link>
+                {!username && (
+                    <>
+                        <Link to={"/login"}>login</Link>
+                        <Link to={"/signup"}>signup</Link>
+
+                        <div className="cart">
+                            <span>
+                                <Link to={"/login"}>
+                                    <i className="fas fa-cart-plus"></i>
+                                </Link>
+                            </span>
+
+                        </div>
+
+                        <SearchBar />
+                    </>
+                )}
+            </header>
+        )
+    }
 
     return (
-        <header className={`${headerClass} ${adminClass} ${loggedInClass} ${notLoggedInClass}`}>
+        <header className="header">
             <Link to={"/"} className="logo">SKINOLOGY</Link>
             <nav>
                 {/* for admin */}
@@ -60,19 +85,21 @@ const Header = ({ cartItems, setCartItems }) => {
                         <a className="logout" onClick={logout}>Logout ({username})</a>
                         <SearchBar />
 
-                        <Link to={"/cart/" + userInfo.id}>
 
-                            <div className="cart">
-                                <span>
+                        <div className="cart">
+                            <span>
+                                <Link to={"/cart/" + userInfo.id}>
+
                                     <i className="fas fa-cart-plus"></i>
-                                </span>
-                                <span>{cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length === 0 ? null : cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length}</span>
+                                </Link>
 
-                            </div>
-                        </Link>
+                            </span>
+                            <span>{cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length === 0 ? null : cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length}</span>
+
+                        </div>
                     </>
                 )}
-                {/* logged in users */}
+
                 {username && username !== "reemreem" && (
                     <>
                         <a className="logout" onClick={logout}>Logout({username})</a>
@@ -93,16 +120,7 @@ const Header = ({ cartItems, setCartItems }) => {
 
                     </>
                 )}
-                {/* non logged in users */}
-                
-                {isUserLoggedIn && (
 
-                    <>
-                        <Link to={"/login"}>Login</Link>
-                        <Link to={"/signup"}>Signup</Link>
-                    </>
-                )}
-                <SearchBar />
 
 
                 {/* if i want the red circle to show for up,put in span */}
@@ -115,3 +133,5 @@ const Header = ({ cartItems, setCartItems }) => {
 }
 
 export default Header;
+
+

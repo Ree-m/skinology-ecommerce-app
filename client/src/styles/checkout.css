@@ -1,0 +1,26 @@
+/* .checkout div input:focus{
+    outline: 1px solid var(--main-text-color);
+    
+}
+.checkout{
+    padding: 0px 50px;
+}
+.checkout div{
+    width: 100%;
+}
+.checkout{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.checkout button{
+    width: 20%;
+}
+
+.checkout input{
+    width: 35%;
+    margin: 5px;
+    border: 1px solid var(--border-color);
+
+} */

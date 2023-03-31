@@ -26,15 +26,28 @@ nav {
   border-radius: 5px;
   position: relative;
   top: -15px;
-}
-
+ }
+/* 
 .header {
-  height: 130px;
+  height: 250px;
   border-bottom: 1px solid var(--border-color);
   margin-bottom: 30px;
+  background-color: blue;
+  padding-top: 30px;
   
 }
 
-.logo {
+.header .logo{
   font-weight: 800;
+  font-size: 2rem;
+} 
+.logged-in{
+background-color: aqua;
+}
+.admin{
+  background-color: blueviolet;
+}  */
+
+.header{
+  height: 150px;
 }

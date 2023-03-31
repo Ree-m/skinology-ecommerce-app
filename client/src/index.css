@@ -1,19 +1,22 @@
 
- /* Import Montserrat font from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color:var(--main-text-color)
+  }
 
 
  * {
      --pink:  #f8c0d8;
      --main-text-color:#303030;
      --border-color:#e0e0e0;
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
 
  }
-
-body {
-    font-family: 'Montserrat', sans-serif;
-    color:var(--main-text-color)
-  }
  
  .flex {
      display: flex;

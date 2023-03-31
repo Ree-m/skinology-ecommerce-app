@@ -15,9 +15,13 @@ import CartPage from './pages/CartPage';
 import SearchedProductsPage from './pages/SearchedProductsPage'
 import NewProductsPage from './pages/NewProductsPage'
 import BestPage from './pages/BestSellersPage'
-import Checkout from './Checkout'
+// import Checkout from './Checkout'
 import { useContext } from 'react';
 import { UserContext } from './UserContext';
+import AboutPage from './pages/AboutPage';
+import TermsAndConditionsPage from './pages/TermsndConditionsPage';
+import ShippingPage from './pages/ShippingPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 
 
 function App() {
@@ -85,6 +89,25 @@ function App() {
     }
   }
 
+  // add to guest cart
+  function addToGuestCart(item) {
+    // Get the current guest cart from local storage
+    let guestCart = JSON.parse(localStorage.getItem('guestCart')) || {};
+  
+    // Add the item to the guest cart
+    if (guestCart[item._id]) { //if the product is n cart,incrment quntity
+      guestCart[item._id].quantity += 1;
+    } else {
+      guestCart[item._id] = {
+        ...item,
+        quantity: 1,
+      };
+    }
+  
+    // Save the guest cart to local storage
+    localStorage.setItem('guestCart', JSON.stringify(guestCart));
+  }
+
 
 
   return (
@@ -96,13 +119,19 @@ function App() {
           <Route path={"/login"} element={<LoginPage />} />
           <Route path={"/signup"} element={<SignupPage />} />
           <Route path="/add" element={<AddPage />} />
-          <Route path="/product/:id" element={<ProductPage addToCart={addToCart} />} />
+          <Route path="/product/:id" element={<ProductPage addToCart={addToCart} addToGuestCart={addToGuestCart} />} />
           <Route path="/edit/:id" element={<EditProductPage />} />
           <Route path="/cart/:userId" element={<CartPage cartItems={cartItems} setCartItems={setCartItems} />} />
+          <Route path="/cart/guest" element={<CartPage  />} />
+
           <Route path="/search" element={<SearchedProductsPage />} />
           <Route path="/newProducts" element={<NewProductsPage/>} />
           <Route path="/bestSellersPage" element={<BestPage/>} />
-          <Route path="/checkout" element={<Checkout/>} />
+          <Route path="/aboutPage" element={<AboutPage/>} />
+          <Route path="/termsAndConditionsPage" element={<TermsAndConditionsPage/>} />
+          <Route path="/shippingPage" element={<ShippingPage/>} />
+          <Route path="/privacyPolicyPage" element={<PrivacyPolicyPage/>} />
+
 
         </Route>
       </Routes>
