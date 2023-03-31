@@ -52,7 +52,7 @@ const Header = ({ cartItems, setCartItems }) => {
     if (!isUserLoggedIn) {
         return (
             <header className="header">
-                <Link to={"/cart/guest"} className="logo">SKINOLOGY</Link>
+                <Link to={"/"} className="logo">SKINOLOGY</Link>
                 {!username && (
                     <>
                         <Link to={"/login"}>login</Link>
@@ -60,7 +60,7 @@ const Header = ({ cartItems, setCartItems }) => {
 
                         <div className="cart">
                             <span>
-                                <Link to={"/login"}>
+                                <Link to={"/cart/guest"}>
                                     <i className="fas fa-cart-plus"></i>
                                 </Link>
                             </span>

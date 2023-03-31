@@ -123,7 +123,6 @@ function App() {
           <Route path="/edit/:id" element={<EditProductPage />} />
           <Route path="/cart/:userId" element={<CartPage cartItems={cartItems} setCartItems={setCartItems} />} />
           <Route path="/cart/guest" element={<CartPage  />} />
-
           <Route path="/search" element={<SearchedProductsPage />} />
           <Route path="/newProducts" element={<NewProductsPage/>} />
           <Route path="/bestSellersPage" element={<BestPage/>} />
