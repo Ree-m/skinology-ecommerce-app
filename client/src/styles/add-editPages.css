@@ -25,3 +25,7 @@
 .add-page .file-input,.edit-page .file-input{
     border: none;
 }
+
+.add-page,.edit-page{
+    margin-top: 100px;
+}

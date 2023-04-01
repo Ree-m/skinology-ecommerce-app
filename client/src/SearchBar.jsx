@@ -17,6 +17,7 @@ const SearchBar = () => {
     e.preventDefault();
     console.log(query);
     navigate(`/search?query=${query}`)
+    setQuery("") //to empty the input after search
   }
 
   return (
@@ -30,7 +31,8 @@ const SearchBar = () => {
           />
 
           <button type="submit">
-            <FaSearch className="search-icon" />
+            {/* <FaSearch className="search-icon" /> */}
+            Search
           </button>
 
 

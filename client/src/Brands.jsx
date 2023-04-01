@@ -21,7 +21,7 @@ import shiseido from "./assets/logo-images/Shiseido_logo.svg.png"
 import tocobo from "./assets/logo-images/TOCOBO_LOGO.png"
 import "./styles/brands.css"
 
-
+ 
 
 
 const Brands = () => {

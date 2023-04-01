@@ -1,6 +1,4 @@
-.cart-page {
-  padding: 50px;
-}
+
 
 table {
   border-collapse: collapse;
@@ -57,4 +55,7 @@ td img {
 
 .cart-page h2{
   padding-bottom: 30px;
+}
+.cart-page{
+  margin-top: 100px;
 }

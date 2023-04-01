@@ -27,3 +27,8 @@
     border: none;
     color: var(--pink);
 }
+
+
+.login-page,.signup-page{
+    margin-top: 100px;
+}

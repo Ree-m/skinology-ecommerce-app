@@ -1,5 +1,6 @@
 .search-products-page {
     padding: 0px 100px;
+    margin-top: 100px;
 }
 
 .search-products-page h1 {
@@ -54,6 +55,7 @@
 .search-bar form{
     display: flex;
     flex-direction: row;
+    gap: 5px;
 
 }
 .search-bar button{
