@@ -49,7 +49,7 @@ const ProductPage = ({ addToCart,addToGuestCart }) => {
     return (
         <div className="product-page">
 
-            <div className="flex product-page-sub-1">
+            <div className="product-page-sub-1">
                 <img className="product-page-main-img" src={`http://localhost:9000/${product.image}`} alt={`Image of ${product.name}`} />
 
                 <div className="product-details">
@@ -64,7 +64,7 @@ const ProductPage = ({ addToCart,addToGuestCart }) => {
                             <button className="btn" onClick={() => addToCart(product._id, userInfo.id, 1, product.name,product.brand, product.price, product.image)}>Add to cart</button>
                         </div>
                     )}
- 
+  
                     {!userInfo &&(
                         <div className="btn-container">
                             <button className="btn" onClick={()=>addToGuestCart(product)}>Add to cart</button>

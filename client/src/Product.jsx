@@ -17,7 +17,7 @@ const Product = ({ product, _id, name, brand, quantity, price, image }) => {
         }
     }, [refresh])
 
-
+ 
     return (
         <div className="product center">
 

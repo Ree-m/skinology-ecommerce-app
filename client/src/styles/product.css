@@ -1,4 +1,4 @@
-.product-image img{
+.product-image img {
 
     width: 90%;
     height: auto;
@@ -7,13 +7,36 @@
 }
 
 
-.product-image:hover{
+.product-image:hover {
     opacity: 0.4;
 }
-.product-title-main{
+
+.product-title-main {
     font-size: 0.5rem;
 }
 
-.product h2{
+.product h2 {
     padding: 10px 0px;
 }
+.product{
+    padding-right: 15px;
+}
+
+
+
+/* mobile */
+/* @media (max-width: 480px) {
+
+    .product-title {
+        font-size: 0.3rem;
+    }
+
+    .product-image img {
+
+    
+        height: 50px;
+        width: auto;
+        padding-bottom: 10px;
+    
+    }
+} */

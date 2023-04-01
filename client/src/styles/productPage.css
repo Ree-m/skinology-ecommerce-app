@@ -12,6 +12,8 @@
 
 .product-page-sub-1{
     padding-bottom: 100px;
+    display: flex;
+    align-items: flex-start;
 }
 .product-info h1{
     padding-bottom: 20px;

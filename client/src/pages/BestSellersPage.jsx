@@ -27,4 +27,4 @@ const BestPage = () => {
      ); 
 }
  
-export default BestPage;
+export default BestPage;  

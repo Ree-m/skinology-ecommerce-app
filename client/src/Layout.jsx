@@ -6,7 +6,7 @@ const Layout = ({cartItems,setCartItems}) => {
         <main>
             <Header cartItems={cartItems} setCartItems={setCartItems} />
             <Outlet />
-            <Footer />
+            {/* <Footer /> */}
 
         </main>
      );
