@@ -6,6 +6,8 @@ body {
 }
 
 
+
+
 * {
     --pink: #f8c0d8;
     --main-text-color: #4a4e4d;
@@ -138,15 +140,28 @@ a:hover {
 /* Small screens */
 @media (max-width: 576px) {
     .btn {
-      font-size: 14px;
-      padding: 10px 16px;
+        font-size: 14px;
+        padding: 10px 16px;
     }
-  }
-  
-  /* Medium screens */
-  @media (min-width: 577px) and (max-width: 992px) {
+}
+
+/* Medium screens */
+@media (min-width: 577px) and (max-width: 992px) {
     .btn {
-      font-size: 16px;
-      padding: 12px 20px;
+        font-size: 16px;
+        padding: 12px 20px;
     }
-  }
+}
+
+@media (max-width:480px) {
+    .home-page .padded {
+        padding: 10px;
+    }
+}
+
+@media (min-width:1440px){
+    .btn{
+        padding: 15px 32px 15px;
+        font-size: 2.5rem ;
+    }
+}

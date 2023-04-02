@@ -60,48 +60,57 @@ const AddPage = () => {
                     <input type="text"
                         placeholder="name"
                         value={name}
-                        onChange={(e) => setName(e.target.value)} />
+                        onChange={(e) => setName(e.target.value)}
+                        required />
 
                     <input type="text"
                         placeholder="brand"
                         value={brand}
-                        onChange={(e) => setBrand(e.target.value)} />
+                        onChange={(e) => setBrand(e.target.value)}
+                        required />
 
                     <input type="text"
                         placeholder="description"
                         value={description}
-                        onChange={(e) => setDescription(e.target.value)} />
+                        onChange={(e) => setDescription(e.target.value)}
+                        required />
 
 
                     <input type="text"
                         placeholder="category"
                         value={category}
-                        onChange={(e) => setCategory(e.target.value)} />
+                        onChange={(e) => setCategory(e.target.value)}
+                        required />
 
                     <input type="text"
                         placeholder="use"
                         value={use}
-                        onChange={(e) => setUse(e.target.value)} />
+                        onChange={(e) => setUse(e.target.value)}
+                        required />
 
                     <input type="text"
                         placeholder="ingredients"
                         value={ingredients}
-                        onChange={(e) => setIngredients(e.target.value)} />
+                        onChange={(e) => setIngredients(e.target.value)}
+                        required />
 
                     <input type="number"
                         placeholder="quantity"
                         value={quantity}
-                        onChange={(e) => setQuantity(e.target.value)} />
+                        onChange={(e) => setQuantity(e.target.value)}
+                        required />
 
                     <input type="number"
                         placeholder="price"
                         value={price}
-                        onChange={(e) => setPrice(e.target.value)} />
+                        onChange={(e) => setPrice(e.target.value)}
+                        required />
 
 
                     <input className="file-input" type="file"
+                        onChange={(e) => setFiles(e.target.files)}
+                        required />
 
-                        onChange={(e) => setFiles(e.target.files)} />
                     <button className="btn">Add product</button>
 
                 </div>

@@ -53,7 +53,7 @@ const Header = ({ cartItems, setCartItems }) => {
     if (!isUserLoggedIn) {
         return (
             <header className="header">
-                <div className="flex">
+                <div className="flex logo-container">
                     <Link to={"/"} className="logo">SKINOLOGY</Link>
                 </div>
 
@@ -76,6 +76,7 @@ const Header = ({ cartItems, setCartItems }) => {
 
 
                         <div className="nav-2 flex">
+                            <Link to={"/"} className="" >Home</Link>
                             <Link to={"/bestSellersPage"} className="" >Best</Link>
                             <Link to={"/newProducts"} className="">New </Link>
                         </div>
@@ -114,6 +115,7 @@ const Header = ({ cartItems, setCartItems }) => {
 
 
                         <div className="nav-2 flex">
+                            <Link to={"/"} className="" >Home</Link>
                             <Link to={"/bestSellersPage"} className="" >Best</Link>
                             <Link to={"/newProducts"} className="">New </Link>
                         </div>
@@ -138,6 +140,7 @@ const Header = ({ cartItems, setCartItems }) => {
                         </div>
 
                         <div className="nav-2 flex">
+                            <Link to={"/"} className="" >Home</Link>
                             <Link to={"/bestSellersPage"} className="" >Best</Link>
                             <Link to={"/newProducts"} className="">New </Link>
                         </div>

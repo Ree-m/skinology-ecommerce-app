@@ -58,7 +58,7 @@ const ProductPage = ({ addToCart,addToGuestCart }) => {
                         <span>${product.price}</span>
                         <br />
                     </div>
-
+ 
                     {userInfo && (
                         <div className="btn-container">
                             <button className="btn" onClick={() => addToCart(product._id, userInfo.id, 1, product.name,product.brand, product.price, product.image)}>Add to cart</button>

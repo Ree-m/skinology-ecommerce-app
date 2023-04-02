@@ -19,7 +19,7 @@ const SearchedProductsPage = () => {
       })
 
   }, [query])
-
+ 
   return (
     <div className="search-products-page">
       <h1>Search Results for "{query}"</h1>
@@ -32,7 +32,10 @@ const SearchedProductsPage = () => {
 
               <img src={`http://localhost:9000/${item.image}`} alt="" />
               <Link to={`/product/${item._id}`}><p>[{item.brand}] {item.name}</p></Link>
-              <span>{item.price}</span>
+              <div className="search-price">
+              <span>${item.price}</span>
+
+              </div>
             </div>
           ))}
         </ul>

@@ -29,4 +29,4 @@ const NewProductsPage = () => {
     );
 }
 
-export default NewProductsPage;
+export default NewProductsPage;  

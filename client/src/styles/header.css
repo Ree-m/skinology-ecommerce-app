@@ -27,10 +27,12 @@ nav {
   border-radius: 5px;
   position: relative;
   top: -15px;
- }
- .cart:hover{
+}
+
+.cart:hover {
   color: inherit;
- }
+}
+
 /* 
 .header {
   height: 250px;
@@ -53,34 +55,56 @@ background-color: aqua;
 }  */
 
 /* for non-loggedIn users */
-header{
+header {
   height: 210px;
   padding: 20px 60px;
   border-bottom: 1px solid var(--border-color);
   /* margin-bottom: 100px;  */
 }
 
-.logo{
+.logo {
   font-size: 2.5rem;
   font-weight: bold;
 
 }
-.logo:hover{
+
+.logo:hover {
   color: inherit;
 }
 
 .nav-main {
-display: flex;
-justify-content: flex-end;
-align-items: flex-start;
-padding-top: 30px;
-gap:15px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-top: 30px;
+  gap: 15px;
 }
 
 .nav-2 {
   width: 100%;
-  font-size:1.5rem;
+  font-size: 1.5rem;
   padding-top: 30px;
   gap: 100px;
 }
 
+
+@media (max-width:1000px) {
+  header{
+    height: 150px;
+    padding-top: 50px;
+  }
+  .nav-main{
+    display: none;
+  }
+  div .nav-2{
+    display: none;
+  }
+  .logo{
+    font-size: 1.8rem;
+  }
+  header div .logo-container{
+    display: flex;
+    align-items: flex-end;
+  }
+
+} 
