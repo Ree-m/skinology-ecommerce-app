@@ -14,7 +14,7 @@ require("dotenv").config({ path: "../config/.env" });
 const saltRounds = 10
 const salt = bcrypt.genSaltSync(saltRounds)
 const secret ="kj06d8eg4dbklpo3ie3u2x86k047gfbc7ny"
-console.log('Secret:', secret);
+console.log('Secret:');
 
 
 
@@ -70,10 +70,10 @@ exports.postLogin = async (req, res) => {
 
 
 
-exports.getProfile = (req, res) => {
-  const token=req.cookies.token
+exports.getProfile = async (req, res) => {
+  const {token}=req.cookies.token
 
-  jwt.verify(req.cookies.token, secret, {}, (error, userInfo) => {
+  jwt.verify(token, secret, {}, (error, userInfo) => {
     if (error) throw error
     res.json(userInfo)
   })

@@ -96,7 +96,7 @@ const ProductPage = ({ addToCart,addToGuestCart }) => {
 
 
 
-                    {userInfo && userInfo.username === "reemreem" && (
+                    {userInfo && userInfo.username ==="admin" && (
                         <div className="edit-row">
                             <Link to={`/edit/${product._id}`}>
 
@@ -106,7 +106,7 @@ const ProductPage = ({ addToCart,addToGuestCart }) => {
                         </div>
 
                     )}
-                    {userInfo && userInfo.username === "reemreem" && (
+                    {userInfo && userInfo.username === "admin" && (
                         <button className="btn" onClick={deleteProduct}>delete</button>
 
                     )}

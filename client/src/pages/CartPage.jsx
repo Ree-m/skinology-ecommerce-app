@@ -150,10 +150,14 @@ const CartPage = ({ cartItems, setCartItems }) => {
                         {Object.values(guestCart).map((item) => (
                             <tr key={item._id}>
                                 <td>
-                                    <img src={`http://localhost:9000/${item.image}`} alt={`Image of ${item.name}`} />
+                                    <Link to={`/product/${item._id}`}>
+                                        <img src={`http://localhost:9000/${item.image}`} alt={`Image of ${item.name}`} />
+                                    </Link>
                                 </td>
                                 <td>
-                                    [{item.brand}] {item.name}
+                                    <Link to={`/product/${item.id}`}>
+                                        [{item.brand}] {item.name}
+                                    </Link>
                                 </td>
                                 <td>
                                     <span>{item.price}</span>
@@ -205,9 +209,15 @@ const CartPage = ({ cartItems, setCartItems }) => {
                     <tbody>
                         {cartItems[0].products.map((item) => (
                             <tr key={item._id}>
-                                <td><img src={`http://localhost:9000/${item.image}`} alt={`Image of {item.an}`} /></td>
                                 <td>
-                                    [{item.brand}] {item.name}
+                                    <Link to={`/product/${item.productId}`}>
+                                        <img src={`http://localhost:9000/${item.image}`} alt={`Image of {item.an}`} />
+                                    </Link>
+                                </td>
+                                <td>
+                                    <Link to={`/product/${item.productId}`}>
+                                        [{item.brand}] {item.name}
+                                    </Link>
                                 </td>
                                 <td>${item.price}</td>
                                 <td>

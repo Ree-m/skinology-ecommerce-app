@@ -48,7 +48,7 @@ const MyCarousel = ({ carouselItems, setCarouselItems }) => {
 
 
                 {carouselItems && carouselItems.length > 0 && carouselItems.map(product => {
-                    console.log("this is carouselitems", product);
+                    // console.log("this is carouselitems", product);
                     return (
                         <div key={product._id}>
                             <Product product={product} {...product} />

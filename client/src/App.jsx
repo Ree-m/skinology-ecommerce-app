@@ -92,7 +92,7 @@ function App() {
     let guestCart = JSON.parse(localStorage.getItem('guestCart')) || {};
   
     // Add the item to the guest cart
-    if (guestCart[item._id]) { //if the product is n cart,incrment quntity
+    if (guestCart[item._id]) { //if the product is in cart,increment quantity
       guestCart[item._id].quantity += 1;
     } else {
       guestCart[item._id] = {

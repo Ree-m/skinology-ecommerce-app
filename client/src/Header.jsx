@@ -20,8 +20,8 @@ const Header = ({ cartItems, setCartItems }) => {
     useEffect(() => {
         fetch("http://localhost:9000/profile/", {
             credentials: "include",
-        }).then(response => {
-            response.json().then(userInfo => {
+        }).then(response => {response.json()
+            .then(userInfo => {
                 setUserInfo(userInfo)
             })
         })
@@ -73,6 +73,39 @@ const Header = ({ cartItems, setCartItems }) => {
                         </div>
 
 
+                        <div className="mobile">
+
+                            <div className="mobile-main">
+                                <button
+                                    className="mobile-menu-icon"
+                                    onClick={() => setIsMobile(!isMobile)}>
+                                    {isMobile ? <i className="fas fa-times"></i> : <i className="fas fa-bars"></i>}
+                                </button>
+
+                                <Link to={"/"} ><h1 className="logo">SKINOLOGY</h1></Link>
+
+                                <Link to={"/cart/" + userInfo.id} className="cart">
+                                    <FontAwesomeIcon icon={faCartPlus} />
+                                    <span>{cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length === 0 ? ("") : cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length}</span>
+                                </Link>
+                            </div>
+
+
+                            {/* Mobile Menu */}
+                            {isMobile && (
+                                <div className="mobile-menu">
+                                    <SearchBar />
+                                    <Link to={"/"} className="" onClick={() => setIsMobile(false)}>Home</Link>
+                                    <Link to={"/bestSellersPage"} className="" onClick={() => setIsMobile(false)}>Best</Link>
+                                    <Link to={"/newProducts"} className="" onClick={() => setIsMobile(false)}>New</Link>
+                                    <Link to={"/signup"} className="" onClick={() => setIsMobile(false)}>Login</Link>
+                                    <Link to={"/login"} className="" onClick={() => setIsMobile(false)}>SignUp</Link>
+
+                                </div>
+                            )}
+
+                        </div>
+
 
 
                     </nav>
@@ -89,7 +122,7 @@ const Header = ({ cartItems, setCartItems }) => {
 
             <nav>
                 {/* for admin */}
-                {username && username == "reemreem" && (
+                {username && username == "admin" && (
                     <nav>
                         <div className="nav-main">
                             <Link to="/add">Add new product</Link>
@@ -138,6 +171,7 @@ const Header = ({ cartItems, setCartItems }) => {
                                     <Link to={"/"} className="" onClick={() => setIsMobile(false)}>Home</Link>
                                     <Link to={"/bestSellersPage"} className="" onClick={() => setIsMobile(false)}>Best</Link>
                                     <Link to={"/newProducts"} className="" onClick={() => setIsMobile(false)}>New</Link>
+                                    <Link to={"/add"} onClick={() => setIsMobile(false)}>Add new product</Link>
                                     <a className="logout" onClick={() => { logout(); setIsMobile(false) }}>Logout({username})</a>
 
                                 </div>
@@ -152,7 +186,7 @@ const Header = ({ cartItems, setCartItems }) => {
 
                 )}
 
-                {username && username !== "reemreem" && (
+                {username && username !== "admin" && (
                     <nav>
                         <div className="nav-main">
                             <a className="logout" onClick={logout}>Logout({username})</a>
@@ -170,6 +204,40 @@ const Header = ({ cartItems, setCartItems }) => {
                             <Link to={"/bestSellersPage"} className="" >Best</Link>
                             <Link to={"/newProducts"} className="">New </Link>
                         </div>
+
+                        <div className="mobile">
+
+                            <div className="mobile-main">
+                                <button
+                                    className="mobile-menu-icon"
+                                    onClick={() => setIsMobile(!isMobile)}>
+                                    {isMobile ? <i className="fas fa-times"></i> : <i className="fas fa-bars"></i>}
+                                </button>
+
+                                <Link to={"/"} ><h1 className="logo">SKINOLOGY</h1></Link>
+
+                                <Link to={"/cart/" + userInfo.id} className="cart">
+                                    <FontAwesomeIcon icon={faCartPlus} />
+                                    <span>{cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length === 0 ? ("") : cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length}</span>
+                                </Link>
+                            </div>
+
+
+                            {/* Mobile Menu */}
+                            {isMobile && (
+                                <div className="mobile-menu">
+                                    <SearchBar />
+                                    <Link to={"/"} className="" onClick={() => setIsMobile(false)}>Home</Link>
+                                    <Link to={"/bestSellersPage"} className="" onClick={() => setIsMobile(false)}>Best</Link>
+                                    <Link to={"/newProducts"} className="" onClick={() => setIsMobile(false)}>New</Link>
+                                    <a className="logout" onClick={() => { logout(); setIsMobile(false) }}>Logout({username})</a>
+
+                                </div>
+                            )}
+
+
+                        </div>
+
 
 
 
