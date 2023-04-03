@@ -16,10 +16,10 @@ const Footer = () => {
                     <p className="paragraph">Skinology is your one stop online shop to purchase the trendiest products. We aim to bring a wide range and affordable selection, as well as sharing with you the latest tips and secrets in skincare.</p>
                 </div>
 
-
                 <div>
                     <h4 className="title-small font-600">More Info</h4>
                     <div className="footer-nav">
+    
                         <Link to={"/aboutPage"} className="footer-link"><p>About Skinology</p></Link>
                         <Link to={"/termsAndConditionsPage"}className="footer-link"><p>Terms & Condidtions</p></Link>
 

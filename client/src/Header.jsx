@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "./UserContext";
@@ -13,6 +13,7 @@ import "./styles/header.css"
 
 const Header = ({ cartItems, setCartItems }) => {
     const { setUserInfo, userInfo } = useContext(UserContext)
+    const [isMobile, setIsMobile] = useState(false)
     const navigate = useNavigate()
 
 
@@ -41,14 +42,6 @@ const Header = ({ cartItems, setCartItems }) => {
     const guestCart = JSON.parse(localStorage.getItem("guestCart"))  //get the guestCart from localStorage
 
 
-    // Define classes for different user types
-    const headerClass = "header"
-    const adminClass = username === "reemreem" ? "admin" : ""
-    const loggedInClass = isUserLoggedIn ? "logged-in" : ""
-    const notLoggedInClass = !isUserLoggedIn ? "not-logged-in" : ""
-
-
-    // `${headerClass} ${adminClass} ${loggedInClass} ${notLoggedInClass}`
 
     if (!isUserLoggedIn) {
         return (
@@ -70,8 +63,6 @@ const Header = ({ cartItems, setCartItems }) => {
                             </Link>
 
                             <SearchBar />
-
-
                         </div>
 
 
@@ -92,7 +83,7 @@ const Header = ({ cartItems, setCartItems }) => {
 
     return (
         <header className="header">
-            <div className="flex">
+            <div className="flex logo-container">
                 <Link to={"/"} className="logo">SKINOLOGY</Link>
             </div>
 
@@ -122,8 +113,43 @@ const Header = ({ cartItems, setCartItems }) => {
 
 
 
+                        <div className="mobile">
+
+                            <div className="mobile-main">
+                                <button
+                                    className="mobile-menu-icon"
+                                    onClick={() => setIsMobile(!isMobile)}>
+                                    {isMobile ? <i className="fas fa-times"></i> : <i className="fas fa-bars"></i>}
+                                </button>
+
+                                <Link to={"/"} ><h1 className="logo">SKINOLOGY</h1></Link>
+
+                                <Link to={"/cart/" + userInfo.id} className="cart">
+                                    <FontAwesomeIcon icon={faCartPlus} />
+                                    <span>{cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length === 0 ? ("") : cartItems && cartItems[0] && cartItems[0].products && cartItems[0].products.length}</span>
+                                </Link>
+                            </div>
+
+
+                            {/* Mobile Menu */}
+                            {isMobile && (
+                                <div className="mobile-menu">
+                                    <SearchBar />
+                                    <Link to={"/"} className="" onClick={() => setIsMobile(false)}>Home</Link>
+                                    <Link to={"/bestSellersPage"} className="" onClick={() => setIsMobile(false)}>Best</Link>
+                                    <Link to={"/newProducts"} className="" onClick={() => setIsMobile(false)}>New</Link>
+                                    <a className="logout" onClick={() => { logout(); setIsMobile(false) }}>Logout({username})</a>
+
+                                </div>
+                            )}
+
+
+                        </div>
+
 
                     </nav>
+
+
                 )}
 
                 {username && username !== "reemreem" && (
