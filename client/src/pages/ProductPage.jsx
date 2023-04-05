@@ -9,9 +9,9 @@ import "../styles/productPage.css";
 import NewProducts from "../NewProducts";
 import "../styles/newProducts.css";
 import { FaRegEdit } from "react-icons/fa";
-// import dotenv from 'dotenv';
-export const apiUrl = process.env.REACT_APP_API_URL;
+import { API_URL } from "../constants";
 
+console.log(API_URL);
 // dotenv.config();
 
 const ProductPage = ({ addToCart, addToGuestCart, isUserLoggedIn }) => {
@@ -20,12 +20,9 @@ const ProductPage = ({ addToCart, addToGuestCart, isUserLoggedIn }) => {
   const { id } = useParams(); //this is productid
   const { userInfo } = useContext(UserContext);
   const navigate = useNavigate();
-//   const apiUrl = process.env.REACT_APP_API_URL;
-  console.log("url",process.env.REACT_APP_API_URL,apiUrl);
-
 
   useEffect(() => {
-    fetch(`http://localhost:9000/product/${id}`).then((res) => {
+    fetch(`${API_URL}/product/${id}`).then((res) => {
       res.json().then((product) => {
         setProduct(product);
       });
@@ -35,7 +32,7 @@ const ProductPage = ({ addToCart, addToGuestCart, isUserLoggedIn }) => {
   async function deleteProduct(e) {
     e.preventDefault();
 
-    const response = fetch(`http://localhost:9000/deleteProduct/${id}`, {
+    const response = fetch(`${API_URL}/deleteProduct/${id}`, {
       method: "DELETE",
     });
     setRedirect(true);
@@ -53,7 +50,7 @@ const ProductPage = ({ addToCart, addToGuestCart, isUserLoggedIn }) => {
       <div className="product-page-sub-1">
         <img
           className="product-page-main-img"
-          src={`http://localhost:9000/${product.image}`}
+          src={`${API_URL}/${product.image}`}
           alt={`Image of ${product.name}`}
         />
 

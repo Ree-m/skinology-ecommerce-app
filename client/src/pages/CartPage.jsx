@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../UserContext";
 import "../styles/cartPage.css";
 import { MdDelete } from "react-icons/md";
+import { API_URL } from "../constants";
 
 const CartPage = ({
   cartItems,
@@ -22,7 +23,7 @@ const CartPage = ({
 
   async function removeFromCart(productId) {
     try {
-      await fetch(`http://localhost:9000/cart/${userInfo.id}/${productId}`, {
+      await fetch(`${API_URL}/cart/${userInfo.id}/${productId}`, {
         method: "DELETE",
         credentials: "include",
       });
@@ -41,7 +42,7 @@ const CartPage = ({
   async function updateQuantity(productId, newQuantity) {
     try {
       const response = await fetch(
-        `http://localhost:9000/cart/updateQuantity/${userInfo.id}/${productId}/${newQuantity}`,
+        `${API_URL}/cart/updateQuantity/${userInfo.id}/${productId}/${newQuantity}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -50,7 +51,7 @@ const CartPage = ({
       );
       const data = await response.json();
       console.log("this is cartItems,before update", data);
-      setCartItems(data);
+      //   setCartItems(data);
       console.log("this is new cartItems,after update", data);
     } catch (error) {
       console.error(error);
@@ -62,11 +63,11 @@ const CartPage = ({
     if (newQuantity >= 1) {
       updateQuantity(productId, newQuantity);
       setCartItems((prevCartItems) => {
-        const newCartItems = { ...prevCartItems }; // newCartItems is the same as prev one
-        const index = newCartItems[0].products.findIndex(
+        const newCartItems = [...prevCartItems]; // create a new array with the same items as the previous one
+        const productIndex = newCartItems[0].products.findIndex(
           (item) => item.productId === productId
         ); //find the index the item i just updated
-        newCartItems[0].products[index].quantity = newQuantity; // the quantity of the item i uodated is newQuantity
+        newCartItems[0].products[productIndex].quantity = newQuantity; // update the quantity of the item in the existing state object
         return newCartItems;
       });
     }
@@ -74,13 +75,13 @@ const CartPage = ({
 
   const handlePlusClick = (productId, quantity) => {
     const newQuantity = quantity + 1;
-    updateQuantity(productId, newQuantity);
+
     setCartItems((prevCartItems) => {
-      const newCartItems = { ...prevCartItems }; // newCartItems is the same as prev one
-      const index = newCartItems[0].products.findIndex(
+      const newCartItems = [...prevCartItems]; // create a new array with the same items as the previous one
+      const productIndex = newCartItems[0].products.findIndex(
         (item) => item.productId === productId
       ); //find the index the item i just updated
-      newCartItems[0].products[index].quantity = newQuantity; // the quantity of the item i uodated is newQuantity
+      newCartItems[0].products[productIndex].quantity = newQuantity; // update the quantity of the item in the existing state object
       return newCartItems;
     });
   };
@@ -113,7 +114,7 @@ const CartPage = ({
                       <td>
                         <Link to={`/product/${item._id}`}>
                           <img
-                            src={`http://localhost:9000/${item.image}`}
+                            src={`${API_URL}/${item.image}`}
                             alt={`Image of ${item.name}`}
                           />
                         </Link>
@@ -170,11 +171,11 @@ const CartPage = ({
   return (
     <div className="cart-page">
       <h2 className="center">Cart</h2>
-      {cartItems === undefined ||
-      (cartItems &&
-        cartItems[0] &&
-        cartItems[0].products &&
-        cartItems[0].products.length === 0)
+      {
+      cartItems &&
+      cartItems[0] &&
+      cartItems[0].products &&
+      cartItems[0].products.length === 0
         ? "Cart is empty"
         : cartItems &&
           cartItems[0] &&
@@ -195,7 +196,7 @@ const CartPage = ({
                     <td>
                       <Link to={`/product/${item.productId}`}>
                         <img
-                          src={`http://localhost:9000/${item.image}`}
+                          src={`${API_URL}/${item.image}`}
                           alt={`Image of {item.an}`}
                         />
                       </Link>

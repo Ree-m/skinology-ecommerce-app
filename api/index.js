@@ -14,7 +14,6 @@ const logger = require("morgan");
 const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const uploadMiddleware = multer({ dest: "uploads/" });
-require("dotenv");
 // routes
 const mainRoutes = require("./routes/main");
 const cartRoutes = require("./routes/cart");

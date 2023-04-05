@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../styles/searchProductsPage.css";
+import { API_URL } from "../constants";
 
 const SearchedProductsPage = () => {
   const [results, setResults] = useState([]);
@@ -9,7 +10,7 @@ const SearchedProductsPage = () => {
   const query = new URLSearchParams(location.search).get("query");
 
   useEffect(() => {
-    fetch(`http://localhost:9000/search/${query}`)
+    fetch(`${API_URL}/search/${query}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data, "this is data");
@@ -28,7 +29,7 @@ const SearchedProductsPage = () => {
             <div className="products" key={item._id}>
               <Link to={`/product/${item._id}`}>
                 <img
-                  src={`http://localhost:9000/${item.image}`}
+                  src={`${API_URL}/${item.image}`}
                   alt={`Image of ${item.name}`}
                 />
               </Link>
