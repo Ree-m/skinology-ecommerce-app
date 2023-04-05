@@ -1,10 +1,7 @@
-
-
 table {
   border-collapse: collapse;
   width: 100%;
 }
-
 
 tr {
   border: 1px solid #ccc;
@@ -53,10 +50,10 @@ td img {
   align-items: center;
 }
 
-.cart-page h2{
+.cart-page h2 {
   padding-bottom: 30px;
 }
-.cart-page{
+.cart-page {
   margin-top: 100px;
   padding: 0px 20px;
 }

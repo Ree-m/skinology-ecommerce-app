@@ -1,70 +1,65 @@
-import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
-import { Routes, Route } from 'react-router-dom'
-import Header from './Header'
-import Layout from './Layout';
-import HomePage from './pages/HomePage'
-import LoginPage from './pages/LoginPage'
-import SignupPage from './pages/SignupPage'
-import AddPage from './pages/AddPage';
-import { UserContextProvider } from './UserContext'
-import ProductPage from './pages/ProductPage';
-import EditProductPage from './pages/EditProductPage';
-import CartPage from './pages/CartPage';
-import SearchedProductsPage from './pages/SearchedProductsPage'
-import NewProductsPage from './pages/NewProductsPage'
-import BestPage from './pages/BestSellersPage'
-// import Checkout from './Checkout'
-import { useContext } from 'react';
-import { UserContext } from './UserContext';
-import AboutPage from './pages/AboutPage';
+import { useState, useEffect } from "react";
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import Layout from "./Layout";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
+import AddPage from "./pages/AddPage";
+import ProductPage from "./pages/ProductPage";
+import EditProductPage from "./pages/EditProductPage";
+import CartPage from "./pages/CartPage";
+import SearchedProductsPage from "./pages/SearchedProductsPage";
+import NewProductsPage from "./pages/NewProductsPage";
+import BestPage from "./pages/BestSellersPage";
+import { useContext } from "react";
+import { UserContext } from "./UserContext";
+import AboutPage from "./pages/AboutPage";
+import dotenv from "dotenv";
 
 
 function App() {
-  const [products, setProducts] = useState([])
-  const [cartItems, setCartItems] = useState(null)
-  const [cart, setCart] = useState([])
-  const [guestCart, setGuestCart] = useState(JSON.parse(localStorage.getItem("guestCart")))
-  const { setUserInfo, userInfo } = useContext(UserContext)
+
+  const [products, setProducts] = useState([]);
+  const [cartItems, setCartItems] = useState(null);
+  const [cart, setCart] = useState([]);
+  const [guestCart, setGuestCart] = useState(
+    JSON.parse(localStorage.getItem("guestCart"))
+  );
+  const { setUserInfo, userInfo } = useContext(UserContext);
 
   // const { userInfo } = useContext(UserContext)
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
-
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
   // get profile and isUserLoggedIn
   useEffect(() => {
     fetch("http://localhost:9000/profile/", {
       credentials: "include",
     })
-      .then(response => {
+      .then((response) => {
         if (response.ok) {
           return response.json();
         } else {
           throw new Error("Failed to fetch user profile.");
         }
       })
-      .then(userInfo => {
-        setIsUserLoggedIn(true)
+      .then((userInfo) => {
+        setIsUserLoggedIn(true);
         setUserInfo(userInfo);
-
-
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
-      })
-  }, [])
+      });
+  }, []);
 
   // get all products in homepage
   useEffect(() => {
-    fetch("http://localhost:9000/allProducts")
-      .then(res => {
-        res.json()
-          .then(products => {
-            setProducts(products)
-          })
-      })
-  }, [])
+    fetch("http://localhost:9000/allProducts").then((res) => {
+      res.json().then((products) => {
+        setProducts(products);
+      });
+    });
+  }, []);
 
   // get cart
   useEffect(() => {
@@ -76,27 +71,37 @@ function App() {
         .then((data) => {
           console.log("this is cartItems", data[0].products); // check the response from the server
           setCartItems(data);
-
-
         })
         .catch((error) => console.error(error));
-
     }
-
   }, [userInfo]);
 
   // add to cart
-  async function addToCart(productId, userId, quantity, name, brand, price, image) {
-
-    console.log('adding to cart...');
+  async function addToCart(
+    productId,
+    userId,
+    quantity,
+    name,
+    brand,
+    price,
+    image
+  ) {
+    console.log("adding to cart...");
     try {
       const response = await fetch("http://localhost:9000/cart/add", {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId, productId, quantity, name, brand, price, image }),
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId,
+          productId,
+          quantity,
+          name,
+          brand,
+          price,
+          image,
+        }),
       });
       const data = await response.json();
-
 
       // fetch the latest cart data from the server
       fetch(`http://localhost:9000/cart/${userInfo.id}`, {
@@ -109,7 +114,6 @@ function App() {
         })
         .catch((error) => console.error(error));
       return data.success;
-
     } catch (error) {
       console.error(error);
       return false;
@@ -118,124 +122,151 @@ function App() {
 
   // add to guest cart
   function addToGuestCart(item) {
-    console.log('adding to guest cart', { item })
+    console.log("adding to guest cart", { item });
 
     // Add the item to the guest cart
     const addedGuestCart = {
       ...guestCart,
       [item._id]: {
         ...item,
-        quantity: guestCart[item._id] ? guestCart[item._id].quantity + 1 : 1  //if the guestCart hass the item,increment the quantity or else set quantity to 1
-      }
-
-    }
-    setGuestCart(addedGuestCart)
+        quantity: guestCart[item._id] ? guestCart[item._id].quantity + 1 : 1, //if the guestCart hass the item,increment the quantity or else set quantity to 1
+      },
+    };
+    setGuestCart(addedGuestCart);
 
     // Save the guest cart to local storage
-    localStorage.setItem('guestCart', JSON.stringify(addedGuestCart));
-    console.log('reem', 'finished adding to guest cart',{item})
-
+    localStorage.setItem("guestCart", JSON.stringify(addedGuestCart));
+    console.log("reem", "finished adding to guest cart", { item });
   }
-
 
   // remove from guestCart
 
   function removeFromGuestCart(itemId) {
-    const deletedGuestCart = { ...guestCart }
+    const deletedGuestCart = { ...guestCart };
 
     // delete
-    delete deletedGuestCart[itemId]
-    setGuestCart(deletedGuestCart)
+    delete deletedGuestCart[itemId];
+    setGuestCart(deletedGuestCart);
 
     // save
-    localStorage.setItem("guestCart", JSON.stringify(deletedGuestCart))
+    localStorage.setItem("guestCart", JSON.stringify(deletedGuestCart));
   }
 
-
   const updateGuestQunatity = (itemId, newQuantity) => {
-    const updatedGuestcart = { ...guestCart }
+    const updatedGuestcart = { ...guestCart };
 
     // get the item to be updated
-    let item = updatedGuestcart[itemId]
+    let item = updatedGuestcart[itemId];
 
     // If the item exists in the cart and the new quantity is valid, update the quantity and save to local storage
 
     if (item) {
       if (newQuantity === 0) {
-        delete updatedGuestcart[itemId]  //if newQuantity=0,delete
+        delete updatedGuestcart[itemId]; //if newQuantity=0,delete
       } else {
-
-        item.quantity = newQuantity  //+1 or -1 the quantity
+        item.quantity = newQuantity; //+1 or -1 the quantity
 
         // save the updated item in localStorage
-        updatedGuestcart[itemId] = item
+        updatedGuestcart[itemId] = item;
       }
-      setGuestCart(updatedGuestcart)
+      setGuestCart(updatedGuestcart);
 
-      localStorage.setItem("guestCart", JSON.stringify(updatedGuestcart))
-
+      localStorage.setItem("guestCart", JSON.stringify(updatedGuestcart));
     }
-
-  }
+  };
 
   const handleGuestPlusClick = (itemId) => {
     // get guestCart
-    const updatedGuestCart = { ...guestCart }
+    const updatedGuestCart = { ...guestCart };
 
     // get qunatity and +1
-    let quantity = updatedGuestCart[itemId].quantity
-    const newQuantity = quantity + 1
+    let quantity = updatedGuestCart[itemId].quantity;
+    const newQuantity = quantity + 1;
     updatedGuestCart[itemId].quantity = newQuantity;
 
+    setGuestCart(updatedGuestCart);
 
-    setGuestCart(updatedGuestCart)
-
-    updateGuestQunatity(itemId, newQuantity)
-  }
-
+    updateGuestQunatity(itemId, newQuantity);
+  };
 
   const handleGuestMinusClick = (itemId) => {
     // get guestCart
-    const updatedGuestCart = { ...guestCart }
-
+    const updatedGuestCart = { ...guestCart };
 
     // get qunatity and -1
-    let quantity = updatedGuestCart[itemId].quantity
-    const newQuantity = quantity - 1
+    let quantity = updatedGuestCart[itemId].quantity;
+    const newQuantity = quantity - 1;
     // updatedGuestCart[itemId] = item;
     updatedGuestCart[itemId].quantity = newQuantity;
 
-    setGuestCart(updatedGuestCart)
+    setGuestCart(updatedGuestCart);
 
-    updateGuestQunatity(itemId, newQuantity)
-  }
-
-
+    updateGuestQunatity(itemId, newQuantity);
+  };
 
   return (
     <Routes>
-      <Route path={"/"} element={<Layout cartItems={cartItems} setCartItems={setCartItems} isUserLoggedIn={isUserLoggedIn} setIsUserLoggedIn={setIsUserLoggedIn} userInfo={userInfo} setUserInfo={setUserInfo} />} >
-
-        <Route index element={<HomePage products={products} setProducts={setProducts} />} />
+      <Route
+        path={"/"}
+        element={
+          <Layout
+            cartItems={cartItems}
+            setCartItems={setCartItems}
+            isUserLoggedIn={isUserLoggedIn}
+            setIsUserLoggedIn={setIsUserLoggedIn}
+            userInfo={userInfo}
+            setUserInfo={setUserInfo}
+          />
+        }
+      >
+        <Route
+          index
+          element={<HomePage products={products} setProducts={setProducts} />}
+        />
 
         <Route path={"/login"} element={<LoginPage />} />
         <Route path={"/signup"} element={<SignupPage />} />
         <Route path="/add" element={<AddPage />} />
-        <Route path="/product/:id" element={<ProductPage addToCart={addToCart} addToGuestCart={addToGuestCart} isUserLoggedIn={isUserLoggedIn} />} />
+        <Route
+          path="/product/:id"
+          element={
+            <ProductPage
+              addToCart={addToCart}
+              addToGuestCart={addToGuestCart}
+              isUserLoggedIn={isUserLoggedIn}
+            />
+          }
+        />
         <Route path="/edit/:id" element={<EditProductPage />} />
-        <Route path="/cart/:userId" element={<CartPage cartItems={cartItems} setCartItems={setCartItems} isUserLoggedIn={isUserLoggedIn} removeFromGuestCart={removeFromGuestCart} />} />
-        <Route path="/cart/guest" element={<CartPage removeFromGuestCart={removeFromGuestCart} isUserLoggedIn={isUserLoggedIn} handleGuestMinusClick={handleGuestMinusClick} handleGuestPlusClick={handleGuestPlusClick} />} />
+        <Route
+          path="/cart/:userId"
+          element={
+            <CartPage
+              cartItems={cartItems}
+              setCartItems={setCartItems}
+              isUserLoggedIn={isUserLoggedIn}
+              removeFromGuestCart={removeFromGuestCart}
+            />
+          }
+        />
+        <Route
+          path="/cart/guest"
+          element={
+            <CartPage
+              removeFromGuestCart={removeFromGuestCart}
+              isUserLoggedIn={isUserLoggedIn}
+              handleGuestMinusClick={handleGuestMinusClick}
+              handleGuestPlusClick={handleGuestPlusClick}
+            />
+          }
+        />
         <Route path="/search" element={<SearchedProductsPage />} />
         <Route path="/newProducts" element={<NewProductsPage />} />
         <Route path="/bestSellersPage" element={<BestPage />} />
         <Route path="/aboutPage" element={<AboutPage />} />
-
-
-
       </Route>
     </Routes>
-
-  )
+  );
 }
 
-export default App
+export default App;
