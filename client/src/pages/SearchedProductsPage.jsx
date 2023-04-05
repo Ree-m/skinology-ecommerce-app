@@ -19,7 +19,7 @@ const SearchedProductsPage = () => {
       })
 
   }, [query])
- 
+
   return (
     <div className="search-products-page">
       <h1>Search Results for "{query}"</h1>
@@ -30,10 +30,12 @@ const SearchedProductsPage = () => {
           {results.map((item) => (
             <div className="products" key={item._id}>
 
-              <img src={`http://localhost:9000/${item.image}`} alt="" />
+              <Link to={`/product/${item._id}`}>
+                <img src={`http://localhost:9000/${item.image}`} alt={`Image of ${item.name}`} />
+              </Link>
               <Link to={`/product/${item._id}`}><p>[{item.brand}] {item.name}</p></Link>
               <div className="search-price">
-              <span>${item.price}</span>
+                <span>${item.price}</span>
 
               </div>
             </div>

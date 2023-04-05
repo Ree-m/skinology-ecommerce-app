@@ -12,7 +12,7 @@ const AddPage = () => {
     const [category, setCategory] = useState("")
     const [use, setUse] = useState("")
     const [ingredients, setIngredients] = useState("")
-    const [quantity, setQuantity] = useState("")
+    const [size, setSize] = useState("")
     const [price, setPrice] = useState("")
     const [files, setFiles] = useState("")
     const [redirect, setRedirect] = useState(false)
@@ -29,7 +29,7 @@ const AddPage = () => {
         data.set("category", category)
         data.set("use", use)
         data.set("ingredients", ingredients)
-        data.set("quantity", quantity)
+        data.set("size", size)
         data.set("price", price)
         data.set("file", files[0])
 
@@ -83,6 +83,8 @@ const AddPage = () => {
                         required />
 
                     <input type="text"
+
+            
                         placeholder="use"
                         value={use}
                         onChange={(e) => setUse(e.target.value)}
@@ -95,9 +97,9 @@ const AddPage = () => {
                         required />
 
                     <input type="number"
-                        placeholder="quantity"
-                        value={quantity}
-                        onChange={(e) => setQuantity(e.target.value)}
+                        placeholder="size"
+                        value={size}
+                        onChange={(e) => setSize(e.target.value)}
                         required />
 
                     <input type="number"

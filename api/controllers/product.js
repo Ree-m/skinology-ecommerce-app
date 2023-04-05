@@ -29,7 +29,7 @@ exports.postAdd = async (req, res) => {
         category: req.body.category,
         use: req.body.use,
         ingredients: req.body.ingredients,
-        quantity: req.body.quantity,
+        size: req.body.size,
         price: req.body.price,
         image: newPath
     })
@@ -68,6 +68,15 @@ exports.getBestProducts = async (req, res) => {
     res.json(products)
 }
 
+exports.getCarouselProducts = async (req, res) => {
+    const products = await Product.find()
+        .limit(10)
+
+    res.json(products)
+}
+
+
+
 exports.getProduct = async (req, res) => {
     const { id } = req.params
     const product = await Product.findById(id)
@@ -93,7 +102,7 @@ exports.editProduct = async (req, res) => {
         category: req.body.category,
         use: req.body.use,
         ingredients: req.body.ingredients,
-        quantity: req.body.quantity,
+        size: req.body.size,
         price: req.body.price,
         image: newPath ? newPath :product.image
     })

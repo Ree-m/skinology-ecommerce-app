@@ -10,12 +10,12 @@ const Product = ({ product, _id, name, brand, quantity, price, image }) => {
         setRefresh(true)
     }
 
-    useEffect(() => {
-        if (refresh) {
-            setRefresh(false); // reset to avoid infinite loop
-            window.location.reload(); // page refreshes
-        }
-    }, [refresh])
+    // useEffect(() => {
+    //     if (refresh) {
+    //         setRefresh(false); // reset to avoid infinite loop
+    //         window.location.reload(); // page refreshes
+    //     }
+    // }, [refresh])
 
  
     return (
@@ -28,7 +28,7 @@ const Product = ({ product, _id, name, brand, quantity, price, image }) => {
             </div>
             <div className="product-title">
                 <Link to={`/product/${_id}`}>
-                    <h2 onClick={onClick} className="title-small">[{brand}] {name}</h2>
+                    <h2 onClick={onClick} className="title-small capital">[{brand}] {name}</h2>
                 </Link>
             </div>
 

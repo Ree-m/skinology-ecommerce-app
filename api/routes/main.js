@@ -7,6 +7,7 @@ const passport=require("passport")
 const multer = require('multer')
 const uploadMiddleware = multer({ dest: 'uploads/',limits:{fieldSize:25* 1024 * 1024} })
 const fs = require("fs");
+const isAuthenticated = require("../middleware/isAuthenticated.js");
 
 
 app.use("/uploads", express.static(__dirname + "/uploads"))
@@ -23,6 +24,7 @@ router.get("/allProducts",productContoller.getAllProducts)
 router.get("/newProducts",productContoller.getNewProducts) //only some
 router.get("/bestProducts",productContoller.getBestProducts) //only some
 router.get("/allNewProducts",productContoller.getAllNewProducts) 
+router.get("/allCarouselProducts",productContoller.getCarouselProducts)  //only some
 router.get("/product/:id",productContoller.getProduct)
 router.put("/edit/:id",uploadMiddleware.single("file"),productContoller.editProduct)
 router.delete("/deleteProduct/:id",productContoller.deleteProduct)

@@ -5,18 +5,18 @@ const UserSchema =new mongoose.Schema({
     username:{
         type:String,
         min:4,
-        unique:true
+        unique:true,
         
     },
     email:{
         type:String,
         required:true,
-        unique:true
+        unique:true,
     },
     password:{
         type:String,
         min:8,
-        required:true
+        required:true,
     }
 },{
     timestamps:true

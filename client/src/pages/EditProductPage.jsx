@@ -11,7 +11,7 @@ const EditProduct = () => {
     const [category, setCategory] = useState("")
     const [use, setUse] = useState("")
     const [ingredients, setIngredients] = useState("")
-    const [quantity, setQuantity] = useState("")
+    const [size, setSize] = useState("")
     const [price, setPrice] = useState("")
     const [files, setFiles] = useState("")
     const [redirect, setRedirect] = useState(false)
@@ -74,9 +74,9 @@ const EditProduct = () => {
 
 
                     <input type="number"
-                        placeholder="quantity"
-                        vaue={quantity}
-                        onChange={(e) => setQuantity(e.target.value)} />
+                        placeholder="size"
+                        vaue={size}
+                        onChange={(e) => setSize(e.target.value)} />
 
                     <input type="number"
                         placeholder="price"

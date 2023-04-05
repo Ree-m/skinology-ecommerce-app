@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 import "../styles/login-signup.css"
 
@@ -24,9 +24,11 @@ const RegisterPage = () => {
 
     }
 
-    if (redirect) {
-        return navigate("/")
-    }
+    useEffect(() => {
+        if (redirect) {
+          navigate("/");
+        }
+      }, [redirect, navigate]);
 
     return (
         <form className="signup-page" onSubmit={signup}>

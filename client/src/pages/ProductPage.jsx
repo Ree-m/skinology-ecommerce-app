@@ -14,11 +14,12 @@ import { FaRegEdit } from "react-icons/fa";
 
 
 
-const ProductPage = ({ addToCart,addToGuestCart }) => {
+const ProductPage = ({ addToCart, addToGuestCart, isUserLoggedIn }) => {
     const [product, setProduct] = useState("")
     const [redirect, setRedirect] = useState(false)
-    const [cart, setCart] = useState([])
     const { id } = useParams() //this is productid 
+    // const { setUserInfo, userInfo } = useContext(UserContext)
+    // const [isUserLoggedIn,setIsUserLoggedIn]=useState(false)
     const { userInfo } = useContext(UserContext)
     const navigate = useNavigate();
 
@@ -29,7 +30,11 @@ const ProductPage = ({ addToCart,addToGuestCart }) => {
                 setProduct(product)
             })
         })
-    }, [])
+    }, [id]) //when id changes,useEffect runs, when I clcik on different product in the new section,this "id" dependency is crucial
+
+     
+
+
     async function deleteProduct(e) {
         e.preventDefault()
 
@@ -44,6 +49,7 @@ const ProductPage = ({ addToCart,addToGuestCart }) => {
     if (redirect) {
         return navigate("/")
     }
+
     if (!product) return ""
 
     return (
@@ -54,20 +60,20 @@ const ProductPage = ({ addToCart,addToGuestCart }) => {
 
                 <div className="product-details">
                     <div className="product-info">
-                        <h1 className="title-medium">[{product.brand}] {product.name}</h1>
+                        <h1 className="title-medium capital">[{product.brand}] {product.name}</h1>
                         <span>${product.price}</span>
                         <br />
                     </div>
- 
-                    {userInfo && (
+
+                    {isUserLoggedIn && (
                         <div className="btn-container">
-                            <button className="btn" onClick={() => addToCart(product._id, userInfo.id, 1, product.name,product.brand, product.price, product.image)}>Add to cart</button>
+                            <button className="btn" onClick={() => addToCart(product._id, userInfo.id, 1, product.name, product.brand, product.price, product.image)}>Add to cart</button>
                         </div>
                     )}
-  
-                    {!userInfo &&(
+
+                    {!isUserLoggedIn && (
                         <div className="btn-container">
-                            <button className="btn" onClick={()=>addToGuestCart(product)}>Add to cart</button>
+                            <button className="btn" onClick={() => addToGuestCart(product)}>Add to cart</button>
                         </div>
                     )}
 
@@ -96,7 +102,7 @@ const ProductPage = ({ addToCart,addToGuestCart }) => {
 
 
 
-                    {userInfo && userInfo.username ==="admin" && (
+                    {userInfo && userInfo.username === "admin" && (
                         <div className="edit-row">
                             <Link to={`/edit/${product._id}`}>
 

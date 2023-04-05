@@ -21,11 +21,11 @@ const Footer = () => {
                     <div className="footer-nav">
     
                         <Link to={"/aboutPage"} className="footer-link"><p>About Skinology</p></Link>
-                        <Link to={"/termsAndConditionsPage"}className="footer-link"><p>Terms & Condidtions</p></Link>
+                        <Link className="footer-link"><p>Terms & Condidtions</p></Link>
 
-                        <Link to={"/shippingPage"} className="footer-link"><p>Shipping</p></Link>
+                        <Link className="footer-link"><p>Shipping</p></Link>
 
-                        <Link to={"/privacyPolicyPage"} className="footer-link"><p>Privacy Policy</p></Link>
+                        <Link className="footer-link"><p>Privacy Policy</p></Link>
 
                     </div>
                 </div>

@@ -9,12 +9,11 @@ const HomePage = ({ products, setProducts }) => {
     const [carouselItems, setCarouselItems] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:9000/allProducts")
+        fetch("http://localhost:9000/allCarouselProducts")
             .then(res => res.json())
             .then(products =>
                 setCarouselItems(products)
             )
-        console.log("carouselItems", products)
 
     }, [])
 
@@ -25,13 +24,7 @@ const HomePage = ({ products, setProducts }) => {
             <div className="padded">
                 <MyCarousel carouselItems={carouselItems} setCarouselItems={setCarouselItems} />
                 <NewProducts />
-                {/* <h1>All Products</h1>
-            {products && products.length > 0 && products.map(product => (
-                <div key={product._id}>
-                    <Product product={product} {...product} />
-                </div>
-            ))
-            } */}
+            
                 <Brands />
             </div>
 

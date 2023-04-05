@@ -7,14 +7,13 @@ const jwt = require("jsonwebtoken")
 const validator = require("validator")
 const bcrypt = require("bcryptjs")
 const cookieParser = require("cookie-parser")
-require("dotenv").config({ path: "../config/.env" });
+require("dotenv").config({ path: "./config/.env" });
 
 
 // To hash a password
-const saltRounds = 10
-const salt = bcrypt.genSaltSync(saltRounds)
-const secret ="kj06d8eg4dbklpo3ie3u2x86k047gfbc7ny"
-console.log('Secret:');
+const salt = bcrypt.genSaltSync(10)
+const secret = process.env.secret
+console.log('Secret:',secret);
 
 
 
@@ -35,27 +34,37 @@ exports.postSignup = async (req, res) => {
     res.status(200).json(userInfoToSave);
 
   } catch (error) {
-    console.log(error)
-    res.status(400).json({ message: error })
+    if (error.code === 11000) {
+      // Duplicate key error
+      res.status(400).json({ message: "Username or email already exists." });
+    }
+    else {
+      console.log(error)
+      res.status(400).json({ message: error })
+
+    }
   }
 }
 
 exports.postLogin = async (req, res) => {
   const { username, email, password } = req.body
-  const userInfo = await User.findOne({ username,email}).exec()
+  const userInfo = await User.findOne({ username, email }).exec()
 
   if (!userInfo) {
     // User not found
     return res.status(400).json({ message: "Invalid login credentials." });
   }
-  console.log("trying to login", userInfo)
+  console.log("trying to login",secret, userInfo)
   const passOk = await bcrypt.compare(password, userInfo.password)
 
   if (passOk) {
     // logged in
-    jwt.sign({ username, email,id: userInfo._id }, secret, {}, (err, token) => { //this token gets used in /profile
+    jwt.sign({ username, email, id: userInfo._id }, secret, {}, (err, token) => { //this token gets used in /profile
       if (err) throw err
+      console.log("Token:", token);
+
       res.cookie('token', token).json({
+
         id: userInfo._id,
         username,
         email
@@ -70,11 +79,13 @@ exports.postLogin = async (req, res) => {
 
 
 
-exports.getProfile = async (req, res) => {
-  const {token}=req.cookies.token
+exports.getProfile = (req, res) => {
 
-  jwt.verify(token, secret, {}, (error, userInfo) => {
-    if (error) throw error
+  jwt.verify(req.cookies.token, secret, {}, (error, userInfo) => {
+    if (error) {
+      console.log(error);
+      return res.status(401).json({ message: "Invalid token" })
+    }
     res.json(userInfo)
   })
 }

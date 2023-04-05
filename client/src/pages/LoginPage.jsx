@@ -1,4 +1,4 @@
-import { useState, useContext } from "react"
+import { useState, useContext ,useEffect} from "react"
 import { Navigate } from "react-router-dom"
 import { UserContext } from "../UserContext"
 import { useNavigate } from "react-router-dom"
@@ -38,11 +38,11 @@ const LoginPage = () => {
         }
     }
 
-    // if redirect is true,redirect to homepage from loginpage
-    if (redirect) {
-        return navigate("/")
-    }
-
+    useEffect(() => {
+        if (redirect) {
+          navigate("/");
+        }
+      }, [redirect, navigate]);
 
     return (
         <form className="login-page" onSubmit={login}>
@@ -60,8 +60,8 @@ const LoginPage = () => {
                 <input type="password"
                     placeholder="Password"
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)} 
-                    required/>
+                    onChange={(e) => setPassword(e.target.value)}
+                    required />
 
                 <input type="email"
                     placeholder="Email"
@@ -71,7 +71,7 @@ const LoginPage = () => {
 
                 <button className="btn">Login</button>
 
-                <p>Don't have an account? <button onClick={()=>navigate("/signup")}>Create one</button> </p>
+                <p>Don't have an account? <button onClick={() => navigate("/signup")}>Create one</button> </p>
             </div>
 
 

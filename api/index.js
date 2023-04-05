@@ -49,14 +49,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Setup Sessions - stored in MongoDB
 app.use(
     session({
-        secret:"keyboard cat" ,
+        secret:process.env.session_secret ,
         resave: false,  // dont save session if unmodified
         saveUninitialized: false,  //dont  create session until something stored
         
     })
 )
 
-app.use(cookieParser("secretcode"))  
+app.use(cookieParser(process.env.cookie_secret))  
 
 //Passport middleware
 app.use(passport.initialize())
