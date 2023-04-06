@@ -19,7 +19,6 @@ const CartPage = ({
 }) => {
   const { userInfo } = useContext(UserContext);
   const navigate = useNavigate();
-  // const [deleteUpdate, setDeleteUpdate] = useState(false); // set to true to refresh when deleted/updated
 
   async function removeFromCart(productId) {
     try {
@@ -95,9 +94,9 @@ const CartPage = ({
     return (
       <div className="cart-page">
         <h2 className="center">Cart</h2>
-        {Object.keys(guestCart).length === 0
+        {!guestCart
           ? "Cart is empty"
-          : Object.keys(guestCart).length > 0 && (
+          : Object.keys(guestCart).length>0  && (
               <table>
                 <thead>
                   <tr>
