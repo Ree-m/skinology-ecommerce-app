@@ -6,7 +6,7 @@ import { API_URL } from "../constants";
 const RegisterPage = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");a
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const [redirect, setRedirect] = useState(false);
 

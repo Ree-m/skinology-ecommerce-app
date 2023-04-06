@@ -16,8 +16,6 @@
     padding-bottom: 15px;
 }
 
-
-
 .footer-icon {
     font-size: 2rem;
 }
@@ -56,6 +54,9 @@
 
     .paragraph {
         width: 70%;
+    }
+    .footer-link {
+        padding: 55px 25px;
     }
 }
 

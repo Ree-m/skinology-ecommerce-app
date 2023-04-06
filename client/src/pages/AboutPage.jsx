@@ -25,7 +25,6 @@ const AboutPage = () => {
         like a mini spa session.
       </p>
       <p className="center">
-        {" "}
         We are always on the lookout for new and exciting products to add to our
         collection. We believe that innovation is key to staying ahead in the
         world of skincare, and we want to offer our customers the latest and
