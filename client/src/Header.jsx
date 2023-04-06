@@ -26,7 +26,7 @@ const Header = ({
     if (isProfileFetched) {
       setIsUserLoggedIn(!!userInfo);
     } else {
-      fetch(`${API_URL}/profile/`, {
+      fetch(`${API_URL}profile/`, {
         credentials: "include",
       })
         .then((response) => {
@@ -48,7 +48,7 @@ const Header = ({
 
   // To logout the cookie needs to be invalid
   async function logout() {
-    await fetch(`${API_URL}/logout`, {
+    await fetch(`${API_URL}logout`, {
       method: "POST",
       credentials: "include",
     });

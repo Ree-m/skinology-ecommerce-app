@@ -12,7 +12,7 @@ const RegisterPage = () => {
 
   async function signup(e) {
     e.preventDefault();
-    const response = fetch(`${API_URL}/signup`, {
+    const response = fetch(`${API_URL}signup`, {
       method: "POST",
       body: JSON.stringify({ username, password, email }),
       headers: {

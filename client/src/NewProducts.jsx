@@ -9,7 +9,7 @@ const NewProducts = () => {
 
   // get new products
   useEffect(() => {
-    fetch(`${API_URL}/newProducts`).then((res) => {
+    fetch(`${API_URL}newProducts`).then((res) => {
       res.json().then((products) => {
         setNewProducts(products);
       });

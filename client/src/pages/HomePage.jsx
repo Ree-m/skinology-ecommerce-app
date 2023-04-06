@@ -10,7 +10,7 @@ const HomePage = ({ products, setProducts }) => {
   const [carouselItems, setCarouselItems] = useState([]);
 
   useEffect(() => {
-    fetch(`${API_URL}/allCarouselProducts`)
+    fetch(`${API_URL}allCarouselProducts`)
       .then((res) => res.json())
       .then((products) => setCarouselItems(products));
   }, []);
