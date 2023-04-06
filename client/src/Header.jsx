@@ -80,11 +80,7 @@ const Header = ({
 
             <Link className="cart" to={"/cart/guest"}>
               <i className="fas fa-cart-plus"></i>
-              <span>
-                {Object.keys(guestCart).length === 0
-                  ? ""
-                  : Object.keys(guestCart).length}
-              </span>
+              <span>{guestCart && Object.keys(guestCart).length}</span>
             </Link>
 
             <SearchBar />
@@ -121,7 +117,7 @@ const Header = ({
 
               <Link to={"/cart/guest"} className="cart">
                 <i className="fas fa-cart-plus"></i>
-                <span>{Object.keys(guestCart).length}</span>{" "}
+                <span>{guestCart && Object.keys(guestCart).length}</span>{" "}
               </Link>
             </div>
 
