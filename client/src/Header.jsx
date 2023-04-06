@@ -26,7 +26,7 @@ const Header = ({
     if (isProfileFetched) {
       setIsUserLoggedIn(!!userInfo);
     } else {
-      fetch(`${API_URL}/profile/`, {
+      fetch(`${API_URL}/profile`, {
         credentials: "include",
       })
         .then((response) => {
