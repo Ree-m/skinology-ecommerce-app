@@ -6,7 +6,7 @@ import { API_URL } from "../constants";
 const NewProductsPage = () => {
   const [newProducts, setNewProducts] = useState([]);
   useEffect(() => {
-    fetch(`${API_URL}allNewProducts`).then((res) => {
+    fetch(`${API_URL}/allNewProducts`).then((res) => {
       res.json().then((products) => {
         setNewProducts(products);
       });
