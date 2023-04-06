@@ -34,7 +34,7 @@ function App() {
 
   // get profile and isUserLoggedIn
   useEffect(() => {
-    fetch(`${API_URL}profile/`, {
+    fetch(`${API_URL}/profile/`, {
       credentials: "include",
     })
       .then((response) => {
@@ -55,7 +55,7 @@ function App() {
 
   // get all products in homepage
   useEffect(() => {
-    fetch(`${API_URL}allProducts`).then((res) => {
+    fetch(`${API_URL}/allProducts`).then((res) => {
       res.json().then((products) => {
         setProducts(products);
       });
@@ -65,7 +65,7 @@ function App() {
   // get cart
   useEffect(() => {
     if (userInfo && userInfo.id) {
-      fetch(`${API_URL}cart/${userInfo.id}`, {
+      fetch(`${API_URL}/cart/${userInfo.id}`, {
         credentials: "include",
       })
         .then((res) => res.json())
@@ -89,7 +89,7 @@ function App() {
   ) {
     console.log("adding to cart...");
     try {
-      const response = await fetch(`${API_URL}cart/add`, {
+      const response = await fetch(`${API_URL}/cart/add`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -105,7 +105,7 @@ function App() {
       const data = await response.json();
 
       // fetch the latest cart data from the server
-      fetch(`${API_URL}cart/${userInfo.id}`, {
+      fetch(`${API_URL}/cart/${userInfo.id}`, {
         credentials: "include",
       })
         .then((res) => res.json())

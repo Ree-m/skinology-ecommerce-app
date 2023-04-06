@@ -20,7 +20,7 @@ const EditProduct = () => {
 
   async function updateProduct(e) {
     e.preventDefault();
-    const response = fetch(`${API_URL}edit/${id}`, {
+    const response = fetch(`${API_URL}/edit/${id}`, {
       method: "PUT",
       body: JSON.stringify({
         name,

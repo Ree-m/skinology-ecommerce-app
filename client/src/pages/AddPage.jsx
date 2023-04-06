@@ -30,7 +30,7 @@ const AddPage = () => {
     data.set("price", price);
     data.set("file", files[0]);
 
-    const response = fetch(`${API_URL}add`, {
+    const response = fetch(`${API_URL}/add`, {
       method: "POST",
       body: data,
       credentials: "include",

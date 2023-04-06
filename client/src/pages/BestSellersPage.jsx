@@ -7,7 +7,7 @@ const BestPage = () => {
   const [bestProducts, setBestProducts] = useState([]);
 
   useEffect(() => {
-    fetch(`${API_URL}bestProducts`)
+    fetch(`${API_URL}/bestProducts`)
       .then((res) => res.json())
       .then((products) => {
         setBestProducts(products);

@@ -23,7 +23,7 @@ const Product = ({ product, _id, name, brand, quantity, price, image }) => {
         <Link to={`/product/${_id}`}>
           <img
             onClick={onClick}
-            src={`${API_URL}${image}`}
+            src={`${API_URL}/${image}`}
             alt={`Image of ${name}`}
           />
         </Link>

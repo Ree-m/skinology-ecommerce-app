@@ -23,7 +23,7 @@ const CartPage = ({
 
   async function removeFromCart(productId) {
     try {
-      await fetch(`${API_URL}cart/${userInfo.id}/${productId}`, {
+      await fetch(`${API_URL}/cart/${userInfo.id}/${productId}`, {
         method: "DELETE",
         credentials: "include",
       });
@@ -42,7 +42,7 @@ const CartPage = ({
   async function updateQuantity(productId, newQuantity) {
     try {
       const response = await fetch(
-        `${API_URL}cart/updateQuantity/${userInfo.id}/${productId}/${newQuantity}`,
+        `${API_URL}/cart/updateQuantity/${userInfo.id}/${productId}/${newQuantity}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -114,7 +114,7 @@ const CartPage = ({
                       <td>
                         <Link to={`/product/${item._id}`}>
                           <img
-                            src={`${API_URL}${item.image}`}
+                            src={`${API_URL}/${item.image}`}
                             alt={`Image of ${item.name}`}
                           />
                         </Link>
@@ -196,7 +196,7 @@ const CartPage = ({
                     <td>
                       <Link to={`/product/${item.productId}`}>
                         <img
-                          src={`${API_URL}${item.image}`}
+                          src={`${API_URL}/${item.image}`}
                           alt={`Image of {item.an}`}
                         />
                       </Link>

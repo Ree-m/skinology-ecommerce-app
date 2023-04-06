@@ -22,7 +22,7 @@ const ProductPage = ({ addToCart, addToGuestCart, isUserLoggedIn }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`${API_URL}product/${id}`).then((res) => {
+    fetch(`${API_URL}/product/${id}`).then((res) => {
       res.json().then((product) => {
         setProduct(product);
       });
@@ -32,7 +32,7 @@ const ProductPage = ({ addToCart, addToGuestCart, isUserLoggedIn }) => {
   async function deleteProduct(e) {
     e.preventDefault();
 
-    const response = fetch(`${API_URL}deleteProduct/${id}`, {
+    const response = fetch(`${API_URL}/deleteProduct/${id}`, {
       method: "DELETE",
     });
     setRedirect(true);
@@ -50,7 +50,7 @@ const ProductPage = ({ addToCart, addToGuestCart, isUserLoggedIn }) => {
       <div className="product-page-sub-1">
         <img
           className="product-page-main-img"
-          src={`${API_URL}${product.image}`}
+          src={`${API_URL}/${product.image}`}
           alt={`Image of ${product.name}`}
         />
 
