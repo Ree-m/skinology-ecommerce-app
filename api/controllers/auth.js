@@ -74,7 +74,7 @@ exports.postLogin = async (req, res) => {
 };
 
 exports.getProfile = (req, res) => {
-  console.log("Token:", req.cookies.tokens);
+  console.log("Token:", req.cookies.token);
 
   jwt.verify(req.cookies.token, secret, {}, (error, userInfo) => {
     if (error) {
