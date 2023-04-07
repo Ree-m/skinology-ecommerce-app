@@ -125,6 +125,13 @@ td img {
   
 }
     
+@media(min-width:769px){
+  .deleteIcon{
+    font-size: 1.5rem;
+  }
+}
+
+
 
     
     

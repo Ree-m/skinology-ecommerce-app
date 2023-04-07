@@ -60,7 +60,7 @@ exports.postLogin = async (req, res) => {
         if (err) throw err;
         console.log("Token:", token);
 
-        res.cookie("token", token).json({
+        res.cookie("token", token, { domain: process.env.API_DOMAIN }).json({
           id: userInfo._id,
           username,
           email,
@@ -84,5 +84,5 @@ exports.getProfile = (req, res) => {
 };
 
 exports.postLogout = (req, res) => {
-  res.cookie("token", "").json("ok"); //sets "token" to empty/invalid
+  res.cookie("token", "", { domain: process.env.API_DOMAIN }).json("ok"); //sets "token" to empty/invalid
 };
