@@ -87,5 +87,5 @@ exports.getProfile = (req, res) => {
 exports.postLogout = (req, res) => {
   console.log("logging out");
   console.log("API_DOMAIN:", process.env.API_DOMAIN);
-  res.cookie("token", "").json("ok"); //sets "token" to empty/invalid
+  res.cookie("token", "", { sameSite: "none" }).json("ok"); //sets "token" to empty/invalid
 };
