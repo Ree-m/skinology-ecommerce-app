@@ -26,7 +26,7 @@ function App() {
     JSON.parse(localStorage.getItem("guestCart")) || {}
   );
   const { setUserInfo, userInfo } = useContext(UserContext);
-  // const jwtToken = Cookies.get("token");
+  const jwtToken = Cookies.get("token");
 
   // const { userInfo } = useContext(UserContext)
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
@@ -36,9 +36,9 @@ function App() {
     console.log("starting to fetch profile")
     fetch(`${API_URL}/profile`, {
       credentials: "include",
-      // headers: {
-      //   Authorization: `Bearer ${jwtToken}`,
-      // },
+      headers: {
+        Authorization: `Bearer ${jwtToken}`,
+      },
     })
       .then((response) => {
         if (response.ok) {
