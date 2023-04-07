@@ -11,7 +11,6 @@ import "./styles/header.css";
 import { API_URL } from "./constants";
 // import Cookies from 'js-cookie';
 
-
 const Header = ({
   cartItems,
   setCartItems,
@@ -22,7 +21,6 @@ const Header = ({
   const [isMobile, setIsMobile] = useState(false);
   const [isProfileFetched, setIsProfileFetched] = useState(false);
   // const jwtToken = Cookies.get('token');
-
 
   const navigate = useNavigate();
 
@@ -125,9 +123,12 @@ const Header = ({
                 <h1 className="logo">SKINOLOGY</h1>
               </Link>
 
-              <Link to={"/cart/guest"} className="cart">
+              <Link className="cart" to={"/cart/guest"}>
                 <i className="fas fa-cart-plus"></i>
-                {/* <span>{guestCart && Object.keys(guestCart).length}</span>{" "} */}
+
+                {guestCart && Object.keys(guestCart).length > 0 && (
+                  <span>{Object.keys(guestCart).length}</span>
+                )}
               </Link>
             </div>
 

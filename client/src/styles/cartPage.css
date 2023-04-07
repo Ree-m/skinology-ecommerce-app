@@ -38,7 +38,7 @@ td img {
 }
 
 .deleteIcon {
-  font-size: 1rem;
+  font-size: 1.2rem;
   cursor: pointer;
 }
 
@@ -70,7 +70,7 @@ td img {
   };
 
  .deleteIcon {
-    font-size: 1rem !important;
+    font-size: 1rem;
   }
   th{
     padding: 2px;
