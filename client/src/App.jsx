@@ -33,7 +33,7 @@ function App() {
 
   // get profile and isUserLoggedIn
   useEffect(() => {
-    console.log("starting to fetch profile")
+    console.log("starting to fetch profile") 
     fetch(`${API_URL}/profile`, {
       credentials: "include",
       headers: {

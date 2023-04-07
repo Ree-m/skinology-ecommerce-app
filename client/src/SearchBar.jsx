@@ -13,8 +13,8 @@ const SearchBar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate(`/search?query=${query}`);
     console.log(query);
+    // navigate(`/search?query=${query}`);
     setQuery(""); //to empty the input after search
   };
 
@@ -27,9 +27,7 @@ const SearchBar = () => {
           placeholder="Search"
           onChange={(e) => setQuery(e.target.value)}
         />
-        <Link to={"/search"}>
-          <button type="submit">Search</button>
-        </Link>
+        <button type="submit">Search</button>
       </form>
     </div>
   );

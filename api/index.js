@@ -24,11 +24,11 @@ const User = require("./models/User");
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
 
-process.env.API_URL = process.env.API_URL;
 
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
-app.use(cors({ credentials: true, origin: process.env.allowed_origins }));
+app.use(cors({ credentials: true, origin: ["http://localhost:5173"] }));
+
 
 // Connect to DataBase
 mongoose.connect(process.env.DB_STRING, console.log("DB is connected"));
@@ -37,7 +37,6 @@ mongoose.connect(process.env.DB_STRING, console.log("DB is connected"));
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
 
 // Setup Sessions - stored in MongoDB
 app.use(
