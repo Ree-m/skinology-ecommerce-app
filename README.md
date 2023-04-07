@@ -66,10 +66,17 @@
 ## Features
 
 *Non-registered users can browse and search for products in the app, and add them to a guest cart.
+<br />
 *Registered users can log in to view and manage their persistent cart, including adding, deleting, and updating items.
+<br />
+
 *All users can easily search for products using the app's search function.
+<br />
+
 *The app includes two distinct interfaces: one for regular users and one for administrators.
-\*Administrators have full access to all the features of regular users, as well as the ability to add, edit, and delete products in the app.
+<br />
+
+*Administrators have full access to all the features of regular users, as well as the ability to add, edit, and delete products in the app.
 
 ## Built With
 
@@ -197,8 +204,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/screenshot.png
-
-[node.js]:
+[node.js]:https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
 [node-url]: https://nodejs.org/en
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
