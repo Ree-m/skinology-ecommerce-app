@@ -33,6 +33,7 @@ function App() {
 
   // get profile and isUserLoggedIn
   useEffect(() => {
+    console.log("starting to fetch profile")
     fetch(`${API_URL}/profile`, {
       credentials: "include",
       headers: {
@@ -49,9 +50,10 @@ function App() {
       .then((userInfo) => {
         setIsUserLoggedIn(true);
         setUserInfo(userInfo);
+        console.log("Fetching profile worked")
       })
       .catch((error) => {
-        console.log(error);
+        console.log("ERROR",error);
       });
   }, []);
 
@@ -66,6 +68,7 @@ function App() {
 
   // get cart
   useEffect(() => {
+
     if (userInfo && userInfo.id) {
       fetch(`${API_URL}/cart/${userInfo.id}`, {
         credentials: "include",
