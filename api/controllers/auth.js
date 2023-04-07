@@ -60,11 +60,16 @@ exports.postLogin = async (req, res) => {
         if (err) throw err;
         console.log("API_DOMAIN:", process.env.API_DOMAIN);
         console.log("token before", token);
-        res.cookie("token", token, { sameSite: "none" }).json({
-          id: userInfo._id,
-          username,
-          email,
-        });
+        res
+          .cookie("token", token, {
+            sameSite: "none",
+            domain: process.env.API_DOMAIN,
+          })
+          .json({
+            id: userInfo._id,
+            username,
+            email,
+          });
         console.log("token after", token);
       }
     );
@@ -89,5 +94,7 @@ exports.getProfile = (req, res) => {
 exports.postLogout = (req, res) => {
   console.log("logging out");
   console.log("API_DOMAIN:", process.env.API_DOMAIN);
-  res.cookie("token", "", { sameSite: "none" }).json("ok"); //sets "token" to empty/invalid
+  res
+    .cookie("token", "", { sameSite: "none", domain: process.env.API_DOMAIN })
+    .json("ok"); //sets "token" to empty/invalid
 };
