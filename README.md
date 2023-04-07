@@ -1,11 +1,11 @@
 <a name="readme-top"></a>
 
-[![Contributors][contributors-shield]][contributors-url]
+<!-- [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+[![LinkedIn][linkedin-shield]][linkedin-url] -->
 
 <!-- PROJECT LOGO -->
 <br />
@@ -62,7 +62,7 @@
 ## About The Project
 
 [![Skinology Ecommerce App][product-screenshot]](https://skinology-ecommerce-app-client.onrender.com/)
-
+<img src="./client/src/assets/Screenshot from 2023-04-08 02-38-06.png" alt="Image of the project" />
 Skinology is a full-stack ecommerce web app with a React frontend and an Express/MongoDB backend. It uses JSON web tokens for authentication and is fully responsive for a seamless shopping experience on any device.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -187,10 +187,10 @@ Project Link: [https://github.com/Ree-m/skinology-ecommerce-app](https://github.
 
 ## Acknowledgments
 
-_[Layout and Copy Inspiration](https://www.likeskincare.com/)
-_[Product Images and Copy Inspiration](https://www.stylevana.com/en_US/)
-_[Choose an Open Source License](https://choosealicense.com)
-_[Img Shields](https://shields.io) \*[React Icons](https://react-icons.github.io/react-icons/search)
+*[Layout and Copy Inspiration](https://www.likeskincare.com/)
+*[Product Images and Copy Inspiration](https://www.stylevana.com/en_US/)
+*[Choose an Open Source License](https://choosealicense.com)
+*[Img Shields](https://shields.io) \*[React Icons](https://react-icons.github.io/react-icons/search)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
