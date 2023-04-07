@@ -38,7 +38,7 @@ td img {
 }
 
 .deleteIcon {
-  font-size: 1.5rem;
+  font-size: 1rem;
   cursor: pointer;
 }
 
@@ -56,4 +56,76 @@ td img {
 .cart-page {
   margin-top: 100px;
   padding: 0px 20px;
+  overflow-x: hidden;
 }
+  
+
+@media (max-width:580px){
+  .cart-page{
+    padding: 0px 5px;
+  }
+  td img{
+    height: 90px;
+    width: auto
+  };
+
+ .deleteIcon {
+    font-size: 1rem !important;
+  }
+  th{
+    padding: 2px;
+    font-size: 0.55rem;
+  }
+  td{
+    padding: 2px;
+    font-size: 0.59rem;
+  }
+  .table-name{
+    font-size: 0.5rem;
+  }
+ .quantity-container span{
+  font-size:0.7rem;
+ }
+  .quantity-container button{
+    padding: 1px;
+    font-size: 0.8rem;
+  }
+  
+}
+    
+
+@media (min-width:581px) and (max-width:768px){
+  .cart-page{
+    padding: 0px 5px;
+  }
+  td img{
+    height: 130px;
+    width: auto
+  };
+
+ td i {
+    font-size: 1rem;
+    color: aqua;
+  }
+  th{
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  td{
+    padding: 5px;
+    font-size: 0.9rem;
+  }
+ .quantity-container span{
+  font-size:1rem;
+ }
+  .quantity-container button{
+    padding: 5px;
+    font-size: 1rem;
+  }
+  
+}
+    
+
+    
+    
+

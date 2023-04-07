@@ -1,5 +1,8 @@
 .footer {
-    padding-top: 100px;
+    padding-top: 50px;
+    margin-top: 50px;
+    border-top: 1px solid var(--border-color);
+
 
 }
 
@@ -8,9 +11,8 @@
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr;
     gap: 15px;
-    border-top: 1px solid var(--border-color);
 
-}
+} 
 
 .footer h4 {
     padding-bottom: 15px;

@@ -94,14 +94,14 @@ const CartPage = ({
     return (
       <div className="cart-page">
         <h2 className="center">Cart</h2>
-        {!guestCart || guestCart && Object.keys(guestCart).length===0
+        {!guestCart || (guestCart && Object.keys(guestCart).length === 0)
           ? "Cart is empty"
-          : Object.keys(guestCart).length>0  && (
+          : Object.keys(guestCart).length > 0 && (
               <table>
                 <thead>
                   <tr>
                     <th></th>
-                    <th className="capital">Product Name</th>
+                    <th className="capital">Name</th>
                     <th className="capital">Price</th>
                     <th className="capital">Quantity</th>
                     <th className="capital">Subtotal</th>
@@ -119,13 +119,14 @@ const CartPage = ({
                         </Link>
                       </td>
                       <td>
-                        <Link to={`/product/${item._id}`}>
+                        <Link
+                          to={`/product/${item._id}`}
+                          className="table-name"
+                        >
                           [{item.brand}] {item.name}
                         </Link>
                       </td>
-                      <td>
-                        <span>${item.price}</span>
-                      </td>
+                      <td>${item.price}</td>
 
                       <td>
                         <div className="quantity-container">
@@ -170,8 +171,7 @@ const CartPage = ({
   return (
     <div className="cart-page">
       <h2 className="center">Cart</h2>
-      {
-      cartItems &&
+      {cartItems &&
       cartItems[0] &&
       cartItems[0].products &&
       cartItems[0].products.length === 0
@@ -183,7 +183,7 @@ const CartPage = ({
               <thead>
                 <tr>
                   <th></th>
-                  <th className="capital">Product Name</th>
+                  <th className="capital">Name</th>
                   <th className="capital">Price</th>
                   <th className="capital">Quantity</th>
                   <th className="capital">SubTotal</th>
@@ -201,7 +201,9 @@ const CartPage = ({
                       </Link>
                     </td>
                     <td>
-                      <Link to={`/product/${item.productId}`}>
+                      <Link
+                        to={`/product/${item.productId} className="table-name"`}
+                      >
                         [{item.brand}] {item.name}
                       </Link>
                     </td>

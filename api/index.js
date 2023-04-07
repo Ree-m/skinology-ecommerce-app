@@ -28,7 +28,7 @@ process.env.API_URL = process.env.API_URL;
 
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
-app.use(cors({ credentials: true, origin: process.env.allowed_origins }));
+app.use(cors({ credentials: true, origin: ["http://localhost:5173"] }));
 
 // Connect to DataBase
 mongoose.connect(process.env.DB_STRING, console.log("DB is connected"));
