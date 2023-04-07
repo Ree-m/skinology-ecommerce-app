@@ -17,7 +17,7 @@
   <h3 align="center">Skinology Ecommerce App</h3>
 
   <p align="center">
-    Welcome to SKINOLOGY, your one stop online shop to purchase the trendiest skincare products.
+    Welcome to Skinology, a fullstack ecommerce application.
     <br />
     <a href="https://github.com/Ree-m/skinology-ecommerce-app"><strong>Explore the docs »</strong></a>
     <br />
@@ -63,6 +63,8 @@
 
 [![Skinology Ecommerce App][product-screenshot]](https://skinology-ecommerce-app-client.onrender.com/)
 
+Skinology is a full-stack ecommerce web app with a React frontend and an Express/MongoDB backend. It uses JSON web tokens for authentication and is fully responsive for a seamless shopping experience on any device.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Features
@@ -76,10 +78,10 @@
 -All users can easily search for products using the app's search function.
 <br />
 
--The app includes two distinct interfaces: one for regular users and one for administrators.
+-The app includes two distinct interfaces: one for regular users and one for admini.
 <br />
 
--Administrators have full access to all the features of regular users, as well as the ability to add, edit, and delete products in the app.
+-Admin has full access to all the features of regular users, as well as the ability to add, edit, and delete products in the app.
 
 ### Built With
 
@@ -87,7 +89,6 @@
 - [![React][react.js]][react-url]
 - [![Express][express.js]][express-url]
 - [![MongoDB][mongodb]][mongodb-url]
-- [![Bootstrap][bootstrap.com]][bootstrap-url]
 - [![JsonWebTokens][jwt]][jwt-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -104,46 +105,46 @@ username: admin password: 12345678 email: admin@gmail.com
 
 ## Getting Started
 
-<!-- This is an example of how you may give instructions on setting up your project locally.
+This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
 
 - npm
   ```sh
   npm install npm@latest -g
   ```
+  -node
 
-### Installation
+### Setup
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+```sh
+ #cd into the cloned repo
+  cd skinology-ecommerce-app
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = "ENTER YOUR API";
-   ```
+  #cd into the client folder
+  cd client
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+#install all the packages
+   npm
+
+  #start vite app
+  npm run dev
+
+  #cd into the backend folder
+  cd api
+
+  #install all the packages
+  npm install
+
+  #start server
+  node index.js
+```
 
 <!-- USAGE EXAMPLES -->
 
 ## Usage
 
-<!--
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_ --> -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -186,16 +187,13 @@ Project Link: [https://github.com/Ree-m/skinology-ecommerce-app](https://github.
 
 ## Acknowledgments
 
--[Layout and Copy Inspiration](https://www.likeskincare.com/)
--[Product Images and Copy Inspiration](https://www.stylevana.com/en_US/)
--[Choose an Open Source License](https://choosealicense.com)
--[Img Shields](https://shields.io) 
--[React Icons](https://react-icons.github.io/react-icons/search)
+_[Layout and Copy Inspiration](https://www.likeskincare.com/)
+_[Product Images and Copy Inspiration](https://www.stylevana.com/en_US/)
+_[Choose an Open Source License](https://choosealicense.com)
+_[Img Shields](https://shields.io) \*[React Icons](https://react-icons.github.io/react-icons/search)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
 [forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
 [stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
@@ -203,9 +201,7 @@ Project Link: [https://github.com/Ree-m/skinology-ecommerce-app](https://github.
 [issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
 [issues-url]: https://github.com/othneildrew/Best-README-Template/issues
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
+[license-url]: https://github.com/Ree-m/skinology-ecommerce-app/blob/main/LICENSE.txt
 [product-screenshot]: images/screenshot.png
 [node.js]: https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
 [node-url]: https://nodejs.org/en
@@ -217,5 +213,3 @@ Project Link: [https://github.com/Ree-m/skinology-ecommerce-app](https://github.
 [express-url]: https://expressjs.com/
 [jwt]: https://img.shields.io/badge/json%20web%20tokens-323330?style=for-the-badge&logo=json-web-tokens&logoColor=pink
 [jwt-url]: https://jwt.io/
-[bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[bootstrap-url]: https://getbootstrap.com
