@@ -94,7 +94,7 @@ const CartPage = ({
     return (
       <div className="cart-page">
         <h2 className="center">Cart</h2>
-        {!guestCart
+        {!guestCart || guestCart && Object.keys(guestCart).length===0
           ? "Cart is empty"
           : Object.keys(guestCart).length>0  && (
               <table>

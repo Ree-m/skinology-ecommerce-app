@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "../styles/add-editPages.css";
+import { API_URL } from "../constants";
 
 const AddPage = () => {
   const [name, setName] = useState("");

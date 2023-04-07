@@ -13,7 +13,6 @@ require("dotenv").config({ path: "./config/.env" });
 
 const salt = bcrypt.genSaltSync(10);
 const secret = process.env.secret;
-console.log("Secret:", secret);
 
 app.use(cookieParser());
 

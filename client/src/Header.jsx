@@ -80,7 +80,10 @@ const Header = ({
 
             <Link className="cart" to={"/cart/guest"}>
               <i className="fas fa-cart-plus"></i>
-              {/* <span>{guestCart && Object.keys(guestCart).length}</span> */}
+
+              {guestCart && Object.keys(guestCart).length > 0 && (
+                <span>{Object.keys(guestCart).length}</span>
+              )}
             </Link>
 
             <SearchBar />
@@ -183,17 +186,17 @@ const Header = ({
 
                 <Link to={"/cart/" + userInfo.id} className="cart">
                   <FontAwesomeIcon icon={faCartPlus} />
-                  <span>
-                    {cartItems &&
-                    cartItems[0] &&
-                    cartItems[0].products &&
-                    cartItems[0].products.length === 0
-                      ? ""
-                      : cartItems &&
-                        cartItems[0] &&
-                        cartItems[0].products &&
-                        cartItems[0].products.length}
-                  </span>
+
+                  {cartItems &&
+                  cartItems[0] &&
+                  cartItems[0].products &&
+                  cartItems[0].products.length === 0
+                    ? ""
+                    : cartItems &&
+                      cartItems[0] &&
+                      cartItems[0].products && (
+                        <span>{cartItems[0].products.length}</span>
+                      )}
                 </Link>
 
                 <SearchBar />
@@ -230,17 +233,17 @@ const Header = ({
 
                   <Link to={"/cart/" + userInfo.id} className="cart">
                     <FontAwesomeIcon icon={faCartPlus} />
-                    <span>
-                      {cartItems &&
-                      cartItems[0] &&
-                      cartItems[0].products &&
-                      cartItems[0].products.length === 0
-                        ? ""
-                        : cartItems &&
-                          cartItems[0] &&
-                          cartItems[0].products &&
-                          cartItems[0].products.length}
-                    </span>
+
+                    {cartItems &&
+                    cartItems[0] &&
+                    cartItems[0].products &&
+                    cartItems[0].products.length === 0
+                      ? ""
+                      : cartItems &&
+                        cartItems[0] &&
+                        cartItems[0].products && (
+                          <span>{cartItems[0].products.length}</span>
+                        )}
                   </Link>
                 </div>
 
@@ -296,17 +299,17 @@ const Header = ({
 
                 <Link to={"/cart/" + userInfo.id} className="cart">
                   <FontAwesomeIcon icon={faCartPlus} />
-                  <span>
-                    {cartItems &&
-                    cartItems[0] &&
-                    cartItems[0].products &&
-                    cartItems[0].products.length === 0
-                      ? ""
-                      : cartItems &&
-                        cartItems[0] &&
-                        cartItems[0].products &&
-                        cartItems[0].products.length}
-                  </span>
+
+                  {cartItems &&
+                  cartItems[0] &&
+                  cartItems[0].products &&
+                  cartItems[0].products.length === 0
+                    ? ""
+                    : cartItems &&
+                      cartItems[0] &&
+                      cartItems[0].products && (
+                        <span>{cartItems[0].products.length}</span>
+                      )}
                 </Link>
 
                 <SearchBar />
@@ -343,17 +346,16 @@ const Header = ({
 
                   <Link to={"/cart/" + userInfo.id} className="cart">
                     <FontAwesomeIcon icon={faCartPlus} />
-                    <span>
-                      {cartItems &&
-                      cartItems[0] &&
-                      cartItems[0].products &&
-                      cartItems[0].products.length === 0
-                        ? ""
-                        : cartItems &&
-                          cartItems[0] &&
-                          cartItems[0].products &&
-                          cartItems[0].products.length}
-                    </span>
+                    {cartItems &&
+                    cartItems[0] &&
+                    cartItems[0].products &&
+                    cartItems[0].products.length === 0
+                      ? ""
+                      : cartItems &&
+                        cartItems[0] &&
+                        cartItems[0].products && (
+                          <span> {cartItems[0].products.length}</span>
+                        )}
                   </Link>
                 </div>
 

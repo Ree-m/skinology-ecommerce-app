@@ -5,7 +5,6 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const session = require("express-session");
-const passportLocal = require("passport-local").Strategy;
 const mongoose = require("mongoose");
 const MongoStore = require("connect-mongo");
 const bcrypt = require("bcryptjs");
@@ -28,7 +27,7 @@ process.env.API_URL = process.env.API_URL;
 
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
-app.use(cors({ credentials: true, origin: ["http://localhost:5174/","https://skinology-ecommerce-app-client.onrender.com"]}));
+app.use(cors({ credentials: true, origin: process.env.allowed_origins }));
 
 // Connect to DataBase
 mongoose.connect(process.env.DB_STRING, console.log("DB is connected"));
@@ -38,7 +37,6 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// app.use(express.static(path.join(__dirname, 'public')));
 
 // Setup Sessions - stored in MongoDB
 app.use(
@@ -64,6 +62,6 @@ app.use("/cart", cartRoutes);
 //   const apiUrl = process.env.REACT_APP_API_URL;
 // });
 
-app.listen(process.env.PORT || 9000, () => {
+app.listen(process.env.PORT || 8000, () => {
   console.log("Server has started");
 });
