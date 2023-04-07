@@ -16,7 +16,7 @@ import { useContext } from "react";
 import { UserContext } from "./UserContext";
 import AboutPage from "./pages/AboutPage";
 import { API_URL } from "./constants";
-// import Cookies from "js-cookie";
+import Cookies from "js-cookie";
 
 function App() {
   const [products, setProducts] = useState([]);
