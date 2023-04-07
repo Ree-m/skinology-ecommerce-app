@@ -16,7 +16,6 @@ import { useContext } from "react";
 import { UserContext } from "./UserContext";
 import AboutPage from "./pages/AboutPage";
 import { API_URL } from "./constants";
-// import Cookies from "js-cookie";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -26,19 +25,15 @@ function App() {
     JSON.parse(localStorage.getItem("guestCart")) || {}
   );
   const { setUserInfo, userInfo } = useContext(UserContext);
-  // const jwtToken = Cookies.get("token");
 
   // const { userInfo } = useContext(UserContext)
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
   // get profile and isUserLoggedIn
   useEffect(() => {
-    console.log("starting to fetch profile") 
+    console.log("starting to fetch profile");
     fetch(`${API_URL}/profile`, {
       credentials: "include",
-      // headers: {
-      //   Authorization: `Bearer ${jwtToken}`,
-      // },
     })
       .then((response) => {
         if (response.ok) {
@@ -50,10 +45,10 @@ function App() {
       .then((userInfo) => {
         setIsUserLoggedIn(true);
         setUserInfo(userInfo);
-        console.log("Fetching profile worked")
+        console.log("Fetching profile worked");
       })
       .catch((error) => {
-        console.log("ERROR",error);
+        console.log("ERROR", error);
       });
   }, []);
 
@@ -68,7 +63,6 @@ function App() {
 
   // get cart
   useEffect(() => {
-
     if (userInfo && userInfo.id) {
       fetch(`${API_URL}/cart/${userInfo.id}`, {
         credentials: "include",
@@ -128,38 +122,35 @@ function App() {
 
   // add to guest cart
   function addToGuestCart(item) {
-    if(guestCart){
+    if (guestCart) {
       // of guestCart is there, add
       console.log("adding to guest cart", { item });
 
-    // Add the item to the guest cart
-    const addedGuestCart = {
-      ...guestCart,
-      [item._id]: {
-        ...item,
-        quantity: guestCart[item._id] ? guestCart[item._id].quantity + 1 : 1, //if the guestCart hass the item,increment the quantity or else set quantity to 1
-      },
-    };
-    setGuestCart(addedGuestCart);
-
-    // Save the guest cart to local storage
-    localStorage.setItem("guestCart", JSON.stringify(addedGuestCart));
-    console.log("reem", "finished adding to guest cart", { item });
-
-    }
-    else{
-      // initialize guestCart with the item
-      const initialGuestCart={
-        [item._id]:{
+      // Add the item to the guest cart
+      const addedGuestCart = {
+        ...guestCart,
+        [item._id]: {
           ...item,
-          quantity:1
-        }
-      }
+          quantity: guestCart[item._id] ? guestCart[item._id].quantity + 1 : 1, //if the guestCart hass the item,increment the quantity or else set quantity to 1
+        },
+      };
+      setGuestCart(addedGuestCart);
 
-      setGuestCart(initialGuestCart)
-      localStorage.setItem("guestCart", JSON.stringify(initialGuestCart))
+      // Save the guest cart to local storage
+      localStorage.setItem("guestCart", JSON.stringify(addedGuestCart));
+      console.log("reem", "finished adding to guest cart", { item });
+    } else {
+      // initialize guestCart with the item
+      const initialGuestCart = {
+        [item._id]: {
+          ...item,
+          quantity: 1,
+        },
+      };
+
+      setGuestCart(initialGuestCart);
+      localStorage.setItem("guestCart", JSON.stringify(initialGuestCart));
     }
-    
   }
 
   // remove from guestCart

@@ -58,7 +58,6 @@ exports.postLogin = async (req, res) => {
       (err, token) => {
         //this token gets used in /profile
         if (err) throw err;
-        console.log("Token:", token);
         console.log("API_DOMAIN:", process.env.API_DOMAIN);
 
         res.cookie("token", token, { sameSite: "none" }).json({
@@ -75,6 +74,8 @@ exports.postLogin = async (req, res) => {
 };
 
 exports.getProfile = (req, res) => {
+  console.log("Token:", req.cookies.tokens);
+
   jwt.verify(req.cookies.token, secret, {}, (error, userInfo) => {
     if (error) {
       console.log(error);
