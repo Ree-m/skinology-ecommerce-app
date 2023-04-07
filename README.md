@@ -10,8 +10,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/Ree-m/skinology-ecommerce-app">
+    <img src="" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Skinology Ecommerce App</h3>
@@ -38,6 +38,7 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
+       li><a href="#features">Features</a></li>
       </ul>
     </li>
     <li>
@@ -52,6 +53,7 @@
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
+
   </ol>
 </details>
 
@@ -63,10 +65,11 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Features
+### Features
 
 -Non-registered users can browse and search for products in the app, and add them to a guest cart.
 <br />
+
 -Registered users can log in to view and manage their persistent cart, including adding, deleting, and updating items.
 <br />
 
@@ -78,7 +81,7 @@
 
 -Administrators have full access to all the features of regular users, as well as the ability to add, edit, and delete products in the app.
 
-## Built With
+### Built With
 
 - [![Node][node.js]][node-url]
 - [![React][react.js]][react-url]
@@ -89,7 +92,7 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Live Demo
+## Live Demo
 
 [Live Demo](https://skinology-ecommerce-app-client.onrender.com/)
 
@@ -136,7 +139,8 @@ _Below is an example of how you can instruct your audience on installing and set
 <!-- USAGE EXAMPLES -->
 
 ## Usage
-<!-- 
+
+<!--
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
 _For more examples, please refer to the [Documentation](https://example.com)_ --> -->
@@ -182,12 +186,10 @@ Project Link: [https://github.com/Ree-m/skinology-ecommerce-app](https://github.
 
 ## Acknowledgments
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off! 
--[Layout and Copy Inspiration](https://www.likeskincare.com/)
- -[Product Images and Copy Inspiration](https://www.stylevana.com/en_US/)
-- [Choose an Open Source License](https://choosealicense.com)
-- [Img Shields](https://shields.io)
-- [React Icons](https://react-icons.github.io/react-icons/search)
+_[Layout and Copy Inspiration](https://www.likeskincare.com/)
+_[Product Images and Copy Inspiration](https://www.stylevana.com/en_US/)
+_[Choose an Open Source License](https://choosealicense.com)
+_[Img Shields](https://shields.io) \*[React Icons](https://react-icons.github.io/react-icons/search)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
