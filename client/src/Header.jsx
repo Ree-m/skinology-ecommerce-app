@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import "./styles/header.css";
 import { API_URL } from "./constants";
-// import Cookies from 'js-cookie';
+import Cookies from 'js-cookie';
 
 const Header = ({
   cartItems,
