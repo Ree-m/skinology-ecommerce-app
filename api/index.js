@@ -24,11 +24,9 @@ const User = require("./models/User");
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
 
-
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
-app.use(cors({ credentials: true, origin: process.env.allowed_origins }));
-
+app.use(cors({ credentials: true, origin: process.env.ALLOWED_ORIGINS }));
 
 // Connect to DataBase
 mongoose.connect(process.env.DB_STRING, console.log("DB is connected"));
@@ -41,13 +39,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Setup Sessions - stored in MongoDB
 app.use(
   session({
-    secret: process.env.session_secret,
+    secret: process.env.SESSION_SECRET,
     resave: false, // dont save session if unmodified
     saveUninitialized: false, //dont  create session until something stored
   })
 );
 
-app.use(cookieParser(process.env.cookie_secret));
+app.use(cookieParser(process.env.COOKIE_SECRET));
 
 //Passport middleware
 app.use(passport.initialize());

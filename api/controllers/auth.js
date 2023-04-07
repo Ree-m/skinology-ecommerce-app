@@ -12,7 +12,7 @@ require("dotenv").config({ path: "./config/.env" });
 // To hash a password
 
 const salt = bcrypt.genSaltSync(10);
-const secret = process.env.secret;
+const secret = process.env.SECRET;
 
 app.use(cookieParser());
 
