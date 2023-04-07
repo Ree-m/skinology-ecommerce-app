@@ -16,11 +16,9 @@ import { useContext } from "react";
 import { UserContext } from "./UserContext";
 import AboutPage from "./pages/AboutPage";
 import { API_URL } from "./constants";
-
-
+import Cookies from "js-cookie";
 
 function App() {
-
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState(null);
   const [cart, setCart] = useState([]);
@@ -28,6 +26,7 @@ function App() {
     JSON.parse(localStorage.getItem("guestCart"))
   );
   const { setUserInfo, userInfo } = useContext(UserContext);
+  const jwtToken = Cookies.get("token");
 
   // const { userInfo } = useContext(UserContext)
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
@@ -36,6 +35,9 @@ function App() {
   useEffect(() => {
     fetch(`${API_URL}/profile`, {
       credentials: "include",
+      headers: {
+        Authorization: `Bearer ${jwtToken}`,
+      },
     })
       .then((response) => {
         if (response.ok) {
