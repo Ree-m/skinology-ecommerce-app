@@ -59,12 +59,13 @@ exports.postLogin = async (req, res) => {
         //this token gets used in /profile
         if (err) throw err;
         console.log("API_DOMAIN:", process.env.API_DOMAIN);
-
+        console.log("token before", token);
         res.cookie("token", token, { sameSite: "none" }).json({
           id: userInfo._id,
           username,
           email,
-        }); //'token' is set to token from the parameter
+        });
+        console.log("token after", token);
       }
     );
   } else {
