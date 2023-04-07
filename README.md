@@ -24,9 +24,9 @@
     <br />
     <a href="https://skinology-ecommerce-app-client.onrender.com/">View Demo</a>
     ·
-    <a href="">Report Bug</a>
+    <a href="https://github.com/Ree-m/skinology-ecommerce-app/issues">Report Bug</a>
     ·
-    <a href="https://github.com/Ree-m/skinology-ecommerce-app/issues">Request Feature</a>
+    <a href="">Request Feature</a>
   </p>
 </div>
 
@@ -48,7 +48,6 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -60,7 +59,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://skinology-ecommerce-app-client.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -72,21 +71,22 @@
 *The app includes two distinct interfaces: one for regular users and one for administrators.
 \*Administrators have full access to all the features of regular users, as well as the ability to add, edit, and delete products in the app.
 
-### Built With
+## Built With
 
 - [![Node][node.js]][node-url]
 - [![React][react.js]][react-url]
-- [![Express] Express ][express-url]
+- [![Express] [express.js] ][express-url]
 - [![MongoDB][mongodb]][mongodb-url]
 - [![Bootstrap][bootstrap.com]][bootstrap-url]
+- [![JsonWebTokens][jwt]][jwt-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Live Demo
 
-Live Demo[https://skinology-ecommerce-app-client.onrender.com/](https://skinology-ecommerce-app-client.onrender.com/)
+Live Demo[https://skinology-ecommerce-app-client.onrender.com/]
 
-## Admin Account
+### Admin Account
 
 username: admin password: 12345678 email: admin@gmail.com
 
@@ -184,8 +184,6 @@ Use this space to list resources you find helpful and would like to give credit 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
 [contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
@@ -199,10 +197,16 @@ Use this space to list resources you find helpful and would like to give credit 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/screenshot.png
-[next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+
+[node.js]:
 [node-url]: https://nodejs.org/en
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
+[mongodb]:https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white
 [mongodb-url]: https://www.mongodb.com/docs/atlas/
+[express.js]:https://img.shields.io/badge/Express.js-404D59?style=for-the-badge
+[express-url]:https://expressjs.com/
+[jwt]:https://img.shields.io/badge/json%20web%20tokens-323330?style=for-the-badge&logo=json-web-tokens&logoColor=pink
+[jwt-url]:https://jwt.io/
 [bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [bootstrap-url]: https://getbootstrap.com
