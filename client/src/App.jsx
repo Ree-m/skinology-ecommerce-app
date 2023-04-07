@@ -23,7 +23,7 @@ function App() {
   const [cartItems, setCartItems] = useState(null);
   const [cart, setCart] = useState([]);
   const [guestCart, setGuestCart] = useState(
-    JSON.parse(localStorage.getItem("guestCart"))
+    JSON.parse(localStorage.getItem("guestCart")) || {}
   );
   const { setUserInfo, userInfo } = useContext(UserContext);
   const jwtToken = Cookies.get("token");
@@ -125,7 +125,9 @@ function App() {
 
   // add to guest cart
   function addToGuestCart(item) {
-    console.log("adding to guest cart", { item });
+    if(guestCart){
+      // of guestCart is there, add
+      console.log("adding to guest cart", { item });
 
     // Add the item to the guest cart
     const addedGuestCart = {
@@ -140,6 +142,21 @@ function App() {
     // Save the guest cart to local storage
     localStorage.setItem("guestCart", JSON.stringify(addedGuestCart));
     console.log("reem", "finished adding to guest cart", { item });
+
+    }
+    else{
+      // initialize guestCart with the item
+      const initialGuestCart={
+        [item._id]:{
+          ...item,
+          quantity:1
+        }
+      }
+
+      setGuestCart(initialGuestCart)
+      localStorage.setItem("guestCart", JSON.stringify(initialGuestCart))
+    }
+    
   }
 
   // remove from guestCart
