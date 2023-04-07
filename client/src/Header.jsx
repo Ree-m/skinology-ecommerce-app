@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import "./styles/header.css";
 import { API_URL } from "./constants";
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 
 
 const Header = ({
@@ -21,7 +21,7 @@ const Header = ({
   const { setUserInfo, userInfo } = useContext(UserContext);
   const [isMobile, setIsMobile] = useState(false);
   const [isProfileFetched, setIsProfileFetched] = useState(false);
-  const jwtToken = Cookies.get('token');
+  // const jwtToken = Cookies.get('token');
 
 
   const navigate = useNavigate();
@@ -32,9 +32,9 @@ const Header = ({
     } else {
       fetch(`${API_URL}/profile`, {
         credentials: "include",
-        headers: {
-          Authorization: `Bearer ${jwtToken}`
-        }
+        // headers: {
+        //   Authorization: `Bearer ${jwtToken}`
+        // }
       })
         .then((response) => {
           if (response.ok) {
