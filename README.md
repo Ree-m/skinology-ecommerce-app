@@ -62,7 +62,6 @@
 ## About The Project
 
 [![Skinology Ecommerce App][product-screenshot]](https://skinology-ecommerce-app-client.onrender.com/)
-<img src="./client/src/assets/Screenshot from 2023-04-08 02-38-06.png" alt="Image of the project" />
 Skinology is a full-stack ecommerce web app with a React frontend and an Express/MongoDB backend. It uses JSON web tokens for authentication and is fully responsive for a seamless shopping experience on any device.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -145,6 +144,11 @@ To get a local copy up and running follow these simple example steps.
 
 ## Usage
 
+<img src="client/src/assets/best-section-screenshot.png" alt="Image of a section of the project" />
+<img src="client/src/assets/new-section-screenshot.png" alt="Image of the login page" />
+<img src="client/src/assets/login-page-screenshot.png" alt="Image of the new section" />
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -202,7 +206,7 @@ Project Link: [https://github.com/Ree-m/skinology-ecommerce-app](https://github.
 [issues-url]: https://github.com/othneildrew/Best-README-Template/issues
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/Ree-m/skinology-ecommerce-app/blob/main/LICENSE.txt
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: client/src/assets/project-main-screenshot.png
 [node.js]: https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
 [node-url]: https://nodejs.org/en
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
