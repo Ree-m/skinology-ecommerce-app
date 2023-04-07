@@ -26,7 +26,7 @@
     ·
     <a href="https://github.com/Ree-m/skinology-ecommerce-app/issues">Report Bug</a>
     ·
-    <a href="">Request Feature</a>
+    <a href="https://github.com/Ree-m/skinology-ecommerce-app/issues">Request Feature</a>
   </p>
 </div>
 
@@ -59,30 +59,30 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://skinology-ecommerce-app-client.onrender.com/)
+[![Skinology Ecommerce App][product-screenshot]](https://skinology-ecommerce-app-client.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Features
 
-*Non-registered users can browse and search for products in the app, and add them to a guest cart.
+-Non-registered users can browse and search for products in the app, and add them to a guest cart.
 <br />
-*Registered users can log in to view and manage their persistent cart, including adding, deleting, and updating items.
-<br />
-
-*All users can easily search for products using the app's search function.
+-Registered users can log in to view and manage their persistent cart, including adding, deleting, and updating items.
 <br />
 
-*The app includes two distinct interfaces: one for regular users and one for administrators.
+-All users can easily search for products using the app's search function.
 <br />
 
-*Administrators have full access to all the features of regular users, as well as the ability to add, edit, and delete products in the app.
+-The app includes two distinct interfaces: one for regular users and one for administrators.
+<br />
+
+-Administrators have full access to all the features of regular users, as well as the ability to add, edit, and delete products in the app.
 
 ## Built With
 
 - [![Node][node.js]][node-url]
 - [![React][react.js]][react-url]
-- [![Express] [express.js] ][express-url]
+- [![Express][express.js]][express-url]
 - [![MongoDB][mongodb]][mongodb-url]
 - [![Bootstrap][bootstrap.com]][bootstrap-url]
 - [![JsonWebTokens][jwt]][jwt-url]
@@ -91,7 +91,7 @@
 
 ### Live Demo
 
-Live Demo[https://skinology-ecommerce-app-client.onrender.com/]
+[Live Demo](https://skinology-ecommerce-app-client.onrender.com/)
 
 ### Admin Account
 
@@ -101,7 +101,7 @@ username: admin password: 12345678 email: admin@gmail.com
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
+<!-- This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
@@ -136,10 +136,10 @@ _Below is an example of how you can instruct your audience on installing and set
 <!-- USAGE EXAMPLES -->
 
 ## Usage
-
+<!-- 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+_For more examples, please refer to the [Documentation](https://example.com)_ --> -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -182,11 +182,11 @@ Project Link: [https://github.com/Ree-m/skinology-ecommerce-app](https://github.
 
 ## Acknowledgments
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
+Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off! 
+-[Layout and Copy Inspiration](https://www.likeskincare.com/)
+ -[Product Images and Copy Inspiration](https://www.stylevana.com/en_US/)
 - [Choose an Open Source License](https://choosealicense.com)
 - [Img Shields](https://shields.io)
-- [Font Awesome](https://fontawesome.com)
 - [React Icons](https://react-icons.github.io/react-icons/search)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -204,15 +204,15 @@ Use this space to list resources you find helpful and would like to give credit 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/screenshot.png
-[node.js]:https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
+[node.js]: https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
 [node-url]: https://nodejs.org/en
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
-[mongodb]:https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white
+[mongodb]: https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white
 [mongodb-url]: https://www.mongodb.com/docs/atlas/
-[express.js]:https://img.shields.io/badge/Express.js-404D59?style=for-the-badge
-[express-url]:https://expressjs.com/
-[jwt]:https://img.shields.io/badge/json%20web%20tokens-323330?style=for-the-badge&logo=json-web-tokens&logoColor=pink
-[jwt-url]:https://jwt.io/
+[express.js]: https://img.shields.io/badge/Express.js-404D59?style=for-the-badge
+[express-url]: https://expressjs.com/
+[jwt]: https://img.shields.io/badge/json%20web%20tokens-323330?style=for-the-badge&logo=json-web-tokens&logoColor=pink
+[jwt-url]: https://jwt.io/
 [bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [bootstrap-url]: https://getbootstrap.com
