@@ -10,11 +10,7 @@ exports.getCart = async (req, res) => {
   
     const items = await CartItem.find({ userId });
     res.json(items)
-
-
-
 }
-
 
 // Add an item to the cart
 exports.addToCart = async (req, res) => {

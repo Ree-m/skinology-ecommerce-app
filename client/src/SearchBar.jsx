@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles/searchProductsPage.css";
-import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
-
-import SearchedProductsPage from "./pages/SearchedProductsPage";
 
 const SearchBar = () => {
   const [query, setQuery] = useState("");
