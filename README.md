@@ -11,7 +11,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Ree-m/skinology-ecommerce-app">
-    <img src="client/src/assets/cover.png" alt="Logo" width="80" height="80">
+    <img src="client/src/assets/cover.png" alt="Logo" >
   </a>
 
   <h3 align="center">Skinology Ecommerce App</h3>
@@ -202,7 +202,6 @@ Project Link: [https://github.com/Ree-m/skinology-ecommerce-app](https://github.
 -[Choose an Open Source License](https://choosealicense.com)
 
 -[Img Shields](https://shields.io) 
-
 -[React Icons](https://react-icons.github.io/react-icons/search)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
