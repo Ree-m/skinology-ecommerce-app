@@ -125,7 +125,7 @@ To get a local copy up and running follow these simple example steps.
   cd client
 
 #install all the packages
-   npm
+   npm install
 
   #start vite app
   npm run dev
@@ -143,10 +143,14 @@ To get a local copy up and running follow these simple example steps.
 <!-- USAGE EXAMPLES -->
 
 ## Usage
-
+The best products carousel
 <img src="client/src/assets/best-section-screenshot.png" alt="Image of a section of the project" />
-<img src="client/src/assets/new-section-screenshot.png" alt="Image of the login page" />
+
+Login page
 <img src="client/src/assets/login-page-screenshot.png" alt="Image of the new section" />
+
+All the new products in one place
+<img src="client/src/assets/new-section-screenshot.png" alt="Image of the login page" />
 
 
 
@@ -181,7 +185,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Reem Bsrat -
+Reem Bsrat - reembsrat@gmail.com
 
 Project Link: [https://github.com/Ree-m/skinology-ecommerce-app](https://github.com/Ree-m/skinology-ecommerce-app)
 
@@ -192,9 +196,11 @@ Project Link: [https://github.com/Ree-m/skinology-ecommerce-app](https://github.
 ## Acknowledgments
 
 *[Layout and Copy Inspiration](https://www.likeskincare.com/)
-*[Product Images and Copy Inspiration](https://www.stylevana.com/en_US/)
-*[Choose an Open Source License](https://choosealicense.com)
-*[Img Shields](https://shields.io) \*[React Icons](https://react-icons.github.io/react-icons/search)
+<br />
+-[Product Images and Copy Inspiration](https://www.stylevana.com/en_US/)
+-[Choose an Open Source License](https://choosealicense.com)
+*[Img Shields](https://shields.io) 
+*[React Icons](https://react-icons.github.io/react-icons/search)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
