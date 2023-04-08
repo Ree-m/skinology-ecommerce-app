@@ -66,19 +66,19 @@ Skinology is a full-stack ecommerce web app with a React frontend and an Express
 
 ### Features
 
--Non-registered users can browse and search for products in the app, and add them to a guest cart.
+- Non-registered users can browse and search for products in the app, and add them to a guest cart.
 <br />
 
--Registered users can log in to view and manage their persistent cart, including adding, deleting, and updating items.
+- Registered users can log in to view and manage their persistent cart, including adding, deleting, and updating items.
 <br />
 
--All users can easily search for products using the app's search function.
+- All users can easily search for products using the app's search function.
 <br />
 
--The app includes two distinct interfaces: one for regular users and one for admini.
+- The app includes two distinct interfaces: one for regular users and one for admini.
 <br />
 
--Admin has full access to all the features of regular users, as well as the ability to add, edit, and delete products in the app.
+- Admin has full access to all the features of regular users, as well as the ability to add, edit, and delete products in the app.
 
 ### Built With
 
@@ -97,6 +97,10 @@ Skinology is a full-stack ecommerce web app with a React frontend and an Express
 ### Admin Account
 
 username: admin password: 12345678 email: admin@gmail.com
+
+### Demo Account
+
+username: test password: test email: test@gmail.com
 
 <!-- GETTING STARTED -->
 
@@ -135,7 +139,7 @@ To get a local copy up and running follow these simple example steps.
   npm install
 
   #start server
-  node index.js
+  npm run dev
 ```
 
 <!-- USAGE EXAMPLES -->
@@ -144,11 +148,14 @@ To get a local copy up and running follow these simple example steps.
 The best products carousel
 <img src="client/src/assets/best-section-screenshot.png" alt="Image of a section of the project" />
 
-Users can sign-up and login here
-<img src="client/src/assets/login-page-screenshot.png" alt="Image of the new section" />
+Users can sign-up here
+<img src="client/src/assets/signup-form.png" alt="Image of signup form>
+
+Users can login here
+<img src="client/src/assets/login-page-screenshot.png" alt="Image of the login form" />
 
 All the new products in one place
-<img src="client/src/assets/new-section-screenshot.png" alt="Image of the login page" />
+<img src="client/src/assets/new-section-screenshot.png" alt="Image of the new products section" />
 
 Users can search for products using the search bar
 <img src="client/src/assets/searchBar--screenshot.png" alt="Image of the search page" />
@@ -195,15 +202,15 @@ Project Link: [https://github.com/Ree-m/skinology-ecommerce-app](https://github.
 
 ## Acknowledgments
 
--[Layout and Copy Inspiration](https://www.likeskincare.com/)
+- [Layout and Copy Inspiration](https://www.likeskincare.com/)
 
--[Product Images and Copy Inspiration](https://www.stylevana.com/en_US/)
+- [Product Images and Copy Inspiration](https://www.stylevana.com/en_US/)
 
--[Choose an Open Source License](https://choosealicense.com)
+- [Choose an Open Source License](https://choosealicense.com)
 
--[Img Shields](https://shields.io) 
+- [Img Shields](https://shields.io) 
 
--[React Icons](https://react-icons.github.io/react-icons/search)
+- [React Icons](https://react-icons.github.io/react-icons/search)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
