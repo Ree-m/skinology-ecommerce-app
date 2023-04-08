@@ -107,7 +107,7 @@ To get a local copy up and running follow these simple example steps.
   ```sh
   npm install npm@latest -g
   ```
-  -node
+  - node
 
 ### Setup
 
@@ -141,7 +141,7 @@ The best products carousel
 <img src="client/src/assets/best-section-screenshot.png" alt="Image of a section of the project" />
 
 Users can sign-up here
-<img src="client/src/assets/signup-form.png" alt="Image of signup form>
+<img src="client/src/assets/signup-form.png" alt="Image of signup form" />
 
 Users can login here
 <img src="client/src/assets/login-page-screenshot.png" alt="Image of the login form" />
