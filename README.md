@@ -195,12 +195,16 @@ Project Link: [https://github.com/Ree-m/skinology-ecommerce-app](https://github.
 
 ## Acknowledgments
 
-*[Layout and Copy Inspiration](https://www.likeskincare.com/)
+-[Layout and Copy Inspiration](https://www.likeskincare.com/)
 <br />
 -[Product Images and Copy Inspiration](https://www.stylevana.com/en_US/)
+<br />
 -[Choose an Open Source License](https://choosealicense.com)
-*[Img Shields](https://shields.io) 
-*[React Icons](https://react-icons.github.io/react-icons/search)
+<br />
+-[Img Shields](https://shields.io) 
+<br />
+
+-[React Icons](https://react-icons.github.io/react-icons/search)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
