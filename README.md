@@ -10,11 +10,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/Ree-m/skinology-ecommerce-app">
-    <!-- <img src="client/src/assets/cover.png" alt="Logo" width="150" height="150"> -->
-        <link rel="icon" type="image/svg+xml" href="client/src/assets/default-monochrome.svg" />
-
-  </a>
+  
 
   <h3 align="center">Skinology Ecommerce App</h3>
 
