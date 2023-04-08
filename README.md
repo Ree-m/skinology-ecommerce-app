@@ -144,13 +144,13 @@ To get a local copy up and running follow these simple example steps.
 The best products carousel
 <img src="client/src/assets/best-section-screenshot.png" alt="Image of a section of the project" />
 
-Login page
+Users can sign-up and login here
 <img src="client/src/assets/login-page-screenshot.png" alt="Image of the new section" />
 
 All the new products in one place
 <img src="client/src/assets/new-section-screenshot.png" alt="Image of the login page" />
 
-Search Page 
+Users can search for products using the search bar
 <img src="client/src/assets/searchBar--screenshot.png" alt="Image of the search page" />
 
 
