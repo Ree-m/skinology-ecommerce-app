@@ -14,7 +14,7 @@ const SearchBar = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(query);
-    // navigate(`/search?query=${query}`);
+    navigate(`/search?query=${query}`);
     setQuery(""); //to empty the input after search
   };
 

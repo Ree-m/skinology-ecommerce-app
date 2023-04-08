@@ -26,15 +26,7 @@ exports.postSignup = async (req, res) => {
   });
   try {
     const userInfoToSave = await userInfo.save();
-    // res.status(200).json(userInfoToSave);
-
-    const token = jwt.sign({ username, email, id: userInfo._id }, secret, {});
-    res
-      .cookie("token", token, {
-        sameSite: "none",
-        secure: true,
-      })
-      .json(userInfoToSave);
+    res.status(200).json(userInfoToSave);
   } catch (error) {
     if (error.code === 11000) {
       // Duplicate key error
