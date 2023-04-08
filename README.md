@@ -150,6 +150,8 @@ Login page
 All the new products in one place
 <img src="client/src/assets/new-section-screenshot.png" alt="Image of the login page" />
 
+Search Page 
+<img src="client/src/assets/searchBar--screenshot.png" alt="Image of the search page" />
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -200,6 +202,7 @@ Project Link: [https://github.com/Ree-m/skinology-ecommerce-app](https://github.
 -[Choose an Open Source License](https://choosealicense.com)
 
 -[Img Shields](https://shields.io) 
+
 -[React Icons](https://react-icons.github.io/react-icons/search)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
