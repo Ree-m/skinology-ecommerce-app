@@ -1,34 +1,37 @@
-.login-page div,.signup-page div{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
+.login-page div,
+.signup-page div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
-.login-page input,.signup-page input{
-    margin-bottom: 25px;
-    padding: 10px;
-    width: 60%;
-    border: 1px solid var(--border-color);
-}
-
-.login-page input:focus,.signup-page input:focus{
-    outline: 1px solid var(--main-text-color);
-
+.login-page input,
+.signup-page input {
+  margin-bottom: 25px;
+  padding: 10px;
+  width: 60%;
+  border: 1px solid var(--border-color);
 }
 
-.login-page h1,.signup-page h1{
-    padding-bottom: 30px;
+.login-page input:focus,
+.signup-page input:focus {
+  outline: 1px solid var(--main-text-color);
 }
 
-.login-page p button{
-    padding-top: 35px;
-    background-color: inherit;
-    border: none;
-    color: var(--pink);
+.login-page h1,
+.signup-page h1 {
+  padding-bottom: 30px;
 }
 
+.login-page p button {
+  padding-top: 35px;
+  background-color: inherit;
+  border: none;
+  color: var(--pink);
+}
 
-.login-page,.signup-page{
-    margin-top: 100px;
+.login-page,
+.signup-page {
+  margin-top: 100px;
 }

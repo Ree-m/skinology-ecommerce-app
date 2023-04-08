@@ -28,7 +28,6 @@ const Header = ({
     } else {
       fetch(`${API_URL}/profile`, {
         credentials: "include",
-        
       })
         .then((response) => {
           if (response.ok) {

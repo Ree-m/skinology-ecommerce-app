@@ -56,10 +56,6 @@ app.use(flash()); //for errors
 app.use("/", mainRoutes);
 app.use("/cart", cartRoutes);
 
-// app.get("/", (req, res) => {
-//   const apiUrl = process.env.REACT_APP_API_URL;
-// });
-
 app.listen(process.env.PORT || 8000, () => {
   console.log("Server has started");
 });

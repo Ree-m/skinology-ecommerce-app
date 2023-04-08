@@ -44,7 +44,6 @@ td img {
 
 .cart-buttons {
   height: 150px;
-  /* background-color: aqua; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -58,81 +57,71 @@ td img {
   padding: 0px 20px;
   overflow-x: hidden;
 }
-  
 
-@media (max-width:580px){
-  .cart-page{
+@media (max-width: 580px) {
+  .cart-page {
     padding: 0px 5px;
   }
-  td img{
+  td img {
     height: 90px;
-    width: auto
-  };
+    width: auto;
+  }
 
- .deleteIcon {
+  .deleteIcon {
     font-size: 1rem;
   }
-  th{
+  th {
     padding: 2px;
     font-size: 0.55rem;
   }
-  td{
+  td {
     padding: 2px;
     font-size: 0.59rem;
   }
-  .table-name{
+  .table-name {
     font-size: 0.5rem;
   }
- .quantity-container span{
-  font-size:0.7rem;
- }
-  .quantity-container button{
+  .quantity-container span {
+    font-size: 0.7rem;
+  }
+  .quantity-container button {
     padding: 1px;
     font-size: 0.8rem;
   }
-  
 }
-    
 
-@media (min-width:581px) and (max-width:768px){
-  .cart-page{
+@media (min-width: 581px) and (max-width: 768px) {
+  .cart-page {
     padding: 0px 5px;
   }
-  td img{
+  td img {
     height: 130px;
-    width: auto
-  };
+    width: auto;
+  }
 
- td i {
+  td i {
     font-size: 1rem;
     color: aqua;
   }
-  th{
+  th {
     padding: 10px;
     font-size: 0.9rem;
   }
-  td{
+  td {
     padding: 5px;
     font-size: 0.9rem;
   }
- .quantity-container span{
-  font-size:1rem;
- }
-  .quantity-container button{
+  .quantity-container span {
+    font-size: 1rem;
+  }
+  .quantity-container button {
     padding: 5px;
     font-size: 1rem;
   }
-  
 }
-    
-@media(min-width:769px){
-  .deleteIcon{
+
+@media (min-width: 769px) {
+  .deleteIcon {
     font-size: 1.5rem;
   }
 }
-
-
-
-    
-    
-

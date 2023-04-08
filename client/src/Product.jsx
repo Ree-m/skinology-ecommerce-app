@@ -10,13 +10,6 @@ const Product = ({ product, _id, name, brand, quantity, price, image }) => {
     setRefresh(true);
   };
 
-  // useEffect(() => {
-  //     if (refresh) {
-  //         setRefresh(false); // reset to avoid infinite loop
-  //         window.location.reload(); // page refreshes
-  //     }
-  // }, [refresh])
-
   return (
     <div className="product center">
       <div className="product-image">

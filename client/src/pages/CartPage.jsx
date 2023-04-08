@@ -1,13 +1,13 @@
 import { useState, useEffect, useCallback } from "react";
-import { useParams } from "react-router";
 import { useContext } from "react";
-import Product from "../Product";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { UserContext } from "../UserContext";
 import "../styles/cartPage.css";
 import { MdDelete } from "react-icons/md";
 import { API_URL } from "../constants";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CartPage = ({
   cartItems,
@@ -19,14 +19,25 @@ const CartPage = ({
 }) => {
   const { userInfo } = useContext(UserContext);
   const navigate = useNavigate();
-
+  const onClick = () => {
+    console.log("click click");
+    toast.info("🦄 Wow so easy!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
   async function removeFromCart(productId) {
     try {
       await fetch(`${API_URL}/cart/${userInfo.id}/${productId}`, {
         method: "DELETE",
         credentials: "include",
       });
-      // setCartItems(() => cartItems[0].products.filter((item) => item.productId !== productId)) //cart items with productId not equal to the deleted productid stay
       setCartItems((prevCartItems) => {
         const newCartItems = prevCartItems[0].products.filter(
           (item) => item.productId !== productId
@@ -162,7 +173,9 @@ const CartPage = ({
           <button className="btn" onClick={() => navigate("/")}>
             Continue Shopping
           </button>
-          <button className="btn">Buy</button>
+          <button className="btn" onClick={onClick}>
+            Buy
+          </button>
         </div>
       </div>
     );
@@ -259,7 +272,21 @@ const CartPage = ({
         <button className="btn" onClick={() => navigate("/")}>
           Continue Shopping
         </button>
-        <button className="btn">Buy</button>
+        <button className="btn" onClick={onClick}>
+          Buy
+        </button>
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
       </div>
     </div>
   );

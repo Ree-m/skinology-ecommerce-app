@@ -1,22 +1,23 @@
-const express = require("express")
-const CartItem = require("../models/Cart")
-const Product = require("../models/Product")
-
+const express = require("express");
+const CartItem = require("../models/Cart");
+const Product = require("../models/Product");
 
 exports.getCart = async (req, res) => {
   // // Retrieve the cart items for the current user
   const userId = req.params.userId;
-  console.log(req.params.userId, "req.params.userId and req.body.userId", req.body.userId)
-  
-    const items = await CartItem.find({ userId });
-    res.json(items)
-}
+  console.log(
+    req.params.userId,
+    "req.params.userId and req.body.userId",
+    req.body.userId
+  );
+
+  const items = await CartItem.find({ userId });
+  res.json(items);
+};
 
 // Add an item to the cart
 exports.addToCart = async (req, res) => {
-
-
-  const { userId, productId, name,brand, price, quantity, image } = req.body;
+  const { userId, productId, name, brand, price, quantity, image } = req.body;
 
   try {
     // Find the cart document for the user
@@ -28,7 +29,9 @@ exports.addToCart = async (req, res) => {
     }
 
     // Check if the product is already in the cart
-    const existingProduct = cart.products.find((p) => p.productId.toString() === productId);
+    const existingProduct = cart.products.find(
+      (p) => p.productId.toString() === productId
+    );
 
     // If the product is already in the cart, update its quantity
     if (existingProduct) {
@@ -36,7 +39,7 @@ exports.addToCart = async (req, res) => {
     }
     // Otherwise, add a new product to the cart
     else {
-      cart.products.push({ productId, name,brand, price, quantity, image });
+      cart.products.push({ productId, name, brand, price, quantity, image });
     }
 
     // Save the updated cart document
@@ -45,17 +48,16 @@ exports.addToCart = async (req, res) => {
     res.status(200).json(cart);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Server error' });
+    res.status(500).json({ error: "Server error" });
   }
-}
-
+};
 
 // Update cart item
 exports.updateCartItem = async (req, res) => {
   const userId = req.params.userId;
   const productId = req.params.productId;
   const newQuantity = parseInt(req.body.newQuantity);
-  console.log("this is updateCart controller",userId,productId,newQuantity)
+  console.log("this is updateCart controller", userId, productId, newQuantity);
 
   try {
     const cartItem = await CartItem.findOneAndUpdate(
@@ -63,43 +65,39 @@ exports.updateCartItem = async (req, res) => {
       { $set: { "products.$.quantity": newQuantity } },
       { new: true, upsert: true }
     );
-    res.json(cartItem)
-
+    res.json(cartItem);
   } catch (error) {
     console.error(error);
-    res.status(500).send('Server error')
+    res.status(500).send("Server error");
   }
-}
-
-
+};
 
 // Remove an item from the cart
 exports.deleteCartItem = async (req, res) => {
   try {
     const userId = req.params.userId;
     const productId = req.params.productId;
-    console.log(userId, "checking for delete cart", productId)
+    console.log(userId, "checking for delete cart", productId);
     // find cart of current user
-    const cart = await CartItem.findOne({ userId })
+    const cart = await CartItem.findOne({ userId });
 
     if (!cart) {
-      return res.status(404).json({ message: 'Cart not found' });
-
+      return res.status(404).json({ message: "Cart not found" });
     }
     // find the product to be deleted
-    const productIndex = cart.products.findIndex(product => product.productId.toString() === productId)
+    const productIndex = cart.products.findIndex(
+      (product) => product.productId.toString() === productId
+    );
 
     if (productIndex === -1) {
-      return res.status(404).json({ message: 'Item not found in cart' });
+      return res.status(404).json({ message: "Item not found in cart" });
     }
 
-    cart.products.splice(productIndex, 1) //from whatever place my product is delete that one only
+    cart.products.splice(productIndex, 1); //from whatever place my product is delete that one only
     await cart.save();
-    res.status(200).json({ message: "Item removed from cart" })
-
+    res.status(200).json({ message: "Item removed from cart" });
   } catch (error) {
-    console.error(error)
-    res.status(500).json({ message: 'Server error' })
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
   }
-}
-
+};
