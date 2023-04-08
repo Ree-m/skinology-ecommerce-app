@@ -29,7 +29,7 @@ const EditProduct = () => {
         category,
         use,
         ingredients,
-        quantity,
+        size,
         price,
         file: files?.[0],
       }),
