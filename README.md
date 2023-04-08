@@ -107,7 +107,7 @@ To get a local copy up and running follow these simple example steps.
   ```sh
   npm install npm@latest -g
   ```
-  - node
+- node
 
 ### Setup
 
@@ -140,7 +140,7 @@ To get a local copy up and running follow these simple example steps.
 The best products carousel
 <img src="client/src/assets/best-section-screenshot.png" alt="Image of a section of the project" />
 
-Users can sign-up here
+Users can signup here
 <img src="client/src/assets/signup-form.png" alt="Image of signup form" />
 
 Users can login here
@@ -196,6 +196,7 @@ Project Link: [https://github.com/Ree-m/skinology-ecommerce-app](https://github.
 
 - [Layout and Copy Inspiration](https://www.likeskincare.com/)
 - [Product Images and Copy Inspiration](https://www.stylevana.com/en_US/)
+- [Enhancing Images](https://letsenhance.io/)
 - [Choose an Open Source License](https://choosealicense.com)
 - [Img Shields](https://shields.io) 
 - [React Icons](https://react-icons.github.io/react-icons/search)
