@@ -72,6 +72,16 @@ Skinology is a full-stack ecommerce web app with a React frontend and an Express
 - The app includes two distinct interfaces: one for regular users and one for admini.
 - Admin has full access to all the features of regular users, as well as the ability to add, edit, and delete products in the app.
 
+### Optimizations
+
+- Add pop up saying "item has been added to cart" and showing cart and cotine shopping buttons.
+
+- Adding loading states for each action.
+
+- Improve local setup instructions
+
+- 
+
 ### Built With
 
 - [![Node][node.js]][node-url]
