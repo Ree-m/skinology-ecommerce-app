@@ -15,10 +15,7 @@
 .product h2 {
   padding: 10px 0px;
 }
-.product {
-  padding-right: 15px;
-  border: 1px solid var(--border-color);
-}
+
 
 @media (min-width: 1800px) {
   h1 {
