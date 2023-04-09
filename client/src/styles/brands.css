@@ -1,58 +1,43 @@
 .brands-img {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    justify-items: center;
-    align-items: center;
-    gap: 15px;
-
-
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+  align-items: center;
+  gap: 15px;
 }
 
 .brands img {
-    border: 1px solid grey;
-    object-fit: contain;
-    height: 80px;
-    width: 100%;
-    padding: 10px;
-
+  border: 1px solid grey;
+  object-fit: contain;
+  height: 80px;
+  width: 100%;
+  padding: 10px;
 }
 
 .brands {
-    border-top: 1px solid var(--border-color);
+  border-top: 1px solid var(--border-color);
 }
-
 
 /* mobile devices */
 @media (max-width: 480px) {
-
-    .brands-img {
-
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-
-
-    }
-
+  .brands-img {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /* tablet */
 
 @media (min-width: 481px) and (max-width: 768px) {
-
-    .brands-img {
-
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-
-
-    }
+  .brands-img {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 /* extra large devices */
 @media (min-width: 1025px) {
-
-    .brands img {
-        height: 150px;    
-    }
-
+  .brands img {
+    height: 150px;
+  }
 }

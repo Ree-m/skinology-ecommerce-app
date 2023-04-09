@@ -7,7 +7,6 @@ const passport=require("passport")
 const multer = require('multer')
 const uploadMiddleware = multer({ dest: 'uploads/',limits:{fieldSize:25* 1024 * 1024} })
 const fs = require("fs");
-const isAuthenticated = require("../middleware/isAuthenticated.js");
 
 
 app.use("/uploads", express.static(__dirname + "/uploads"))
