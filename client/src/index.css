@@ -6,8 +6,6 @@ body {
 }
 
 
-
-
 * {
     --pink: #f8c0d8;
     --main-text-color: #4a4e4d;
@@ -16,10 +14,14 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
-    /* overflow-x: hidden; */
-
 
 }
+
+::selection {
+    background-color: var(--pink);
+    color: white;
+  }
+  
 
 .flex {
     display: flex;
