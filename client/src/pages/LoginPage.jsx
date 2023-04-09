@@ -40,12 +40,13 @@ const LoginPage = () => {
   }, [redirect, navigate]);
 
   return (
-    <div className="login-info">
       <form className="login-page" onSubmit={login}>
         <h1 className="title-large center">Login</h1>
 
         <div>
           <p>Please enter your e-mail and password:</p>
+          <p><strong>Demo Account</strong> username: test password: test email: test@gmail.com</p>
+          <p><strong>Admin Account</strong> username: admin password: admin email :admin@gmail.com</p>
           <input
             type="text"
             placeholder="Username"
@@ -79,22 +80,7 @@ const LoginPage = () => {
         </div>
       </form>
 
-      <div className="login-demo"> 
-        <div>
-          <h4>Demo Account</h4>
-          <p>username: test</p>
-          <p>password: test</p>
-          <p>email: test@gmail.com</p>
-        </div>
-
-        <div>
-          <h4>Admin Account</h4>
-          <p>username: admin</p>
-          <p>password: 12345678</p>
-          <p>email: admin@gmail.com</p>{" "}
-        </div>
-      </div>
-    </div>
+     
   );
 };
 
