@@ -53,7 +53,7 @@ node_modules/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+config/.env
 
 package-lock.json
 node_modules
