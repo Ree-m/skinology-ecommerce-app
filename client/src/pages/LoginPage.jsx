@@ -40,43 +40,61 @@ const LoginPage = () => {
   }, [redirect, navigate]);
 
   return (
-    <form className="login-page" onSubmit={login}>
-      <h1 className="title-large center">Login</h1>
+    <div className="login-info">
+      <form className="login-page" onSubmit={login}>
+        <h1 className="title-large center">Login</h1>
 
-      <div>
-        <p>Please enter your e-mail and password:</p>
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
+        <div>
+          <p>Please enter your e-mail and password:</p>
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
 
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
 
-        <button className="btn">Login</button>
+          <button className="btn">Login</button>
 
-        <p>
-          Don't have an account?{" "}
-          <button onClick={() => navigate("/signup")}>Create one</button>{" "}
-        </p>
+          <p>
+            Don't have an account?{" "}
+            <button onClick={() => navigate("/signup")}>Create one</button>{" "}
+          </p>
+        </div>
+      </form>
+
+      <div className="login-demo"> 
+        <div>
+          <h4>Demo Account</h4>
+          <p>username: test</p>
+          <p>password: test</p>
+          <p>email: test@gmail.com</p>
+        </div>
+
+        <div>
+          <h4>Admin Account</h4>
+          <p>username: admin</p>
+          <p>password: 12345678</p>
+          <p>email: admin@gmail.com</p>{" "}
+        </div>
       </div>
-    </form>
+    </div>
   );
 };
 

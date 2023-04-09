@@ -21,10 +21,10 @@ const CartPage = ({
   const navigate = useNavigate();
   const onClick = () => {
     console.log("click click");
-    toast.info("🦄 Wow so easy!", {
+    toast.success("Yay your skincare is on the way! This button is for demo only.", {
       position: "top-center",
       autoClose: 5000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -104,7 +104,20 @@ const CartPage = ({
   if (!isUserLoggedIn) {
     return (
       <div className="cart-page">
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
         <h2 className="center">Cart</h2>
+
         {!guestCart || (guestCart && Object.keys(guestCart).length === 0)
           ? "Cart is empty"
           : Object.keys(guestCart).length > 0 && (
@@ -183,7 +196,20 @@ const CartPage = ({
 
   return (
     <div className="cart-page">
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <h2 className="center">Cart</h2>
+
       {cartItems &&
       cartItems[0] &&
       cartItems[0].products &&
@@ -275,18 +301,6 @@ const CartPage = ({
         <button className="btn" onClick={onClick}>
           Buy
         </button>
-        <ToastContainer
-          position="top-center"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-        />
       </div>
     </div>
   );
