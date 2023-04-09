@@ -74,11 +74,15 @@ Skinology is a full-stack ecommerce web app with a React frontend and an Express
 
 ### Optimizations
 
-- Add pop up saying "item has been added to cart" and showing cart and cotine shopping buttons.
+- Add pop up saying "item has been added to cart" and showing cart and contine shopping buttons.
 
 - Adding loading states for each action.
 
 - Improve local setup instructions
+
+- Improve search bar in mobile
+
+- Fliter products by category and brand
 
 
 
