@@ -17,6 +17,7 @@
 }
 .product {
   padding-right: 15px;
+  border: 1px solid var(--border-color);
 }
 
 @media (min-width: 1800px) {
