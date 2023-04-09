@@ -67,9 +67,9 @@ Skinology is a full-stack ecommerce web app with a React frontend and an Express
 ### Features
 
 - Non-registered users can browse and search for products in the app, and add them to a guest cart.
-- Registered users can log in to view and manage their persistent cart, including adding, deleting, and updating items.
+- Registered users can log in to view and manage their persistent cart, including adding, deleting, and updating products.
 - All users can easily search for products using the app's search function.
-- The app includes two distinct interfaces: one for regular users and one for admini.
+- The app includes two distinct interfaces: one for regular users and one for admin.
 - Admin has full access to all the features of regular users, as well as the ability to add, edit, and delete products in the app.
 
 ### Optimizations
@@ -82,7 +82,9 @@ Skinology is a full-stack ecommerce web app with a React frontend and an Express
 
 - Improve search bar in mobile
 
-- Fliter products by category and brand
+- Filter products by category and brand
+
+- Give users the ability to delete their account and give admins the ability to delete any account.
 
 
 
