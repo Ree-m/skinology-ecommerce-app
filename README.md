@@ -146,20 +146,24 @@ To get a local copy up and running follow these simple example steps.
 
 <!-- USAGE EXAMPLES -->
 
-## Usage
-The best products carousel
-<img src="client/src/assets/best-section-screenshot.png" alt="Image of a section of the project" />
 
-Users can signup here
+
+## Usage
+
+Users can signup here.
 <img src="client/src/assets/signup-form.png" alt="Image of signup form" />
 
-Users can login here
-<img src="client/src/assets/login-page-screenshot.png" alt="Image of the login form" />
+Users can login here.Try our demo account or sign in as an admin to explore all the features.
+<img src="client/src/assets/login-form-screenshot.png" alt="Image of the login form" />
 
-All the new products in one place
+The best products carousel.
+<img src="client/src/assets/best-section-screenshot.png" alt="Image of a section of the project" />
+
+
+All the new products in one place.
 <img src="client/src/assets/new-section-screenshot.png" alt="Image of the new products section" />
 
-Users can search for products using the search bar
+Users can search for products using the search bar.
 <img src="client/src/assets/searchBar--screenshot.png" alt="Image of the search page" />
 
 
