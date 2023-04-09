@@ -80,7 +80,7 @@ Skinology is a full-stack ecommerce web app with a React frontend and an Express
 
 - Improve local setup instructions
 
-- 
+
 
 ### Built With
 
