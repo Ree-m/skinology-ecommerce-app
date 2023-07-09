@@ -126,28 +126,35 @@ To get a local copy up and running follow these simple example steps.
 - node
 
 ### Setup
-
+Install the dependencies and devdependencies.
 ```sh
- #cd into the cloned repo
   cd skinology-ecommerce-app
 
-  #cd into the client folder
   cd client
 
-#install all the packages
-   npm install
-
-  #start vite app
-  npm run dev
-
-  #cd into the backend folder
-  cd api
-
-  #install all the packages
   npm install
 
-  #start server
-  npm run dev
+  cd ..
+
+  cd api
+
+  npm install
+
+```
+To start react server
+
+```sh
+cd client
+
+npm run dev
+```
+To start node server
+
+```sh
+cd api
+
+npm run start
+
 ```
 
 <!-- USAGE EXAMPLES -->
