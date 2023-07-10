@@ -126,6 +126,27 @@ To get a local copy up and running follow these simple example steps.
 - node
 
 ### Setup
+Adding the config.env file in /config/.env.
+```sh
+
+DB_STRING=
+PORT=
+SECRET=
+ALLOWED_ORIGIN=
+API_DOMAIN=
+SESSION_SECRET=
+COOKIE_SECRET=
+
+```
+
+Adding the .env file in root of client folder.
+
+```sh
+
+VITE_REACT-APP_API_URL=
+
+```
+
 Install the dependencies and devdependencies.
 ```sh
   cd skinology-ecommerce-app
