@@ -41,7 +41,7 @@ exports.getAllProducts = async (req, res) => {
 exports.getNewProducts = async (req, res) => {
   const products = await Product.find()
     .sort({ createdAt: -1 }) //descinding order.ie,newest post first
-    .limit(8);
+    .limit(12);
 
   res.json(products);
 };
