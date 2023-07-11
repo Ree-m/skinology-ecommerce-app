@@ -116,7 +116,7 @@ const CartPage = ({
           pauseOnHover
           theme="light"
         />
-        <h2 className="center">Cart</h2>
+        <h2 className="center">Guest Cart</h2>
 
         {!guestCart || (guestCart && Object.keys(guestCart).length === 0)
           ? "Cart is empty"
