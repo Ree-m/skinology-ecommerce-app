@@ -25,17 +25,7 @@ const Footer = () => {
             <Link to={"/aboutPage"} className="footer-link">
               <p>About Skinology</p>
             </Link>
-            {/* <Link className="footer-link">
-              <p>Terms & Condidtions</p>
-            </Link>
-
-            <Link className="footer-link">
-              <p>Shipping</p>
-            </Link>
-
-            <Link className="footer-link">
-              <p>Privacy Policy</p>
-            </Link> */}
+      
           </div>
         </div>
         <div className="footer-3">
