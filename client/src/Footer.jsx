@@ -25,7 +25,7 @@ const Footer = () => {
             <Link to={"/aboutPage"} className="footer-link">
               <p>About Skinology</p>
             </Link>
-            <Link className="footer-link">
+            {/* <Link className="footer-link">
               <p>Terms & Condidtions</p>
             </Link>
 
@@ -35,7 +35,7 @@ const Footer = () => {
 
             <Link className="footer-link">
               <p>Privacy Policy</p>
-            </Link>
+            </Link> */}
           </div>
         </div>
         <div className="footer-3">
