@@ -208,7 +208,7 @@ const CartPage = ({
         pauseOnHover
         theme="light"
       />
-      <h2 className="center">Cart</h2>
+      <h2 className="center"> ahah Cart</h2>
 
       {cartItems &&
       cartItems[0] &&
