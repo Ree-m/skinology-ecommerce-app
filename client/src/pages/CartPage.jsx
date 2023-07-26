@@ -125,7 +125,7 @@ const CartPage = ({
                 <thead>
                   <tr>
                     <th></th>
-                    <th className="capital">kkkName</th>
+                    <th className="capital">Name</th>
                     <th className="capital">Price</th>
                     <th className="capital">Quantity</th>
                     <th className="capital">Subtotal</th>
@@ -208,7 +208,7 @@ const CartPage = ({
         pauseOnHover
         theme="light"
       />
-      <h2 className="center"> ahah Cart</h2>
+      <h2 className="center">Cart</h2>
 
       {cartItems &&
       cartItems[0] &&
