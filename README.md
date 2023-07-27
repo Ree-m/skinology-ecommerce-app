@@ -193,11 +193,11 @@ Users can login here.Try our demo account or sign in as an admin to explore all 
 
 Registered users can add products to their cart, delete items, and update quantities as needed. The total price of all products int the cart is shown at the bottom of the cart page.
 
-<img src="client/src/assets/skinology-cart" alt="Image of a users cart" />
+<img src="client/src/assets/skinology-cart.jpg" alt="Image of a users cart" />
 
 Non-registered users can also utilize the following guest cart.
 
-<img src="client/src/assets/skinology-guest-cart" alt="Image of a guest users cart" />
+<img src="client/src/assets/skinology-guest-cart.jpg" alt="Image of a guest users cart" />
 
 Clicking on a specific product leads to the product page, where detailed information such as the product name, brand, price, ingredient list, and usage instructions are provided.
 
