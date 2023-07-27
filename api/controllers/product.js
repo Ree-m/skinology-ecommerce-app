@@ -5,6 +5,10 @@ const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
 const fs = require("fs");
 
+exports.getTest=async(req,res)=>{
+  console.log("test")
+  return res.json("test")
+}
 exports.postAdd = async (req, res) => {
   const { originalname, path } = req.file;
 

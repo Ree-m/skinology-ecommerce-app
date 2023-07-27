@@ -12,7 +12,7 @@ const fs = require("fs");
 app.use("/uploads", express.static(__dirname + "/uploads"))
 
 
-
+router.get("/",productContoller.getTest)
 router.post("/signup",authContoller.postSignup)
 router.post("/login",authContoller.postLogin)
 router.get("/profile",authContoller.getProfile)
