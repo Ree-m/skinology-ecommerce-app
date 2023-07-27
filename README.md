@@ -10,7 +10,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  
+
 
   <h3 align="center">Skinology Ecommerce App</h3>
 
@@ -86,8 +86,6 @@ Skinology is a full-stack ecommerce web app with a React frontend and an Express
 
 - Give users the ability to delete their account and give admins the ability to delete any account.
 
-
-
 ### Built With
 
 - [![Node][node.js]][node-url]
@@ -126,7 +124,9 @@ To get a local copy up and running follow these simple example steps.
 - node
 
 ### Setup
+
 Adding the config.env file in /config/.env.
+
 ```sh
 
 DB_STRING=
@@ -148,6 +148,7 @@ VITE_REACT-APP_API_URL=
 ```
 
 Install the dependencies and devdependencies.
+
 ```sh
   cd skinology-ecommerce-app
 
@@ -162,6 +163,7 @@ Install the dependencies and devdependencies.
   npm install
 
 ```
+
 To start react server
 
 ```sh
@@ -169,6 +171,7 @@ cd client
 
 npm run dev
 ```
+
 To start node server
 
 ```sh
@@ -180,8 +183,6 @@ npm run start
 
 <!-- USAGE EXAMPLES -->
 
-
-
 ## Usage
 
 Users can signup here.
@@ -190,16 +191,28 @@ Users can signup here.
 Users can login here.Try our demo account or sign in as an admin to explore all the features.
 <img src="client/src/assets/login-form-screenshot.png" alt="Image of the login form" />
 
-The best products carousel.
+Registered users can add products to their cart, delete items, and update quantities as needed. The total price of all products int the cart is shown at the bottom of the cart page.
+
+<img src="client/src/assets/skinology-cart" alt="Image of a users cart" />
+
+Non-registered users can also utilize the following guest cart.
+
+<img src="client/src/assets/skinology-guest-cart" alt="Image of a guest users cart" />
+
+Clicking on a specific product leads to the product page, where detailed information such as the product name, brand, price, ingredient list, and usage instructions are provided.
+
+<img src="client/src/assets/skinology-product-details-page.jpg" alt="Image of the products details page." />
+
+The homepage includes a carousel showcasing the best products.
 <img src="client/src/assets/best-section-screenshot.png" alt="Image of a section of the project" />
 
+The homepage highlights 12 of the newest products in a grid layout.
 
-All the new products in one place.
 <img src="client/src/assets/new-section-screenshot.png" alt="Image of the new products section" />
 
-Users can search for products using the search bar.
-<img src="client/src/assets/searchBar--screenshot.png" alt="Image of the search page" />
+Users can easily search for products using the search bar located in the app's header. The search functionality allows users to search by brand name or product name, providing quick access to desired products.
 
+<img src="client/src/assets/searchBar--screenshot.png" alt="Image of the search page" />
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -246,7 +259,7 @@ Project Link: [https://github.com/Ree-m/skinology-ecommerce-app](https://github.
 - [Product Images and Copy Inspiration](https://www.stylevana.com/en_US/)
 - [Enhancing Images](https://letsenhance.io/)
 - [Choose an Open Source License](https://choosealicense.com)
-- [Img Shields](https://shields.io) 
+- [Img Shields](https://shields.io)
 - [React Icons](https://react-icons.github.io/react-icons/search)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
