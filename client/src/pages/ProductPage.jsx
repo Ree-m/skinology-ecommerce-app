@@ -46,7 +46,6 @@ const ProductPage = ({ addToCart, addToGuestCart, isUserLoggedIn }) => {
     return navigate("/");
   }
 
-  if (!product) return "";
 
   if(loading){
     return <Loading/>
