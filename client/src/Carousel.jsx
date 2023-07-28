@@ -3,8 +3,11 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Link } from "react-router-dom";
 import Product from "./Product";
+import Loading from "./loading";
+import { useState } from "react";
 
 const MyCarousel = ({ carouselItems, setCarouselItems }) => {
+  const [loading,setLoaidng]=useState(true)
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -23,6 +26,10 @@ const MyCarousel = ({ carouselItems, setCarouselItems }) => {
       items: 1,
     },
   };
+
+  // if(carouselItems){
+  //   return <Loading/>
+  // }
 
   return (
     <div>

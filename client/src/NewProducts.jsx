@@ -3,9 +3,11 @@ import Product from "./Product";
 import { Link } from "react-router-dom";
 import "./styles/newProducts.css";
 import { API_URL } from "./constants";
+import Loading from "./loading";
 
 const NewProducts = () => {
   const [newProducts, setNewProducts] = useState([]);
+  const [loading,setLoading]=useState(true)
 
   // get new products
   useEffect(() => {
@@ -13,9 +15,14 @@ const NewProducts = () => {
     fetch(`${API_URL}/newProducts`).then((res) => {
       res.json().then((products) => {
         setNewProducts(products);
+        setLoading(false)
       });
     });
   }, []);
+
+  if(loading){
+    return <Loading/>
+  }
 
   return (
     <div className="newProducts">

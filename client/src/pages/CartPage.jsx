@@ -19,6 +19,7 @@ const CartPage = ({
 }) => {
   const { userInfo } = useContext(UserContext);
   const navigate = useNavigate();
+  // const [loading,setLoading]=useState(true)
   const onClick = () => {
     console.log("click click");
     toast.success("Yay your skincare is on the way! This button is for demo only.", {

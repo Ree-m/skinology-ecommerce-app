@@ -4,6 +4,7 @@ import { UserContext } from "../UserContext";
 import { useNavigate } from "react-router-dom";
 import "../styles/login-signup.css";
 import { API_URL } from "../constants";
+// import Loading from "../loading";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
@@ -12,7 +13,7 @@ const LoginPage = () => {
   const { setUserInfo } = useContext(UserContext);
   const [redirect, setRedirect] = useState(false);
   const navigate = useNavigate();
-
+// const [loading,setLoading]=useState(true)
   async function login(e) {
     e.preventDefault();
     const response = await fetch(`${API_URL}/login`, {

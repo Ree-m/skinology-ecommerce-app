@@ -10,6 +10,7 @@ import NewProducts from "../NewProducts";
 import "../styles/newProducts.css";
 import { FaRegEdit } from "react-icons/fa";
 import { API_URL } from "../constants";
+import Loading from "../loading";
 
 console.log(API_URL);
 // dotenv.config();
@@ -20,11 +21,13 @@ const ProductPage = ({ addToCart, addToGuestCart, isUserLoggedIn }) => {
   const { id } = useParams(); //this is productid
   const { userInfo } = useContext(UserContext);
   const navigate = useNavigate();
+  const [loading,setLoading]=useState(true)
 
   useEffect(() => {
     fetch(`${API_URL}/product/${id}`).then((res) => {
       res.json().then((product) => {
         setProduct(product);
+        setLoading(false)
       });
     });
   }, [id]); //when id changes,useEffect runs, when I clcik on different product in the new section,this "id" dependency is crucial
@@ -44,6 +47,10 @@ const ProductPage = ({ addToCart, addToGuestCart, isUserLoggedIn }) => {
   }
 
   if (!product) return "";
+
+  if(loading){
+    return <Loading/>
+  }
 
   return (
     <div className="product-page">

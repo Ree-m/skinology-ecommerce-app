@@ -17,6 +17,8 @@ const EditProduct = () => {
   const [files, setFiles] = useState("");
   const [redirect, setRedirect] = useState(false);
   const navigate = useNavigate();
+  // const [loading,setLoading]=useState(true)
+
 
   async function updateProduct(e) {
     e.preventDefault();

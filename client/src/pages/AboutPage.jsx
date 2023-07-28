@@ -1,5 +1,6 @@
 import "../styles/footer.css";
 const AboutPage = () => {
+
   return (
     <div className=" footer-link about-page">
       <h2 className="center">Hi, Welcome To Skinology!</h2>
