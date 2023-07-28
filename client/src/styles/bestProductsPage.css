@@ -11,9 +11,7 @@
 .best-products-page h1 {
   padding-bottom: 100px;
 }
-/* .best-products-page .products div{
-  border: 1px solid var(--border-color);
-} */
+
 
 @media (max-width: 480px) {
   .best-products-page {

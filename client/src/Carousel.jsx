@@ -8,6 +8,7 @@ import { useState } from "react";
 
 const MyCarousel = ({ carouselItems, setCarouselItems }) => {
   const [loading,setLoaidng]=useState(true)
+  console.log("carouselItems first", carouselItems)
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -27,9 +28,9 @@ const MyCarousel = ({ carouselItems, setCarouselItems }) => {
     },
   };
 
-  // if(carouselItems){
-  //   return <Loading/>
-  // }
+  if(!carouselItems ||  carouselItems.length===0){
+    return <Loading/>
+  }
 
   return (
     <div>
