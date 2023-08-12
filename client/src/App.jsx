@@ -255,6 +255,7 @@ function App() {
               isInGuestCart={isInGuestCart}
               addToGuestCart={addToGuestCart}
               isUserLoggedIn={isUserLoggedIn}
+              cartItems={cartItems}
             />
           }
         />

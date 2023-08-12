@@ -20,7 +20,10 @@ const ProductPage = ({
   addToGuestCart,
   isUserLoggedIn,
   isInCart,
-  isInGuestCart
+  setIsInCart,
+  isInGuestCart,
+  setIsInGuestCart,
+  cartItems
 }) => {
   const [product, setProduct] = useState("");
   const [redirect, setRedirect] = useState(false);
@@ -34,6 +37,16 @@ const ProductPage = ({
       res.json().then((product) => {
         setProduct(product);
         setLoading(false);
+        if ( userInfo.id && cartItems.some(item => item.productId === id)) {
+          setIsInCart(true);
+        } else if (userInfo.id && cartItems.some(item => item.productId !== id)) {
+          setIsInCart(false);
+        }else if(!userInfo.id && cartItems.some(item => item.productId === id)){
+          setIsInGuestCart(true)
+        }
+        else if(!userInfo.id && cartItems.some(item => item.productId !== id)){
+          setIsInGuestCart(false)
+        }
       });
     });
   }, [id]); //when id changes,useEffect runs, when I clcik on different product in the new section,this "id" dependency is crucial
