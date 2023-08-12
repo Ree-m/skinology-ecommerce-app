@@ -4,6 +4,6 @@ exports.getHealthCheck=async(req,res)=>{
     return res.json({status: "OK"})
 
   }catch(error){
-    return res.json({ error: `Health check error: ${error}`})
+    return res.json({ status: `Health check error: ${error}`})
   }
   }
