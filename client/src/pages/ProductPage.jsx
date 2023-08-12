@@ -76,7 +76,7 @@ const ProductPage = ({
 
           {isUserLoggedIn && isInCart ? (
             <div className="btn-container">
-              <button className="btn">View in cart</button>
+              <button className="btn" onClick={()=>navigate(`/cart/${userInfo.id}`)}>View in cart</button>
             </div>
           ) : (
             <div className="btn-container">
@@ -101,7 +101,7 @@ const ProductPage = ({
 
           {!isUserLoggedIn && isInGuestCart ? (
             <div className="btn-container">
-              <button className="btn">
+              <button className="btn" onClick={()=>navigate("/cart/guest")}>
                 View in guest cart
               </button>
             </div>
