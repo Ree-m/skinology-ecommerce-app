@@ -37,20 +37,32 @@ const ProductPage = ({
       res.json().then((product) => {
         setProduct(product);
         setLoading(false);
-        if ( userInfo.id && cartItems.some(item => item.productId === id)) {
-          setIsInCart(true);
-        } else if (userInfo.id && cartItems.some(item => item.productId !== id)) {
-          setIsInCart(false);
-        }else if(!userInfo.id && cartItems.some(item => item.productId === id)){
-          setIsInGuestCart(true)
-        }
-        else if(!userInfo.id && cartItems.some(item => item.productId !== id)){
-          setIsInGuestCart(false)
-        }
+       
       });
     });
   }, [id]); //when id changes,useEffect runs, when I clcik on different product in the new section,this "id" dependency is crucial
 
+  useEffect(() => {
+    if (userInfo.id && cartItems) {
+      if (cartItems.some(item => item.productId === id)) {
+        setIsInCart(true);
+        setIsInGuestCart(false);
+      } else {
+        setIsInCart(false);
+        setIsInGuestCart(false);
+      }
+    } else if (!userInfo.id && cartItems) {
+      if (cartItems.some(item => item.productId === id)) {
+        setIsInGuestCart(true);
+        setIsInCart(false);
+      } else {
+        setIsInGuestCart(false);
+        setIsInCart(false);
+      }
+    }
+  }, [cartItems, userInfo.id, id]);
+
+  
   async function deleteProduct(e) {
     e.preventDefault();
 

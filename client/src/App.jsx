@@ -114,9 +114,10 @@ function App() {
         .then((data) => {
           console.log("this is updated cartItems", data[0].products); // check the response from the server
           setCartItems(data);
+          setIsInCart(true)
+
         })
         .catch((error) => console.error(error));
-        setIsInCart(true)
       return data.success;
     } catch (error) {
       console.error(error);
