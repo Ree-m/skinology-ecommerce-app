@@ -15,19 +15,25 @@ import Loading from "../loading";
 console.log(API_URL);
 // dotenv.config();
 
-const ProductPage = ({ addToCart, addToGuestCart, isUserLoggedIn }) => {
+const ProductPage = ({
+  addToCart,
+  addToGuestCart,
+  isUserLoggedIn,
+  isInCart,
+  isInGuestCart
+}) => {
   const [product, setProduct] = useState("");
   const [redirect, setRedirect] = useState(false);
   const { id } = useParams(); //this is productid
   const { userInfo } = useContext(UserContext);
   const navigate = useNavigate();
-  const [loading,setLoading]=useState(true)
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(`${API_URL}/product/${id}`).then((res) => {
       res.json().then((product) => {
         setProduct(product);
-        setLoading(false)
+        setLoading(false);
       });
     });
   }, [id]); //when id changes,useEffect runs, when I clcik on different product in the new section,this "id" dependency is crucial
@@ -46,9 +52,8 @@ const ProductPage = ({ addToCart, addToGuestCart, isUserLoggedIn }) => {
     return navigate("/");
   }
 
-
-  if(loading){
-    return <Loading/>
+  if (loading) {
+    return <Loading />;
   }
 
   return (
@@ -69,7 +74,11 @@ const ProductPage = ({ addToCart, addToGuestCart, isUserLoggedIn }) => {
             <br />
           </div>
 
-          {isUserLoggedIn && (
+          {isUserLoggedIn && isInCart ? (
+            <div className="btn-container">
+              <button className="btn">View in cart</button>
+            </div>
+          ) : (
             <div className="btn-container">
               <button
                 className="btn"
@@ -90,10 +99,16 @@ const ProductPage = ({ addToCart, addToGuestCart, isUserLoggedIn }) => {
             </div>
           )}
 
-          {!isUserLoggedIn && (
+          {!isUserLoggedIn && isInGuestCart ? (
+            <div className="btn-container">
+              <button className="btn">
+                View in guest cart
+              </button>
+            </div>
+          ) : (
             <div className="btn-container">
               <button className="btn" onClick={() => addToGuestCart(product)}>
-                Add to cart
+                Add to guest cart
               </button>
             </div>
           )}

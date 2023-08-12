@@ -21,6 +21,8 @@ import HealthCheck from "./pages/HealthCheck";
 function App() {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState(null);
+  const [isInCart,setIsInCart] =useState(false)
+  const [isInGuestCart,setIsInGuestCart] =useState(false)
   const [cart, setCart] = useState([]);
   const [guestCart, setGuestCart] = useState(
     JSON.parse(localStorage.getItem("guestCart")) || {}
@@ -114,6 +116,7 @@ function App() {
           setCartItems(data);
         })
         .catch((error) => console.error(error));
+        setIsInCart(true)
       return data.success;
     } catch (error) {
       console.error(error);
@@ -135,6 +138,7 @@ function App() {
           quantity: guestCart[item._id] ? guestCart[item._id].quantity + 1 : 1, //if the guestCart hass the item,increment the quantity or else set quantity to 1
         },
       };
+      setIsInGuestCart(true)
       setGuestCart(addedGuestCart);
 
       // Save the guest cart to local storage
@@ -148,7 +152,7 @@ function App() {
           quantity: 1,
         },
       };
-
+      setIsInGuestCart(true)
       setGuestCart(initialGuestCart);
       localStorage.setItem("guestCart", JSON.stringify(initialGuestCart));
     }
@@ -247,6 +251,8 @@ function App() {
           element={
             <ProductPage
               addToCart={addToCart}
+              isInCart={isInCart}
+              isInGuestCart={isInGuestCart}
               addToGuestCart={addToGuestCart}
               isUserLoggedIn={isUserLoggedIn}
             />
