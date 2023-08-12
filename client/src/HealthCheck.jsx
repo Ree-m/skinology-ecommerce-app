@@ -1,4 +1,6 @@
 import { useState,useEffect } from "react"
+import { API_URL } from "./constants";
+
 const HealthCheck = () => {
     const [data,setData]=useState("")
 
