@@ -1,6 +1,6 @@
 import { useState,useEffect } from "react"
 const HealthCheck = () => {
-    const [data,setData]=useEffect("")
+    const [data,setData]=useState("")
 
    
     useEffect(()=>{
