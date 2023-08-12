@@ -1,6 +1,9 @@
-const express = require("express");
-const app = express();
 
 exports.getHealthCheck=async(req,res)=>{
-    return res.json("OK")
+  try{
+    return res.json({status: "OK"})
+
+  }catch(error){
+    return res.json({ error: `Health check error: ${error}`})
+  }
   }

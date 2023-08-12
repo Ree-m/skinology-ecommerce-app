@@ -9,13 +9,14 @@ const HealthCheck = () => {
         async function fetchStatus(){
             const response  =await fetch(`${API_URL}/healthCheck`)
             const data =await response.json()
-            setData(data)
+            setData(data.status)
+            console.log("data",data)
         }
         fetchStatus()
     },[])
   return (
     <div>
-{data}
+    Health Check :{data} 
     </div>
   )
 }
