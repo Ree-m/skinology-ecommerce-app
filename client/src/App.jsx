@@ -16,6 +16,7 @@ import { useContext } from "react";
 import { UserContext } from "./UserContext";
 import AboutPage from "./pages/AboutPage";
 import { API_URL } from "./constants";
+import HealthCheck from "./HealthCheck";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -278,6 +279,8 @@ function App() {
         <Route path="/newProducts" element={<NewProductsPage />} />
         <Route path="/bestSellersPage" element={<BestPage />} />
         <Route path="/aboutPage" element={<AboutPage />} />
+        <Route path="/healthCheck" element={<HealthCheck />} />
+
       </Route>
     </Routes>
   );

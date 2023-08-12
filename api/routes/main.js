@@ -3,6 +3,7 @@ const app=express()
 const router =express.Router()
 const authContoller =require("../controllers/auth")
 const productContoller =require("../controllers/product")
+const healthController =require ("../controllers/health.js")
 const passport=require("passport")
 const multer = require('multer')
 const uploadMiddleware = multer({ dest: 'uploads/',limits:{fieldSize:25* 1024 * 1024} })
@@ -30,6 +31,10 @@ router.delete("/deleteProduct/:id",productContoller.deleteProduct)
 
 // on search
 router.get("/search/:query",productContoller.getSearcedProducts)
+
+// health check
+
+router.get("/healthCheck",healthController.getHealthCheck)
 
 
 
