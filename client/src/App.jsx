@@ -118,6 +118,7 @@ function App() {
 
         })
         .catch((error) => console.error(error));
+        alert("Added to cart")
       return data.success;
     } catch (error) {
       console.error(error);
@@ -144,6 +145,7 @@ function App() {
 
       // Save the guest cart to local storage
       localStorage.setItem("guestCart", JSON.stringify(addedGuestCart));
+      alert("Added to guest cart")
       console.log("reem", "finished adding to guest cart", { item });
     } else {
       // initialize guestCart with the item
@@ -156,6 +158,8 @@ function App() {
       // setIsInGuestCart(true)
       setGuestCart(initialGuestCart);
       localStorage.setItem("guestCart", JSON.stringify(initialGuestCart));
+      alert("Added to guest cart")
+
     }
   }
 
