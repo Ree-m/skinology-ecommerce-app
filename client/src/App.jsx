@@ -17,6 +17,8 @@ import { UserContext } from "./UserContext";
 import AboutPage from "./pages/AboutPage";
 import { API_URL } from "./constants";
 import HealthCheck from "./pages/HealthCheck";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -118,8 +120,16 @@ function App() {
 
         })
         .catch((error) => console.error(error));
-        alert("Added to cart")
-      return data.success;
+        toast.success("Added to cart!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });      return data.success;
     } catch (error) {
       console.error(error);
       return false;
@@ -145,7 +155,16 @@ function App() {
 
       // Save the guest cart to local storage
       localStorage.setItem("guestCart", JSON.stringify(addedGuestCart));
-      alert("Added to guest cart")
+      toast.success("Added to guest cart!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       console.log("reem", "finished adding to guest cart", { item });
     } else {
       // initialize guestCart with the item
@@ -158,8 +177,16 @@ function App() {
       // setIsInGuestCart(true)
       setGuestCart(initialGuestCart);
       localStorage.setItem("guestCart", JSON.stringify(initialGuestCart));
-      alert("Added to guest cart")
-
+      toast.success("Added to guest cart!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   }
 
