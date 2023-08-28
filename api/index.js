@@ -56,6 +56,6 @@ app.use(flash()); //for errors
 app.use("/", mainRoutes);
 app.use("/cart", cartRoutes);
 
-app.listen(process.env.PORT || 8000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log("Server has started");
 });
