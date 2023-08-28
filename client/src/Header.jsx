@@ -91,7 +91,7 @@ const Header = ({
 
           <div className="nav-2 flex">
             <Link to={"/"} className="">
-              Home test
+              Home 
             </Link>
             <Link to={"/bestSellersPage"} className="">
               Best
