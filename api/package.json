@@ -32,5 +32,8 @@
     "passport-jwt": "^4.0.1",
     "passport-local": "^1.0.0",
     "validator": "^13.9.0"
+  },
+  "devDependencies": {
+    "@flydotio/dockerfile": "^0.4.8"
   }
 }
