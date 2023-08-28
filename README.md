@@ -20,7 +20,7 @@
     <a href="https://github.com/Ree-m/skinology-ecommerce-app"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://skinology-ecommerce-app-client.onrender.com/">View Demo</a>
+    <a href="https://skinology.vercel.app/">View Demo</a>
     ·
     <a href="https://github.com/Ree-m/skinology-ecommerce-app/issues">Report Bug</a>
     ·
@@ -59,7 +59,7 @@
 
 ## About The Project
 
-[![Skinology Ecommerce App][product-screenshot]](https://skinology-ecommerce-app-client.onrender.com/)
+[![Skinology Ecommerce App][product-screenshot]](https://skinology.vercel.app/)
 Skinology is a full-stack ecommerce web app with a React frontend and an Express/MongoDB backend. It uses JSON web tokens for authentication and is fully responsive for a seamless shopping experience on any device.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -98,7 +98,7 @@ Skinology is a full-stack ecommerce web app with a React frontend and an Express
 
 ## Live Demo
 
-[Live Demo](https://skinology-ecommerce-app-client.onrender.com/)
+[Live Demo](https://skinology.vercel.app/)
 
 ### Admin Account
 
