@@ -20,9 +20,9 @@ const ProductPage = ({
   addToGuestCart,
   isUserLoggedIn,
   isInCart,
-  setIsInCart,
+  // setIsInCart,
   isInGuestCart,
-  setIsInGuestCart,
+  // setIsInGuestCart,
   cartItems
 }) => {
   const [product, setProduct] = useState("");
@@ -42,25 +42,25 @@ const ProductPage = ({
     });
   }, [id]); //when id changes,useEffect runs, when I clcik on different product in the new section,this "id" dependency is crucial
 
-  useEffect(() => {
-    if (userInfo.id && cartItems) {
-      if (cartItems.some(item => item.productId === id)) {
-        setIsInCart(true);
-        setIsInGuestCart(false);
-      } else {
-        setIsInCart(false);
-        setIsInGuestCart(false);
-      }
-    } else if (!userInfo.id && cartItems) {
-      if (cartItems.some(item => item.productId === id)) {
-        setIsInGuestCart(true);
-        setIsInCart(false);
-      } else {
-        setIsInGuestCart(false);
-        setIsInCart(false);
-      }
-    }
-  }, [cartItems, userInfo.id, id]);
+  // useEffect(() => {
+  //   if (userInfo.id && cartItems) {
+  //     if (cartItems.some(item => item.productId === id)) {
+  //       setIsInCart(true);
+  //       setIsInGuestCart(false);
+  //     } else {
+  //       setIsInCart(false);
+  //       setIsInGuestCart(false);
+  //     }
+  //   } else if (!userInfo.id && cartItems) {
+  //     if (cartItems.some(item => item.productId === id)) {
+  //       setIsInGuestCart(true);
+  //       setIsInCart(false);
+  //     } else {
+  //       setIsInGuestCart(false);
+  //       setIsInCart(false);
+  //     }
+  //   }
+  // }, [cartItems, userInfo.id, id]);
 
   
   async function deleteProduct(e) {
@@ -99,11 +99,9 @@ const ProductPage = ({
             <br />
           </div>
 
-          {isUserLoggedIn && isInCart ? (
-            <div className="btn-container">
-              <button className="btn" onClick={()=>navigate(`/cart/${userInfo.id}`)}>View in cart</button>
-            </div>
-          ) : (
+          {isUserLoggedIn ? 
+
+         (
             <div className="btn-container">
               <button
                 className="btn"
@@ -122,21 +120,13 @@ const ProductPage = ({
                 Add to cart
               </button>
             </div>
-          )}
+          ): ( <div className="btn-container">
+          <button className="btn" onClick={() => addToGuestCart(product)}>
+            Add to guest cart
+          </button>
+        </div>)}
 
-          {!isUserLoggedIn && isInGuestCart ? (
-            <div className="btn-container">
-              <button className="btn" onClick={()=>navigate("/cart/guest")}>
-                View in guest cart
-              </button>
-            </div>
-          ) : (
-            <div className="btn-container">
-              <button className="btn" onClick={() => addToGuestCart(product)}>
-                Add to guest cart
-              </button>
-            </div>
-          )}
+
 
           <div className="product-content">
             <div>
