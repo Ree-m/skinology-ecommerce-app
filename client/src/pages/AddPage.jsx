@@ -19,7 +19,6 @@ const AddPage = () => {
 
   async function addProduct(e) {
     e.preventDefault();
-    console.log("add");
     const data = new FormData();
     data.set("name", name);
     data.set("brand", brand);
@@ -39,7 +38,6 @@ const AddPage = () => {
     if ((await response).ok) {
       setRedirect(true);
     }
-    console.log(await response);
   }
 
   if (redirect) {

@@ -143,7 +143,7 @@ Adding the .env file in root of client folder.
 
 ```sh
 
-VITE_REACT-APP_API_URL=
+VITE_REACT_APP_API_URL=
 
 ```
 

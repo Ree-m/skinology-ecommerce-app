@@ -11,7 +11,6 @@ const NewProducts = () => {
 
   // get new products
   useEffect(() => {
-    console.log("this is API_URL",API_URL)
     fetch(`${API_URL}/newProducts`).then((res) => {
       res.json().then((products) => {
         setNewProducts(products);

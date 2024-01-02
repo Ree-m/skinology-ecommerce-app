@@ -12,8 +12,6 @@ import { FaRegEdit } from "react-icons/fa";
 import { API_URL } from "../constants";
 import Loading from "../loading";
 
-console.log(API_URL);
-// dotenv.config();
 
 const ProductPage = ({
   addToCart,
@@ -70,7 +68,6 @@ const ProductPage = ({
       method: "DELETE",
     });
     setRedirect(true);
-    console.log(response);
   }
 
   if (redirect) {

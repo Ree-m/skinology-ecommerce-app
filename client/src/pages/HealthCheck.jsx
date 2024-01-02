@@ -10,7 +10,6 @@ const HealthCheck = () => {
             const response  =await fetch(`${API_URL}/healthCheck`)
             const data =await response.json()
             setData(data.status)
-            console.log("data",data)
         }
         fetchStatus()
     },[])

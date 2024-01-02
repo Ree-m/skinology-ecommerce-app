@@ -17,6 +17,7 @@ import { UserContext } from "./UserContext";
 import AboutPage from "./pages/AboutPage";
 import { API_URL } from "./constants";
 import HealthCheck from "./pages/HealthCheck";
+import CheckoutPage from "./pages/Checkout";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -36,7 +37,6 @@ function App() {
 
   // get profile and isUserLoggedIn
   useEffect(() => {
-    console.log("starting to fetch profile");
     fetch(`${API_URL}/profile`, {
       credentials: "include",
     })
@@ -50,7 +50,6 @@ function App() {
       .then((userInfo) => {
         setIsUserLoggedIn(true);
         setUserInfo(userInfo);
-        console.log("Fetching profile worked");
       })
       .catch((error) => {
         console.log("ERROR", error);
@@ -74,7 +73,6 @@ function App() {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log("this is cartItems", data[0].products); // check the response from the server
           setCartItems(data);
         })
         .catch((error) => console.error(error));
@@ -91,7 +89,6 @@ function App() {
     price,
     image
   ) {
-    console.log("adding to cart...");
     try {
       const response = await fetch(`${API_URL}/cart/add`, {
         method: "POST",
@@ -114,7 +111,6 @@ function App() {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log("this is updated cartItems", data[0].products); // check the response from the server
           setCartItems(data);
           // setIsInCart(true)
 
@@ -140,7 +136,6 @@ function App() {
   function addToGuestCart(item) {
     if (guestCart) {
       // of guestCart is there, add
-      console.log("adding to guest cart", { item });
 
       // Add the item to the guest cart
       const addedGuestCart = {
@@ -165,7 +160,6 @@ function App() {
         progress: undefined,
         theme: "light",
       });
-      console.log("reem", "finished adding to guest cart", { item });
     } else {
       // initialize guestCart with the item
       const initialGuestCart = {
@@ -318,7 +312,9 @@ function App() {
         <Route path="/newProducts" element={<NewProductsPage />} />
         <Route path="/bestSellersPage" element={<BestPage />} />
         <Route path="/aboutPage" element={<AboutPage />} />
+        <Route path="/checkout" element={<CheckoutPage/>} />
         <Route path="/healthCheck" element={<HealthCheck />} />
+
 
       </Route>
     </Routes>

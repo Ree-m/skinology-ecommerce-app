@@ -19,9 +19,7 @@ const CartPage = ({
 }) => {
   const { userInfo } = useContext(UserContext);
   const navigate = useNavigate();
-  // const [loading,setLoading]=useState(true)
   const onClick = () => {
-    console.log("click click");
     toast.success("Yay your skincare is on the way! This button is for demo only.", {
       position: "top-center",
       autoClose: 5000,
@@ -61,9 +59,6 @@ const CartPage = ({
         }
       );
       const data = await response.json();
-      console.log("this is cartItems,before update", data);
-      //   setCartItems(data);
-      console.log("this is new cartItems,after update", data);
     } catch (error) {
       console.error(error);
     }
@@ -100,7 +95,6 @@ const CartPage = ({
   // for non-loggedIn users,guest cart
 
   const guestCart = JSON.parse(localStorage.getItem("guestCart")); //get the guestCart from localStorage
-  // const isUserLoggedIn = !!userInfo
 
   if (!isUserLoggedIn) {
     return (
@@ -122,66 +116,66 @@ const CartPage = ({
         {!guestCart || (guestCart && Object.keys(guestCart).length === 0)
           ? "Cart is empty"
           : Object.keys(guestCart).length > 0 && (
-              <table>
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th className="capital">Name</th>
-                    <th className="capital">Price</th>
-                    <th className="capital">Quantity</th>
-                    <th className="capital">Subtotal</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {Object.values(guestCart).map((item) => (
-                    <tr key={item._id}>
-                      <td>
-                        <Link to={`/product/${item._id}`}>
-                          <img
-                            src={`${API_URL}/${item.image}`}
-                            alt={`Image of ${item.name}`}
-                          />
-                        </Link>
-                      </td>
-                      <td>
-                        <Link
-                          to={`/product/${item._id}`}
-                          className="table-name"
-                        >
-                          [{item.brand}] {item.name}
-                        </Link>
-                      </td>
-                      <td>${item.price}</td>
-
-                      <td>
-                        <div className="quantity-container">
-                          <button
-                            onClick={() => handleGuestMinusClick(item._id)}
-                          >
-                            -
-                          </button>
-                          <span>{item.quantity}</span>
-                          <button
-                            onClick={() => handleGuestPlusClick(item._id)}
-                          >
-                            +
-                          </button>
-                        </div>
-                      </td>
-
-                      <td>${item.price * item.quantity}</td>
-
-                      <td>
-                        <MdDelete
-                          className="deleteIcon"
-                          onClick={() => removeFromGuestCart(item._id)}
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th className="capital">Name</th>
+                  <th className="capital">Price</th>
+                  <th className="capital">Quantity</th>
+                  <th className="capital">Subtotal</th>
+                </tr>
+              </thead>
+              <tbody>
+                {Object.values(guestCart).map((item) => (
+                  <tr key={item._id}>
+                    <td>
+                      <Link to={`/product/${item._id}`}>
+                        <img
+                          src={`${API_URL}/${item.image}`}
+                          alt={`Image of ${item.name}`}
                         />
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            )}
+                      </Link>
+                    </td>
+                    <td>
+                      <Link
+                        to={`/product/${item._id}`}
+                        className="table-name"
+                      >
+                        [{item.brand}] {item.name}
+                      </Link>
+                    </td>
+                    <td>${item.price}</td>
+
+                    <td>
+                      <div className="quantity-container">
+                        <button
+                          onClick={() => handleGuestMinusClick(item._id)}
+                        >
+                          -
+                        </button>
+                        <span>{item.quantity}</span>
+                        <button
+                          onClick={() => handleGuestPlusClick(item._id)}
+                        >
+                          +
+                        </button>
+                      </div>
+                    </td>
+
+                    <td>${item.price * item.quantity}</td>
+
+                    <td>
+                      <MdDelete
+                        className="deleteIcon"
+                        onClick={() => removeFromGuestCart(item._id)}
+                      />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
 
         <div className="cart-buttons">
           <button className="btn" onClick={() => navigate("/")}>
@@ -212,96 +206,97 @@ const CartPage = ({
       <h2 className="center">Cart</h2>
 
       {cartItems &&
-      cartItems[0] &&
-      cartItems[0].products &&
-      cartItems[0].products.length === 0
+        cartItems[0] &&
+        cartItems[0].products &&
+        cartItems[0].products.length === 0
         ? "Cart is empty"
         : cartItems &&
-          cartItems[0] &&
-          cartItems[0].products && (
-            <table>
-              <thead>
-                <tr>
-                  <th></th>
-                  <th className="capital">Name</th>
-                  <th className="capital">Price</th>
-                  <th className="capital">Quantity</th>
-                  <th className="capital">SubTotal</th>
-                </tr>
-              </thead>
-              <tbody>
-                {cartItems[0].products.map((item) => (
-                  <tr key={item._id}>
-                    <td>
-                      <Link to={`/product/${item.productId}`}>
-                        <img
-                          src={`${API_URL}/${item.image}`}
-                          alt={`Image of {item.an}`}
-                        />
-                      </Link>
-                    </td>
-                    <td>
-                      <Link
-                        to={`/product/${item.productId} className="table-name"`}
-                      >
-                        [{item.brand}] {item.name}
-                      </Link>
-                    </td>
-                    <td>${item.price}</td>
-                    <td>
-                      <div className="quantity-container">
-                        <button
-                          onClick={() =>
-                            handleMinusClick(item.productId, item.quantity)
-                          }
-                        >
-                          -
-                        </button>
-                        <span>{item.quantity}</span>
-                        <button
-                          onClick={() =>
-                            handlePlusClick(item.productId, item.quantity)
-                          }
-                        >
-                          +
-                        </button>
-                      </div>
-                    </td>
-
-                    <td>${item.price * item.quantity}</td>
-                    <td>
-                      <MdDelete
-                        className="deleteIcon"
-                        onClick={() => removeFromCart(item.productId)}
-                      />
-                    </td>
-                  </tr>
-                ))}
-                <tr>
-                  <td colSpan={3}>Total:</td>
-
+        cartItems[0] &&
+        cartItems[0].products && (
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th className="capital">Name</th>
+                <th className="capital">Price</th>
+                <th className="capital">Quantity</th>
+                <th className="capital">SubTotal</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cartItems[0].products.map((item) => (
+                <tr key={item._id}>
                   <td>
-                    $
-                    {cartItems &&
-                      cartItems[0] &&
-                      cartItems[0].products &&
-                      cartItems[0].products.reduce(
-                        (acc, item) => acc + item.price * item.quantity,
-                        0
-                      )}
+                    <Link to={`/product/${item.productId}`}>
+                      <img
+                        src={`${API_URL}/${item.image}`}
+                        alt={`Image of {item.an}`}
+                      />
+                    </Link>
                   </td>
-                  <td></td>
+                  <td>
+                    <Link
+                      to={`/product/${item.productId} className="table-name"`}
+                    >
+                      [{item.brand}] {item.name}
+                    </Link>
+                  </td>
+                  <td>${item.price}</td>
+                  <td>
+                    <div className="quantity-container">
+                      <button
+                        onClick={() =>
+                          handleMinusClick(item.productId, item.quantity)
+                        }
+                      >
+                        -
+                      </button>
+                      <span>{item.quantity}</span>
+                      <button
+                        onClick={() =>
+                          handlePlusClick(item.productId, item.quantity)
+                        }
+                      >
+                        +
+                      </button>
+                    </div>
+                  </td>
+
+                  <td>${item.price * item.quantity}</td>
+                  <td>
+                    <MdDelete
+                      className="deleteIcon"
+                      onClick={() => removeFromCart(item.productId)}
+                    />
+                  </td>
                 </tr>
-              </tbody>
-            </table>
-          )}
+              ))}
+              <tr>
+                <td colSpan={3}>Total:</td>
+
+                <td>
+                  $
+                  {cartItems &&
+                    cartItems[0] &&
+                    cartItems[0].products &&
+                    cartItems[0].products.reduce(
+                      (acc, item) => acc + item.price * item.quantity,
+                      0
+                    )}
+                </td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        )}
       <div className="cart-buttons">
         <button className="btn" onClick={() => navigate("/")}>
           Continue Shopping
         </button>
         <button className="btn" onClick={onClick}>
-          Buy
+          Checkout
         </button>
+
       </div>
     </div>
   );

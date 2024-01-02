@@ -7,8 +7,6 @@ import Loading from "./loading";
 import { useState } from "react";
 
 const MyCarousel = ({ carouselItems, setCarouselItems }) => {
-  const [loading,setLoaidng]=useState(true)
-  console.log("carouselItems first", carouselItems)
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -56,7 +54,6 @@ const MyCarousel = ({ carouselItems, setCarouselItems }) => {
         {carouselItems &&
           carouselItems.length > 0 &&
           carouselItems.map((product) => {
-            // console.log("this is carouselitems", product);
             return (
               <div key={product._id}>
                 <Product product={product} {...product} />
