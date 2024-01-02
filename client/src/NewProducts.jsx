@@ -8,7 +8,7 @@ import Loading from "./loading";
 const NewProducts = () => {
   const [newProducts, setNewProducts] = useState([]);
   const [loading,setLoading]=useState(true)
-
+console.log("API_Url",API_URL)
   // get new products
   useEffect(() => {
     fetch(`${API_URL}/newProducts`).then((res) => {

@@ -25,7 +25,7 @@ const User = require("./models/User");
 require("dotenv").config({ path: "./config/.env" });
 
 app.use("/uploads", express.static(__dirname + "/uploads"));
-console.log("Allowed origins",process.env.ALLOWED_ORIGIN)
+console.log("Allowed origins",process.env.ALLOWED_ORIGIN, "API url",process.env.API_DOMAIN )
 app.use(cors({ credentials: true, origin: process.env.ALLOWED_ORIGIN }));
 
 // Connect to DataBase
